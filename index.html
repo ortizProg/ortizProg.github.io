@@ -1,498 +1,274 @@
 <!DOCTYPE html>
 
 <html class="dark" lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>AeroParts - Componentes de Precisión para tu Vuelo</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-      rel="stylesheet"
-    />
-    <style type="text/tailwindcss">
-      @layer base {
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>AeroParts - Componentes de Precisión para tu Vuelo</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <style type="text/tailwindcss">
+    @layer base {
         .material-symbols-outlined {
           font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
         }
       }
     </style>
-  </head>
-  <body
-    class="bg-background-light dark:bg-background-dark font-display text-text-light-primary dark:text-text-dark-primary"
-  >
-    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-      <div class="layout-container flex h-full grow flex-col">
-        <div
-          class="flex flex-1 justify-center px-4 py-5 sm:px-8 md:px-16 lg:px-24"
-        >
-          <div
-            class="layout-content-container flex w-full max-w-7xl flex-1 flex-col"
-          >
-            <!-- TopNavBar -->
-            <header
-              class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-2 py-3 lg:px-4"
-            >
-              <div class="flex items-center gap-4">
+</head>
+
+<body
+  class="bg-background-light dark:bg-background-dark font-display text-text-light-primary dark:text-text-dark-primary">
+  <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+      <div class="flex flex-1 justify-center px-4 py-5 sm:px-8 md:px-16 lg:px-24">
+        <div class="layout-content-container flex w-full max-w-7xl flex-1 flex-col">
+          <!-- TopNavBar -->
+          <header
+            class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-2 py-3 lg:px-4">
+            <div class="flex items-center gap-4">
+              <div class="text-text-light-primary dark:text-text-dark-primary text-2xl">
+                <span class="material-symbols-outlined"> all_out </span>
+              </div>
+              <h2 class="text-lg font-bold tracking-[-0.015em] lg:text-xl">
+                AeroParts
+              </h2>
+            </div>
+            <nav class="hidden items-center gap-9 lg:flex">
+              <a class="text-sm font-medium" href="#">Drones/FPV</a>
+              <a class="text-sm font-medium" href="#">Ala Fija</a>
+              <a class="text-sm font-medium" href="#">Helis</a>
+            </nav>
+            <div class="flex items-center gap-2">
+              <button
+                class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-card-light dark:bg-card-dark/70 dark:backdrop-blur-xl">
+                <span class="material-symbols-outlined text-xl">
+                  person
+                </span>
+              </button>
+              <button
+                class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-card-light dark:bg-card-dark/70 dark:backdrop-blur-xl">
+                <span class="material-symbols-outlined text-xl">
+                  shopping_cart
+                </span>
+              </button>
+              <button
+                class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-card-light dark:bg-card-dark/70 dark:backdrop-blur-xl">
+                <span class="material-symbols-outlined text-xl">
+                  dark_mode
+                </span>
+              </button>
+            </div>
+          </header>
+          <main class="flex flex-col gap-12 pt-8 md:gap-16 lg:gap-20">
+            <!-- HeroSection -->
+            <section class="w-full @container">
+              <div class="@[480px]:p-4">
                 <div
-                  class="text-text-light-primary dark:text-text-dark-primary text-2xl"
-                >
-                  <span class="material-symbols-outlined"> all_out </span>
-                </div>
-                <h2 class="text-lg font-bold tracking-[-0.015em] lg:text-xl">
-                  AeroParts
-                </h2>
-              </div>
-              <nav class="hidden items-center gap-9 lg:flex">
-                <a class="text-sm font-medium" href="#">Drones/FPV</a>
-                <a class="text-sm font-medium" href="#">Ala Fija</a>
-                <a class="text-sm font-medium" href="#">Helis</a>
-              </nav>
-              <div class="flex items-center gap-2">
-                <button
-                  class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-card-light dark:bg-card-dark/70 dark:backdrop-blur-xl"
-                >
-                  <span class="material-symbols-outlined text-xl">
-                    person
-                  </span>
-                </button>
-                <button
-                  class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-card-light dark:bg-card-dark/70 dark:backdrop-blur-xl"
-                >
-                  <span class="material-symbols-outlined text-xl">
-                    shopping_cart
-                  </span>
-                </button>
-                <button
-                  class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-card-light dark:bg-card-dark/70 dark:backdrop-blur-xl"
-                >
-                  <span class="material-symbols-outlined text-xl">
-                    dark_mode
-                  </span>
-                </button>
-              </div>
-            </header>
-            <main class="flex flex-col gap-12 pt-8 md:gap-16 lg:gap-20">
-              <!-- HeroSection -->
-              <section class="w-full @container">
-                <div class="@[480px]:p-4">
-                  <div
-                    class="flex min-h-[480px] flex-col items-center justify-center gap-6 rounded-xl bg-cover bg-center bg-no-repeat p-4 @[480px]:gap-8"
-                    data-alt="Abstract background image with a tech-aero feel, featuring subtle geometric patterns and soft gradients."
-                    style="
+                  class="flex min-h-[480px] flex-col items-center justify-center gap-6 rounded-xl bg-cover bg-center bg-no-repeat p-4 @[480px]:gap-8"
+                  data-alt="Abstract background image with a tech-aero feel, featuring subtle geometric patterns and soft gradients."
+                  style="
                       background-image: linear-gradient(
                           rgba(4, 9, 26, 0.6) 0%,
                           rgba(4, 9, 26, 0.8) 100%
                         ),
                         url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRUB9sMbwuwQUcaZepofAbqK2IwYkUsn9ddVOYZegE8zGjk8hpB1BI2yaImiWd2bTCkECJz1RyxT2Dq48ZiFKTaE3130TG_XQGm2hJZhvox9Y0SXTk8GotNUHQMPEpL6RGCknuefOHSjVAb-ezujccjBY2iqX0tBxLLAdG0GstuHeZ6mOSh82_VOkgssB903p_r-zFFTq5iWSUDXAKQHzWhhUdDhTT5Qf9EYwcwWOHjJq4z7Pzn1AKyYWLwKOymO3um5M9LjK7Au8');
-                    "
-                  >
-                    <div class="flex flex-col gap-2 text-center text-white">
-                      <h1
-                        class="text-4xl font-bold leading-tight tracking-[-0.033em] @[480px]:text-5xl"
-                      >
-                        Componentes de Precisión para tu Vuelo
-                      </h1>
-                      <p class="text-text-dark-secondary @[480px]:text-base">
-                        Encuentra todo lo que necesitas para tu drone, avión o
-                        helicóptero RC.
-                      </p>
-                    </div>
-                    <label
-                      class="flex h-14 w-full max-w-[480px] flex-col @[480px]:h-16"
-                    >
+                    ">
+                  <div class="flex flex-col gap-2 text-center text-white">
+                    <h1 class="text-4xl font-bold leading-tight tracking-[-0.033em] @[480px]:text-5xl">
+                      Componentes de Precisión para tu Vuelo
+                    </h1>
+                    <p class="text-text-dark-secondary @[480px]:text-base">
+                      Encuentra todo lo que necesitas para tu drone, avión o
+                      helicóptero RC.
+                    </p>
+                  </div>
+                  <label class="flex h-14 w-full max-w-[480px] flex-col @[480px]:h-16">
+                    <div class="flex h-full w-full flex-1 items-stretch rounded-lg">
                       <div
-                        class="flex h-full w-full flex-1 items-stretch rounded-lg"
-                      >
-                        <div
-                          class="flex items-center justify-center rounded-l-lg border border-r-0 border-border-dark bg-card-dark/70 pl-[15px] text-text-dark-secondary backdrop-blur-xl"
-                        >
-                          <span class="material-symbols-outlined">
-                            search
-                          </span>
-                        </div>
-                        <input
-                          class="form-input h-full min-w-0 flex-1 resize-none overflow-hidden rounded-none border-y border-x-0 border-border-dark bg-card-dark/70 px-[15px] text-sm text-text-dark-primary placeholder:text-text-dark-secondary focus:border-primary focus:outline-0 focus:ring-0 @[480px]:text-base backdrop-blur-xl"
-                          placeholder="Busca por modelo: iFlight Nazgul, DJI FPV…"
-                          value=""
-                        />
-                        <div
-                          class="flex items-center justify-center rounded-r-lg border border-l-0 border-border-dark bg-card-dark/70 pr-[7px] backdrop-blur-xl"
-                        >
-                          <button
-                            class="flex h-10 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-4 text-sm font-bold text-white @[480px]:h-12 @[480px]:px-5 @[480px]:text-base"
-                          >
-                            <span class="truncate">Buscar</span>
-                          </button>
-                        </div>
+                        class="flex items-center justify-center rounded-l-lg border border-r-0 border-border-dark bg-card-dark/70 pl-[15px] text-text-dark-secondary backdrop-blur-xl">
+                        <span class="material-symbols-outlined">
+                          search
+                        </span>
                       </div>
-                    </label>
+                      <input
+                        class="form-input h-full min-w-0 flex-1 resize-none overflow-hidden rounded-none border-y border-x-0 border-border-dark bg-card-dark/70 px-[15px] text-sm text-text-dark-primary placeholder:text-text-dark-secondary focus:border-primary focus:outline-0 focus:ring-0 @[480px]:text-base backdrop-blur-xl"
+                        placeholder="Busca por modelo: iFlight Nazgul, DJI FPV…" value="" />
+                      <div
+                        class="flex items-center justify-center rounded-r-lg border border-l-0 border-border-dark bg-card-dark/70 pr-[7px] backdrop-blur-xl">
+                        <button
+                          class="flex h-10 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-4 text-sm font-bold text-white @[480px]:h-12 @[480px]:px-5 @[480px]:text-base">
+                          <span class="truncate">Buscar</span>
+                        </button>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </section>
+            <!-- Carousel Section -->
+            <section class="flex flex-col gap-4">
+              <h2 class="px-4 text-xl font-bold leading-tight tracking-[-0.015em] md:text-2xl">
+                Novedades
+              </h2>
+              <div
+                class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
+                <div id="novedades-container" class="flex items-stretch gap-4 p-4">
+                  <!-- Productos cargados dinámicamente -->
+                  <div
+                    class="flex items-center justify-center p-8 text-text-light-secondary dark:text-text-dark-secondary">
+                    Cargando productos...
                   </div>
                 </div>
-              </section>
-              <!-- Carousel Section -->
-              <section class="flex flex-col gap-4">
-                <h2
-                  class="px-4 text-xl font-bold leading-tight tracking-[-0.015em] md:text-2xl"
-                >
-                  Novedades
-                </h2>
-                <div
-                  class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden"
-                >
-                  <div class="flex items-stretch gap-4 p-4">
-                    <div
-                      class="flex h-full min-w-60 flex-1 flex-col gap-4 rounded-xl border border-border-light bg-card-light p-4 dark:border-border-dark dark:bg-card-dark dark:backdrop-blur-xl"
-                    >
-                      <div
-                        class="aspect-square w-full rounded-lg bg-cover bg-center bg-no-repeat"
-                        data-alt="Apex EVO 5 Inch Frame"
-                        style="
-                          background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBmy4R6qUOxM161NL0POw6keggRDSVDQQDYuTi7BSjV7joZWMiUufrK8iEh1suaWqXRsnLrQ-iVma7N732sV6qECYUr44sPrFNQBBHB01_uyry3HBPkAxZCRIig_D_HkWDqe7HGwSxci48Rl7nfNCIbmgeiep7CZH8ANAAjqMeumIA8cgzTJgI4-1A99MeByTqcaCitYT3fvzST2XSyufjmGd2c8VPBoB6Kvaef9Yg60Ut7xF58pO2Zl8IJm16tYFhZuxgVnHGKxWU');
-                        "
-                      ></div>
-                      <div class="flex flex-1 flex-col justify-between gap-4">
-                        <div>
-                          <p class="font-medium">Apex EVO 5" Frame</p>
-                          <p
-                            class="text-sm text-text-light-secondary dark:text-text-dark-secondary"
-                          >
-                            ImpulseRC - €79.99
-                          </p>
-                        </div>
-                        <button
-                          class="flex h-10 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary text-sm font-bold text-white"
-                        >
-                          <span class="truncate">Añadir al carrito</span>
-                        </button>
-                      </div>
-                    </div>
-                    <div
-                      class="flex h-full min-w-60 flex-1 flex-col gap-4 rounded-xl border border-border-light bg-card-light p-4 dark:border-border-dark dark:bg-card-dark dark:backdrop-blur-xl"
-                    >
-                      <div
-                        class="aspect-square w-full rounded-lg bg-cover bg-center bg-no-repeat"
-                        data-alt="T-Motor F60 Pro V"
-                        style="
-                          background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuApj_BadhIzG-gZxItLvbGa2_-m2Wbi-qB2Rah2YaE4R_rXEiCViF3lincdiVx7YumpFD85dsNqfBFPmMZisdCGQBEwF6ZavpqJDVKS_TCpmgAxgUkVPjQBzhos9Ws-1CXhFQbxBwrp-t8ZtDDR56GB-zTzXyIgXaTFi3_hrhDH9_VP7jOU2VI31rjVGSxqdhNFqaz0qYx5a1EJUEhiIvNN9jG9U2xEIk2PbV1YBmZg8OP4NPWj73SHN3RynfAzMvWZ2r-qvRQQ8YI');
-                        "
-                      ></div>
-                      <div class="flex flex-1 flex-col justify-between gap-4">
-                        <div>
-                          <p class="font-medium">T-Motor F60 Pro V</p>
-                          <p
-                            class="text-sm text-text-light-secondary dark:text-text-dark-secondary"
-                          >
-                            T-Motor - €28.90
-                          </p>
-                        </div>
-                        <button
-                          class="flex h-10 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary text-sm font-bold text-white"
-                        >
-                          <span class="truncate">Añadir al carrito</span>
-                        </button>
-                      </div>
-                    </div>
-                    <div
-                      class="flex h-full min-w-60 flex-1 flex-col gap-4 rounded-xl border border-border-light bg-card-light p-4 dark:border-border-dark dark:bg-card-dark dark:backdrop-blur-xl"
-                    >
-                      <div
-                        class="aspect-square w-full rounded-lg bg-cover bg-center bg-no-repeat"
-                        data-alt="SpeedyBee F405 V4"
-                        style="
-                          background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAHYQ1tUyR0GfZKkY0YGSCdIljm4KbrLbRmt1S9PA4n2kPLy8_IVwqdTYAyemPXAYsv9iE0XzZDO8SaAMG6vxOQ2gEtJsb_4aWz3OWA-PSCYAe5pm1FZhL9RMeCda7HlgQlkAl5CsxQbLF7V_e-S9Qgj050w6JCEJcKqXf8EtWWYf00kkhRtj6UcntCxIFq8fvQxZWOb5dwY6bjtsZQaGNfygpceX06BKeRVa2onBBfZ18NScxzXD3Es72AuO9gFK8pqbAi7g3FVYk');
-                        "
-                      ></div>
-                      <div class="flex flex-1 flex-col justify-between gap-4">
-                        <div>
-                          <p class="font-medium">SpeedyBee F405 V4</p>
-                          <p
-                            class="text-sm text-text-light-secondary dark:text-text-dark-secondary"
-                          >
-                            SpeedyBee - €65.50
-                          </p>
-                        </div>
-                        <button
-                          class="flex h-10 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary text-sm font-bold text-white"
-                        >
-                          <span class="truncate">Añadir al carrito</span>
-                        </button>
-                      </div>
-                    </div>
-                    <div
-                      class="flex h-full min-w-60 flex-1 flex-col gap-4 rounded-xl border border-border-light bg-card-light p-4 dark:border-border-dark dark:bg-card-dark dark:backdrop-blur-xl"
-                    >
-                      <div
-                        class="aspect-square w-full rounded-lg bg-cover bg-center bg-no-repeat"
-                        data-alt="DJI O3 Air Unit"
-                        style="
-                          background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbxVCFUQ-5NjH5WkGNP8jN6i_5BNRCskRWdLsiV8mXNEGs7STuSR8fIol55HB71z4Hu7q031leaIe6rIL9kBGmhw1M5MPT0wmqQxHbQ4Ndashk_kIgj4tChM9JdHqFe18ZmNTLNwdBY7vOGYyl8IA5T3gmVvgktch-1ZpIArgBYDjRDsLVPr6ta5CY_Bbf0i73ju8YQTisYl1awEUlOx10WO4iCJz_Vbldu8beuFCnehRgkW5Jf8bpb8jwcAmGFEkDXh7ubtY1Vbw');
-                        "
-                      ></div>
-                      <div class="flex flex-1 flex-col justify-between gap-4">
-                        <div>
-                          <p class="font-medium">DJI O3 Air Unit</p>
-                          <p
-                            class="text-sm text-text-light-secondary dark:text-text-dark-secondary"
-                          >
-                            DJI - €239.00
-                          </p>
-                        </div>
-                        <button
-                          class="flex h-10 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary text-sm font-bold text-white"
-                        >
-                          <span class="truncate">Añadir al carrito</span>
-                        </button>
-                      </div>
-                    </div>
+              </div>
+            </section>
+
+            <section class="flex flex-col gap-4 px-4">
+              <h2 class="text-xl font-bold leading-tight tracking-[-0.015em] md:text-2xl">
+                Colecciones Rápidas
+              </h2>
+              <div class="flex flex-wrap gap-3">
+                <button
+                  class="cursor-pointer rounded-full border border-border-light bg-card-light px-4 py-2 text-sm font-medium dark:border-border-dark dark:bg-card-dark hover:bg-primary/10 dark:hover:bg-primary/20">
+                  Frames 5”
+                </button>
+                <button
+                  class="cursor-pointer rounded-full border border-border-light bg-card-light px-4 py-2 text-sm font-medium dark:border-border-dark dark:bg-card-dark hover:bg-primary/10 dark:hover:bg-primary/20">
+                  Motores 2207/2306
+                </button>
+                <button
+                  class="cursor-pointer rounded-full border border-border-light bg-card-light px-4 py-2 text-sm font-medium dark:border-border-dark dark:bg-card-dark hover:bg-primary/10 dark:hover:bg-primary/20">
+                  VTx
+                </button>
+                <button
+                  class="cursor-pointer rounded-full border border-border-light bg-card-light px-4 py-2 text-sm font-medium dark:border-border-dark dark:bg-card-dark hover:bg-primary/10 dark:hover:bg-primary/20">
+                  Baterías 6S
+                </button>
+                <button
+                  class="cursor-pointer rounded-full border border-border-light bg-card-light px-4 py-2 text-sm font-medium dark:border-border-dark dark:bg-card-dark hover:bg-primary/10 dark:hover:bg-primary/20">
+                  Helis
+                </button>
+                <button
+                  class="cursor-pointer rounded-full border border-border-light bg-card-light px-4 py-2 text-sm font-medium dark:border-border-dark dark:bg-card-dark hover:bg-primary/10 dark:hover:bg-primary/20">
+                  Ala fija
+                </button>
+              </div>
+            </section>
+            <!-- Más Vendidos Carousel -->
+            <section class="flex flex-col gap-4">
+              <h2 class="px-4 text-xl font-bold leading-tight tracking-[-0.015em] md:text-2xl">
+                Más Vendidos
+              </h2>
+              <div
+                class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
+                <div id="mas-vendidos-container" class="flex items-stretch gap-4 p-4">
+                  <!-- Productos cargados dinámicamente -->
+                  <div
+                    class="flex items-center justify-center p-8 text-text-light-secondary dark:text-text-dark-secondary">
+                    Cargando productos...
                   </div>
                 </div>
-              </section>
-              <!-- Quick Collections -->
-              <section class="flex flex-col gap-4 px-4">
-                <h2
-                  class="text-xl font-bold leading-tight tracking-[-0.015em] md:text-2xl"
-                >
-                  Colecciones Rápidas
-                </h2>
-                <div class="flex flex-wrap gap-3">
-                  <button
-                    class="cursor-pointer rounded-full border border-border-light bg-card-light px-4 py-2 text-sm font-medium dark:border-border-dark dark:bg-card-dark hover:bg-primary/10 dark:hover:bg-primary/20"
-                  >
-                    Frames 5”
-                  </button>
-                  <button
-                    class="cursor-pointer rounded-full border border-border-light bg-card-light px-4 py-2 text-sm font-medium dark:border-border-dark dark:bg-card-dark hover:bg-primary/10 dark:hover:bg-primary/20"
-                  >
-                    Motores 2207/2306
-                  </button>
-                  <button
-                    class="cursor-pointer rounded-full border border-border-light bg-card-light px-4 py-2 text-sm font-medium dark:border-border-dark dark:bg-card-dark hover:bg-primary/10 dark:hover:bg-primary/20"
-                  >
-                    VTx
-                  </button>
-                  <button
-                    class="cursor-pointer rounded-full border border-border-light bg-card-light px-4 py-2 text-sm font-medium dark:border-border-dark dark:bg-card-dark hover:bg-primary/10 dark:hover:bg-primary/20"
-                  >
-                    Baterías 6S
-                  </button>
-                  <button
-                    class="cursor-pointer rounded-full border border-border-light bg-card-light px-4 py-2 text-sm font-medium dark:border-border-dark dark:bg-card-dark hover:bg-primary/10 dark:hover:bg-primary/20"
-                  >
-                    Helis
-                  </button>
-                  <button
-                    class="cursor-pointer rounded-full border border-border-light bg-card-light px-4 py-2 text-sm font-medium dark:border-border-dark dark:bg-card-dark hover:bg-primary/10 dark:hover:bg-primary/20"
-                  >
-                    Ala fija
-                  </button>
-                </div>
-              </section>
-              <!-- Más Vendidos Carousel -->
-              <section class="flex flex-col gap-4">
-                <h2
-                  class="px-4 text-xl font-bold leading-tight tracking-[-0.015em] md:text-2xl"
-                >
-                  Más Vendidos
-                </h2>
-                <div
-                  class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden"
-                >
-                  <div class="flex items-stretch gap-4 p-4">
-                    <div
-                      class="flex h-full min-w-60 flex-1 flex-col gap-4 rounded-xl border border-border-light bg-card-light p-4 dark:border-border-dark dark:bg-card-dark dark:backdrop-blur-xl"
-                    >
-                      <div
-                        class="aspect-square w-full rounded-lg bg-cover bg-center bg-no-repeat"
-                        data-alt="TBS Crossfire Nano RX"
-                        style="
-                          background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCe-ZRvbut72OD--mGXjj3mMU8jYb3_JViERBB6RAbf5ZGmkNTjMQ0O3bJJ46SEUePw6JkwyXjVqRTZuUPWdtOaMsLkIbNeytaBNJBkCDSvviXqnwlqmlQ1iQ6cbzrZ5O8hLunZAEmD6zNKc283qYWzks8abFqRsELnis484TFs3OKDnANa5JQm1xEp-0em5u_VUPUP-gDl2O_sFo1iTX2vMeYS4XSOKhf0YDRoRiuHBOF6aeb44xmeXXYq8v5WbgDBBtutKSc6Yhg');
-                        "
-                      ></div>
-                      <div class="flex flex-1 flex-col justify-between gap-4">
-                        <div>
-                          <p class="font-medium">TBS Crossfire Nano RX</p>
-                          <p
-                            class="text-sm text-text-light-secondary dark:text-text-dark-secondary"
-                          >
-                            Team BlackSheep - €34.95
-                          </p>
-                        </div>
-                        <button
-                          class="flex h-10 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary text-sm font-bold text-white"
-                        >
-                          <span class="truncate">Añadir al carrito</span>
-                        </button>
-                      </div>
-                    </div>
-                    <div
-                      class="flex h-full min-w-60 flex-1 flex-col gap-4 rounded-xl border border-border-light bg-card-light p-4 dark:border-border-dark dark:bg-card-dark dark:backdrop-blur-xl"
-                    >
-                      <div
-                        class="aspect-square w-full rounded-lg bg-cover bg-center bg-no-repeat"
-                        data-alt="Radiomaster TX16S"
-                        style="
-                          background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCLIIyExWQP6_49CDEnGed8B5RATIMR-vTcxLWl5rI2Y4sXsxr-Eb8TQcPu7JTx6dAn1l-fxoNSDCWmG5wDoEl1s4lOTic4vlBFWQxO-B8ATOlmDnjE8cB0qDE59n4t8OuyToKa0nn9TRW5gyj_tYwKrZIeKzTK9FqAP4JuI8FRKzgXi-wBqAJFzqgW9BpfZNZelkzJjytR_ChM0zWzB-_1ZsxUxaYx9LNZfEOxeDYqL66-54SObSX7-nxvlvKOYbeMQECb9OGiMSs');
-                        "
-                      ></div>
-                      <div class="flex flex-1 flex-col justify-between gap-4">
-                        <div>
-                          <p class="font-medium">Radiomaster TX16S</p>
-                          <p
-                            class="text-sm text-text-light-secondary dark:text-text-dark-secondary"
-                          >
-                            Radiomaster - €219.90
-                          </p>
-                        </div>
-                        <button
-                          class="flex h-10 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary text-sm font-bold text-white"
-                        >
-                          <span class="truncate">Añadir al carrito</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <!-- CTA Section -->
-              <section class="grid grid-cols-1 gap-6 p-4 md:grid-cols-2">
-                <div
-                  class="flex flex-col items-start gap-4 rounded-xl border border-border-light bg-card-light p-8 dark:border-border-dark dark:bg-card-dark"
-                >
-                  <span class="material-symbols-outlined text-4xl text-primary"
-                    >rule</span
-                  >
-                  <h3 class="text-xl font-bold">Guías de Compatibilidad</h3>
-                  <p
-                    class="text-text-light-secondary dark:text-text-dark-secondary"
-                  >
-                    ¿No estás seguro de qué componentes funcionan juntos?
-                    Consulta nuestras guías detalladas.
-                  </p>
-                  <button
-                    class="mt-auto flex h-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary/20 px-4 text-sm font-bold text-primary dark:bg-primary/30"
-                  >
-                    Ver Guías
-                  </button>
-                </div>
-                <div
-                  class="flex flex-col items-start gap-4 rounded-xl border border-border-light bg-card-light p-8 dark:border-border-dark dark:bg-card-dark"
-                >
-                  <span class="material-symbols-outlined text-4xl text-primary">
-                    support_agent
-                  </span>
-                  <h3 class="text-xl font-bold">Soporte Técnico</h3>
-                  <p
-                    class="text-text-light-secondary dark:text-text-dark-secondary"
-                  >
-                    Nuestro equipo de expertos está listo para ayudarte con
-                    cualquier duda o problema técnico.
-                  </p>
-                  <button
-                    class="mt-auto flex h-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary/20 px-4 text-sm font-bold text-primary dark:bg-primary/30"
-                  >
-                    Contactar
-                  </button>
-                </div>
-              </section>
-            </main>
-            <!-- Footer -->
-            <footer
-              class="mt-16 border-t border-border-light dark:border-border-dark py-8 px-4"
-            >
-              <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
-                <div class="flex flex-col gap-4">
-                  <h4 class="font-bold">AeroParts</h4>
-                  <a
-                    class="text-sm text-text-light-secondary dark:text-text-dark-secondary"
-                    href="#"
-                    >Sobre nosotros</a
-                  >
-                  <a
-                    class="text-sm text-text-light-secondary dark:text-text-dark-secondary"
-                    href="#"
-                    >Contacto</a
-                  >
-                  <a
-                    class="text-sm text-text-light-secondary dark:text-text-dark-secondary"
-                    href="#"
-                    >Blog</a
-                  >
-                </div>
-                <div class="flex flex-col gap-4">
-                  <h4 class="font-bold">Ayuda</h4>
-                  <a
-                    class="text-sm text-text-light-secondary dark:text-text-dark-secondary"
-                    href="#"
-                    >Envíos y Entregas</a
-                  >
-                  <a
-                    class="text-sm text-text-light-secondary dark:text-text-dark-secondary"
-                    href="#"
-                    >Devoluciones</a
-                  >
-                  <a
-                    class="text-sm text-text-light-secondary dark:text-text-dark-secondary"
-                    href="#"
-                    >FAQ</a
-                  >
-                </div>
-                <div class="flex flex-col gap-4">
-                  <h4 class="font-bold">Legal</h4>
-                  <a
-                    class="text-sm text-text-light-secondary dark:text-text-dark-secondary"
-                    href="#"
-                    >Términos de Servicio</a
-                  >
-                  <a
-                    class="text-sm text-text-light-secondary dark:text-text-dark-secondary"
-                    href="#"
-                    >Política de Privacidad</a
-                  >
-                  <a
-                    class="text-sm text-text-light-secondary dark:text-text-dark-secondary"
-                    href="#"
-                    >Política de Cookies</a
-                  >
-                </div>
-                <div class="flex flex-col gap-4">
-                  <h4 class="font-bold">Síguenos</h4>
-                  <div class="flex gap-4">
-                    <!-- Placeholder for social icons -->
-                    <a
-                      class="text-text-light-secondary dark:text-text-dark-secondary"
-                      href="#"
-                      >YT</a
-                    >
-                    <a
-                      class="text-text-light-secondary dark:text-text-dark-secondary"
-                      href="#"
-                      >IG</a
-                    >
-                    <a
-                      class="text-text-light-secondary dark:text-text-dark-secondary"
-                      href="#"
-                      >FB</a
-                    >
-                  </div>
-                </div>
+              </div>
+            </section>
+            <!-- CTA Section -->
+            <section class="grid grid-cols-1 gap-6 p-4 md:grid-cols-2">
+              <div
+                class="flex flex-col items-start gap-4 rounded-xl border border-border-light bg-card-light p-8 dark:border-border-dark dark:bg-card-dark">
+                <span class="material-symbols-outlined text-4xl text-primary">rule</span>
+                <h3 class="text-xl font-bold">Guías de Compatibilidad</h3>
+                <p class="text-text-light-secondary dark:text-text-dark-secondary">
+                  ¿No estás seguro de qué componentes funcionan juntos?
+                  Consulta nuestras guías detalladas.
+                </p>
+                <button
+                  class="mt-auto flex h-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary/20 px-4 text-sm font-bold text-primary dark:bg-primary/30">
+                  Ver Guías
+                </button>
               </div>
               <div
-                class="mt-8 border-t border-border-light dark:border-border-dark pt-8 text-center text-sm text-text-light-secondary dark:text-text-dark-secondary"
-              >
-                <p>© 2024 AeroParts. Todos los derechos reservados.</p>
+                class="flex flex-col items-start gap-4 rounded-xl border border-border-light bg-card-light p-8 dark:border-border-dark dark:bg-card-dark">
+                <span class="material-symbols-outlined text-4xl text-primary">
+                  support_agent
+                </span>
+                <h3 class="text-xl font-bold">Soporte Técnico</h3>
+                <p class="text-text-light-secondary dark:text-text-dark-secondary">
+                  Nuestro equipo de expertos está listo para ayudarte con
+                  cualquier duda o problema técnico.
+                </p>
+                <button
+                  class="mt-auto flex h-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary/20 px-4 text-sm font-bold text-primary dark:bg-primary/30">
+                  Contactar
+                </button>
               </div>
-            </footer>
-          </div>
+            </section>
+          </main>
+          <!-- Footer -->
+          <footer class="mt-16 border-t border-border-light dark:border-border-dark py-8 px-4">
+            <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+              <div class="flex flex-col gap-4">
+                <h4 class="font-bold">AeroParts</h4>
+                <a class="text-sm text-text-light-secondary dark:text-text-dark-secondary" href="#">Sobre nosotros</a>
+                <a class="text-sm text-text-light-secondary dark:text-text-dark-secondary" href="#">Contacto</a>
+                <a class="text-sm text-text-light-secondary dark:text-text-dark-secondary" href="#">Blog</a>
+              </div>
+              <div class="flex flex-col gap-4">
+                <h4 class="font-bold">Ayuda</h4>
+                <a class="text-sm text-text-light-secondary dark:text-text-dark-secondary" href="#">Envíos y
+                  Entregas</a>
+                <a class="text-sm text-text-light-secondary dark:text-text-dark-secondary" href="#">Devoluciones</a>
+                <a class="text-sm text-text-light-secondary dark:text-text-dark-secondary" href="#">FAQ</a>
+              </div>
+              <div class="flex flex-col gap-4">
+                <h4 class="font-bold">Legal</h4>
+                <a class="text-sm text-text-light-secondary dark:text-text-dark-secondary" href="#">Términos de
+                  Servicio</a>
+                <a class="text-sm text-text-light-secondary dark:text-text-dark-secondary" href="#">Política de
+                  Privacidad</a>
+                <a class="text-sm text-text-light-secondary dark:text-text-dark-secondary" href="#">Política de
+                  Cookies</a>
+              </div>
+              <div class="flex flex-col gap-4">
+                <h4 class="font-bold">Síguenos</h4>
+                <div class="flex gap-4">
+                  <!-- Placeholder for social icons -->
+                  <a class="text-text-light-secondary dark:text-text-dark-secondary" href="#">YT</a>
+                  <a class="text-text-light-secondary dark:text-text-dark-secondary" href="#">IG</a>
+                  <a class="text-text-light-secondary dark:text-text-dark-secondary" href="#">FB</a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mt-8 border-t border-border-light dark:border-border-dark pt-8 text-center text-sm text-text-light-secondary dark:text-text-dark-secondary">
+              <p>© 2024 AeroParts. Todos los derechos reservados.</p>
+            </div>
+          </footer>
         </div>
       </div>
     </div>
-    <script src="./js/app.js"></script>
-  </body>
+  </div>
+
+  <!-- Sistema de Clases para Datos Dinámicos -->
+  <script src="./js/models/Category.js"></script>
+  <script src="./js/models/Brand.js"></script>
+  <script src="./js/models/Tag.js"></script>
+  <script src="./js/models/Specification.js"></script>
+  <script src="./js/models/ProductSpecification.js"></script>
+  <script src="./js/models/ProductImage.js"></script>
+  <script src="./js/models/ProductTagAssociation.js"></script>
+  <script src="./js/models/Product.js"></script>
+  <script src="./js/models/Coupon.js"></script>
+  <script src="./js/InlineData.js"></script>
+  <script src="./js/StaticDataManager.js"></script>
+
+  <!-- Configuración de Tailwind -->
+  <script src="./js/app.js"></script>
+
+  <!-- Lógica principal de la aplicación -->
+  <script src="./js/main.js"></script>
+</body>
+
 </html>
