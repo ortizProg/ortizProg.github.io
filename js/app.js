@@ -1,0 +1,36 @@
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+        extend: {
+        colors: {
+            primary: "#3B82F6",
+            "background-light": "#f6f6f8",
+            "background-dark": "#121520",
+            "card-light": "#F0F8FF",
+            "card-dark": "rgba(46, 59, 89, 0.5)",
+            "text-light-primary": "#04091A",
+            "text-dark-primary": "#FFFFFF",
+            "text-light-secondary": "#2E3B59",
+            "text-dark-secondary": "#D3D8E8",
+            "surface-dark": "#181C1F",
+            "surface-2-dark": "#101519",
+            "ink-dark": "#EEF0E5",
+            "border-light": "#D3D8E8",
+            "border-dark": "rgba(46, 59, 89, 1)",
+            'base-100': "#0B0F14",
+            'base-200': "#111827",
+            'base-300': "#1A2338",
+            'base-content': "#E1E7F1",
+            'base-content-secondary': "#9CA3AF",
+        },
+        fontFamily: { display: "Space Grotesk" },
+        borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "1rem",
+            xl: "1.5rem",
+            full: "9999px",
+        },
+        backdropBlur: { xl: "20px" },
+        },
+    },
+};

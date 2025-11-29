@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Drones RTF"
+    },
+    {
+        "id": 2,
+        "name": "RC Aviones"
+    },
+    {
+        "id": 3,
+        "name": "RC Helicópteros"
+    },
+    {
+        "id": 4,
+        "name": "Componentes generales"
+    },
+    {
+        "id": 5,
+        "name": "Motores brushless"
+    },
+    {
+        "id": 6,
+        "name": "Hélices"
+    },
+    {
+        "id": 7,
+        "name": "Baterías LiPo"
+    },
+    {
+        "id": 8,
+        "name": "Electrónica FPV"
+    },
+    {
+        "id": 9,
+        "name": "Herramientas y soldadura"
+    }
+]

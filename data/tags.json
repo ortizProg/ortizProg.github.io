@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "Motor 2207"
+    },
+    {
+        "id": 2,
+        "name": "2450KV"
+    },
+    {
+        "id": 3,
+        "name": "6S"
+    },
+    {
+        "id": 4,
+        "name": "Freestyle"
+    },
+    {
+        "id": 5,
+        "name": "Racing"
+    },
+    {
+        "id": 6,
+        "name": "Long Range"
+    },
+    {
+        "id": 7,
+        "name": "Principiante"
+    },
+    {
+        "id": 8,
+        "name": "Intermedio"
+    },
+    {
+        "id": 9,
+        "name": "Avanzado"
+    },
+    {
+        "id": 10,
+        "name": "Frame 5 pulgadas"
+    },
+    {
+        "id": 11,
+        "name": "Frame 7 pulgadas"
+    },
+    {
+        "id": 12,
+        "name": "Batería LiPo"
+    },
+    {
+        "id": 13,
+        "name": "Cargador inteligente"
+    },
+    {
+        "id": 14,
+        "name": "Gafas FPV"
+    },
+    {
+        "id": 15,
+        "name": "VTx"
+    },
+    {
+        "id": 16,
+        "name": "Controladora de vuelo"
+    },
+    {
+        "id": 17,
+        "name": "ESC 4 en 1"
+    },
+    {
+        "id": 18,
+        "name": "Hélices 5x4.3"
+    },
+    {
+        "id": 19,
+        "name": "Kit de herramientas"
+    },
+    {
+        "id": 20,
+        "name": "Soldador"
+    }
+]

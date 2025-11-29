@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>AeroParts - FPV Drone Motors</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+  </head>
+  <body class="bg-background-light dark:bg-background-dark font-display">
+    <div class="relative flex h-auto min-h-screen w-full flex-col">
+      <header
+        class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-white/10 bg-background-dark/80 backdrop-blur-sm"
+      >
+        <div
+          class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 py-3"
+        >
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-2 text-white">
+              <span class="material-symbols-outlined text-primary text-2xl"
+                >electric_moped</span
+              >
+              <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
+                FlyTech Market
+              </h2>
+            </div>
+            <nav class="hidden md:flex items-center gap-6">
+              <a
+                class="text-sm font-medium text-white/80 hover:text-primary transition-colors"
+                href="#"
+                >Drones</a
+              >
+              <a
+                class="text-sm font-medium text-white/80 hover:text-primary transition-colors"
+                href="#"
+                >RC Planes</a
+              >
+              <a
+                class="text-sm font-medium text-white/80 hover:text-primary transition-colors"
+                href="#"
+                >RC Helicopters</a
+              >
+              <a class="text-sm font-medium text-primary" href="#"
+                >Components</a
+              >
+            </nav>
+          </div>
+          <div class="flex flex-1 justify-end gap-4 items-center">
+            <label class="hidden sm:flex flex-col min-w-40 !h-10 max-w-64">
+              <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                <div
+                  class="text-white/60 flex border border-r-0 border-white/20 bg-white/5 items-center justify-center pl-3 rounded-l-lg"
+                >
+                  <span class="material-symbols-outlined text-xl">search</span>
+                </div>
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-l-0 border-white/20 bg-white/5 h-full placeholder:text-white/60 px-4 rounded-l-none pl-2 text-sm font-normal leading-normal"
+                  placeholder="Search components..."
+                  value=""
+                />
+              </div>
+            </label>
+            <div class="flex gap-2">
+              <button
+                class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-white/5 text-white/80 hover:bg-white/10 transition-colors"
+              >
+                <span class="material-symbols-outlined text-xl">favorite</span>
+              </button>
+              <button
+                class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-white/5 text-white/80 hover:bg-white/10 transition-colors"
+              >
+                <span class="material-symbols-outlined text-xl"
+                  >shopping_cart</span
+                >
+              </button>
+            </div>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              data-alt="User profile picture"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_6EeJRcl7TYtUcUdkIrfrIof0ElWSb19-3cPTz4PmEz7-ZP5Uatg09lDW-_2Bfeio9iNJ7n_7S13KxnDrtDifqwfg8awpDj9hHW8qvfyQfnvVfFZVkC2szi-AmWr3Stp7vzS-SrU_4K8kTWZ_GfOmSHEzyYL83uQ3icWP4YjuMun9mFH1uOeT3T-MMjFBSALYyO2AM9arRgOxp57Hx6c82ZUjpsDE-5qcmVfwSEVLINvQsPZ4WV4fvDUNd_igxieBX6kcl6HsVVA');
+              "
+            ></div>
+          </div>
+        </div>
+      </header>
+      <main class="w-full max-w-7xl mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row gap-8">
+          <aside class="w-full md:w-64 lg:w-72 flex-shrink-0">
+            <div class="sticky top-24 space-y-6">
+              <div class="flex flex-wrap items-center gap-1.5">
+                <a
+                  class="text-sm font-medium text-white/60 hover:text-primary transition-colors"
+                  href="#"
+                  >Home</a
+                >
+                <span class="text-white/60">/</span>
+                <a
+                  class="text-sm font-medium text-white/60 hover:text-primary transition-colors"
+                  href="#"
+                  >Drones</a
+                >
+                <span class="text-white/60">/</span>
+                <span class="text-sm font-medium text-white">Motors</span>
+              </div>
+              <div class="flex flex-wrap justify-between gap-3 items-baseline">
+                <p
+                  class="text-white text-3xl font-black leading-tight tracking-[-0.033em]"
+                >
+                  FPV Drone Motors
+                </p>
+                <p class="text-sm text-white/60">210 results</p>
+              </div>
+              <div class="border-t border-white/10 pt-4 space-y-4">
+                <h3 class="font-bold text-white">Filters</h3>
+                <details class="space-y-2 group" open="">
+                  <summary
+                    class="flex items-center justify-between cursor-pointer text-sm font-semibold text-white"
+                  >
+                    Availability
+                    <span
+                      class="material-symbols-outlined transition-transform group-open:rotate-180"
+                      >expand_more</span
+                    >
+                  </summary>
+                  <div class="pt-2 space-y-2">
+                    <label class="flex items-center gap-2">
+                      <input
+                        class="form-checkbox rounded bg-white/10 border-white/20 text-primary focus:ring-primary/50"
+                        type="checkbox"
+                      />
+                      <span class="text-sm text-white/80">In Stock</span>
+                    </label>
+                    <label class="flex items-center gap-2">
+                      <input
+                        class="form-checkbox rounded bg-white/10 border-white/20 text-primary focus:ring-primary/50"
+                        type="checkbox"
+                      />
+                      <span class="text-sm text-white/80">Pre-order</span>
+                    </label>
+                  </div>
+                </details>
+                <details class="space-y-2 group" open="">
+                  <summary
+                    class="flex items-center justify-between cursor-pointer text-sm font-semibold text-white"
+                  >
+                    Brand
+                    <span
+                      class="material-symbols-outlined transition-transform group-open:rotate-180"
+                      >expand_more</span
+                    >
+                  </summary>
+                  <div class="pt-2 space-y-2">
+                    <label class="flex items-center gap-2">
+                      <input
+                        checked=""
+                        class="form-checkbox rounded bg-white/10 border-white/20 text-primary focus:ring-primary/50"
+                        type="checkbox"
+                      />
+                      <span class="text-sm text-white/80">AeroX</span>
+                    </label>
+                    <label class="flex items-center gap-2">
+                      <input
+                        class="form-checkbox rounded bg-white/10 border-white/20 text-primary focus:ring-primary/50"
+                        type="checkbox"
+                      />
+                      <span class="text-sm text-white/80">T-Motor</span>
+                    </label>
+                    <label class="flex items-center gap-2">
+                      <input
+                        class="form-checkbox rounded bg-white/10 border-white/20 text-primary focus:ring-primary/50"
+                        type="checkbox"
+                      />
+                      <span class="text-sm text-white/80">iFlight</span>
+                    </label>
+                  </div>
+                </details>
+                <details class="space-y-2 group">
+                  <summary
+                    class="flex items-center justify-between cursor-pointer text-sm font-semibold text-white"
+                  >
+                    Price
+                    <span
+                      class="material-symbols-outlined transition-transform group-open:rotate-180"
+                      >expand_more</span
+                    >
+                  </summary>
+                  <div class="pt-2 text-sm text-white/60">
+                    Price slider component
+                  </div>
+                </details>
+                <details class="space-y-2 group">
+                  <summary
+                    class="flex items-center justify-between cursor-pointer text-sm font-semibold text-white"
+                  >
+                    Rating
+                    <span
+                      class="material-symbols-outlined transition-transform group-open:rotate-180"
+                      >expand_more</span
+                    >
+                  </summary>
+                  <div class="pt-2 text-sm text-white/60">
+                    Star rating component
+                  </div>
+                </details>
+              </div>
+            </div>
+          </aside>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 pb-4 border-b border-white/10">
+              <button
+                class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white/5 pl-3 pr-2 hover:bg-white/10 transition-colors"
+              >
+                <span class="material-symbols-outlined text-xl text-white/80"
+                  >swap_vert</span
+                >
+                <p class="text-sm font-medium text-white/80">
+                  Sort by: Relevance
+                </p>
+                <span class="material-symbols-outlined text-xl text-white/80"
+                  >expand_more</span
+                >
+              </button>
+            </div>
+            <div
+              class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pt-6"
+            >
+              <div class="flex flex-col group">
+                <div
+                  class="relative w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl bg-white/5 overflow-hidden"
+                >
+                  <img
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    data-alt="A black and red FPV drone motor on a dark background"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOzUFj0wBRrOMaGdHF35-IcpMuy0ZP4LvqEdPW031ZaLJESfY2Ev-dA6AX5YFbOuJxfj8j2-T3AhVNVuhT0vSsmOT7DGhgWrfaaplsaY4Tx7kUdJZMorDoAF5bUIIQekgXGS2jZY2twQnio8frEICg8U8ifM2DLQTrg_HkVKSvDLOPSxVKWxGw5pIaQ55HbkSt-4c0iMPPEX2eW8KCj7ZQ6z7iriPp2N-hiKyNapOUx6fhmfnkKUnmkovx6KwFj-OgQPtpcQvJHxM"
+                  />
+                  <div
+                    class="absolute top-2 left-2 px-2 py-1 text-xs font-bold text-green-900 bg-green-200 rounded-full"
+                  >
+                    In Stock
+                  </div>
+                </div>
+                <div class="flex flex-col pt-3">
+                  <div class="flex items-center gap-1.5 mb-1">
+                    <span
+                      class="px-2 py-0.5 text-xs font-semibold rounded bg-white/10 text-white/80"
+                      >2207</span
+                    >
+                    <span
+                      class="px-2 py-0.5 text-xs font-semibold rounded bg-white/10 text-white/80"
+                      >2450KV</span
+                    >
+                    <span
+                      class="px-2 py-0.5 text-xs font-semibold rounded bg-white/10 text-white/80"
+                      >6S</span
+                    >
+                  </div>
+                  <h4 class="text-base font-medium leading-normal text-white">
+                    AeroX Falcon 2207 2450KV
+                  </h4>
+                  <p class="text-sm font-normal leading-normal text-white/60">
+                    Ships tomorrow
+                  </p>
+                  <div class="flex items-center justify-between mt-2">
+                    <p class="text-lg font-bold text-white">€32.99</p>
+                    <button
+                      class="flex items-center justify-center h-9 w-9 rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >add_shopping_cart</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col group">
+                <div
+                  class="relative w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl bg-white/5 overflow-hidden"
+                >
+                  <img
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    data-alt="A shiny red and black FPV drone motor with exposed coils"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWLzTq9TO-9tQ64HNk0I4jGKd4SPyFevPy_WRuH0XO90Cv7mXNyDGTSmqnJhWKuBJeefEFSTOUsu0VtJm-U2c97sVo2FXiHA_O9bX5SO0mI5yW6XYoEzhbX2NsFL42kniytRwHDU7p9RcuCwIu7wnyWUoXknNSRxzg6eoKRf-Pz0iluvpyLUNG-hV65pLvDo70rn57oExMEhuy8_84nRMczWnd64oCXpJCj3hA6YTz1liWkgsFv4q-1slymv2B8b8Ln6dWtpI7xYE"
+                  />
+                  <div
+                    class="absolute top-2 left-2 px-2 py-1 text-xs font-bold text-orange-900 bg-orange-200 rounded-full"
+                  >
+                    Low Stock
+                  </div>
+                </div>
+                <div class="flex flex-col pt-3">
+                  <div class="flex items-center gap-1.5 mb-1">
+                    <span
+                      class="px-2 py-0.5 text-xs font-semibold rounded bg-white/10 text-white/80"
+                      >2306</span
+                    >
+                    <span
+                      class="px-2 py-0.5 text-xs font-semibold rounded bg-white/10 text-white/80"
+                      >1900KV</span
+                    >
+                  </div>
+                  <h4 class="text-base font-medium leading-normal text-white">
+                    Raptor Pro V2 2306 1900KV
+                  </h4>
+                  <p class="text-sm font-normal leading-normal text-white/60">
+                    Ships tomorrow
+                  </p>
+                  <div class="flex items-center justify-between mt-2">
+                    <p class="text-lg font-bold text-white">€30.50</p>
+                    <button
+                      class="flex items-center justify-center h-9 w-9 rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >add_shopping_cart</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col group">
+                <div
+                  class="relative w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl bg-white/5 overflow-hidden"
+                >
+                  <img
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    data-alt="An FPV drone motor with a yellow and black design"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAA_euY9bW7aq9WP8HXc_vJInoV6rZYIcFLCXv4seHnmB3_RpK8JrqU2UlmMrLBUfl0rOSn9i03IFrzTzjtkfB5pe5lynGQSSCU1xFej2hgugmLGbHiekpfYtQptLddPvXQiWgyksmE4b0E1KJOEbQfrwBVSoUP8nN7hthCZqJr7NN45nbmu-S6AQf4VD1dWHyca6D1hHzXe4Yh7tUDqpMHov_sZApwW6lmCE9LcMmxzv3YVCKP6YWwXm23YOQksKI3i7LXJrbiB4"
+                  />
+                  <div
+                    class="absolute top-2 left-2 px-2 py-1 text-xs font-bold text-blue-900 bg-blue-200 rounded-full"
+                  >
+                    Pre-order
+                  </div>
+                </div>
+                <div class="flex flex-col pt-3">
+                  <div class="flex items-center gap-1.5 mb-1">
+                    <span
+                      class="px-2 py-0.5 text-xs font-semibold rounded bg-white/10 text-white/80"
+                      >2806.5</span
+                    >
+                    <span
+                      class="px-2 py-0.5 text-xs font-semibold rounded bg-white/10 text-white/80"
+                      >1300KV</span
+                    >
+                  </div>
+                  <h4 class="text-base font-medium leading-normal text-white">
+                    Cobra Venom 2806.5 1300KV
+                  </h4>
+                  <p class="text-sm font-normal leading-normal text-white/60">
+                    Ships in 2 days
+                  </p>
+                  <div class="flex items-center justify-between mt-2">
+                    <p class="text-lg font-bold text-white">€35.00</p>
+                    <button
+                      class="flex items-center justify-center h-9 w-9 rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >add_shopping_cart</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col group">
+                <div
+                  class="relative w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl bg-white/5 overflow-hidden"
+                >
+                  <img
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    data-alt="A shiny red and black FPV drone motor with exposed coils"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9tnO1q4hDYcRIzJgsuOW47b4U7EDWiLZ5_kdq6hhl1thXQ-7IXrJ9PDknwHNYCoJBQY5AdxPZH8Ot136Cy5QbAuZQcC2vkA1E9frn_XNrp5LnnShmzV_wNSisjCWZkf6sXZpt6rWWdwBipHL8Qsiy0mXp5f53HytiGCgBVvECpyNV1x3j0OUpkofVpWdcRfGNU6o7fU4bwaUtgbKUv1Q-tXqjJ0oA0n9WqiqvCbBeEEc4O72Bvg8m_JcdDwl2gMsRRar_o8Xb8FE"
+                  />
+                  <div
+                    class="absolute top-2 left-2 px-2 py-1 text-xs font-bold text-red-900 bg-red-200 rounded-full"
+                  >
+                    Out of Stock
+                  </div>
+                </div>
+                <div class="flex flex-col pt-3 opacity-50">
+                  <div class="flex items-center gap-1.5 mb-1">
+                    <span
+                      class="px-2 py-0.5 text-xs font-semibold rounded bg-white/10 text-white/80"
+                      >2306</span
+                    >
+                    <span
+                      class="px-2 py-0.5 text-xs font-semibold rounded bg-white/10 text-white/80"
+                      >1700KV</span
+                    >
+                  </div>
+                  <h4 class="text-base font-medium leading-normal text-white">
+                    EMAX ECO II 2306 1700KV
+                  </h4>
+                  <p class="text-sm font-normal leading-normal text-white/60">
+                    -
+                  </p>
+                  <div class="flex items-center justify-between mt-2">
+                    <p class="text-lg font-bold text-white">€25.99</p>
+                    <button
+                      class="flex items-center justify-center h-9 w-9 rounded-lg bg-white/20 text-white/50 cursor-not-allowed"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >add_shopping_cart</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col group">
+                <div
+                  class="relative w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl bg-white/5 overflow-hidden"
+                >
+                  <img
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    data-alt="A black and red FPV drone motor on a dark background"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuClLGJ3O82TdS20TeiiCaTlTTNqgOTTOIEFMsbOQyfrgGPTlrmmw8lLMxheVLAtcFbw4MtmJlcg2Iw573-xPH8kx5Mo4aw-Jr9BCV2b5cxdQcAyHs1lr7aQtW7fYeKVU6zLnBUX19so8lPllv_Kf1lGR2Juc21mvZHeB0lznIwJiyYRp--Qh2OP6rOJygte1UNUC7gg2289EFASTl_2ofnH0ucotqLqc50inIufas1q4Sx-AGJua2dBeM4HTAyD4wvPMgF04tb--rQ"
+                  />
+                  <div
+                    class="absolute top-2 left-2 px-2 py-1 text-xs font-bold text-green-900 bg-green-200 rounded-full"
+                  >
+                    In Stock
+                  </div>
+                </div>
+                <div class="flex flex-col pt-3">
+                  <div class="flex items-center gap-1.5 mb-1">
+                    <span
+                      class="px-2 py-0.5 text-xs font-semibold rounded bg-white/10 text-white/80"
+                      >2207</span
+                    >
+                    <span
+                      class="px-2 py-0.5 text-xs font-semibold rounded bg-white/10 text-white/80"
+                      >2750KV</span
+                    >
+                  </div>
+                  <h4 class="text-base font-medium leading-normal text-white">
+                    Viper Strike 2207 2750KV
+                  </h4>
+                  <p class="text-sm font-normal leading-normal text-white/60">
+                    Ships tomorrow
+                  </p>
+                  <div class="flex items-center justify-between mt-2">
+                    <p class="text-lg font-bold text-white">€33.75</p>
+                    <button
+                      class="flex items-center justify-center h-9 w-9 rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >add_shopping_cart</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col group">
+                <div
+                  class="relative w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl bg-white/5 overflow-hidden"
+                >
+                  <img
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    data-alt="An FPV drone motor with a yellow and black design"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHwh23_uhWjIsWzDto1xvSl5RUWcAwGisiQ9BnWG2oVlqUKt62kMuPYH0C27-lgUHCDIYam-z9xCh--voj5DeM-GP2ljqaHPKtYhQE67lEYXxuPyKXji2plL18UaNv1OAowNCo8GWceH0kRtOlTVTddKB-j7xm5BYGxv8YKoTwGjfM1f-Ip9yvsGWxzfr3S63j4QpvKCnQzenccD3E-94lFf-wWS_OsNkPktR4TV6aweTJSUWAYwVpE1irCfjKDIeDbsYemIcba6c"
+                  />
+                  <div
+                    class="absolute top-2 left-2 px-2 py-1 text-xs font-bold text-green-900 bg-green-200 rounded-full"
+                  >
+                    In Stock
+                  </div>
+                </div>
+                <div class="flex flex-col pt-3">
+                  <div class="flex items-center gap-1.5 mb-1">
+                    <span
+                      class="px-2 py-0.5 text-xs font-semibold rounded bg-white/10 text-white/80"
+                      >2207</span
+                    >
+                    <span
+                      class="px-2 py-0.5 text-xs font-semibold rounded bg-white/10 text-white/80"
+                      >1855KV</span
+                    >
+                  </div>
+                  <h4 class="text-base font-medium leading-normal text-white">
+                    iFlight XING2 2207 1855KV
+                  </h4>
+                  <p class="text-sm font-normal leading-normal text-white/60">
+                    Ships tomorrow
+                  </p>
+                  <div class="flex items-center justify-between mt-2">
+                    <p class="text-lg font-bold text-white">€34.50</p>
+                    <button
+                      class="flex items-center justify-center h-9 w-9 rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >add_shopping_cart</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-center items-center gap-2 mt-12">
+              <button
+                class="h-9 w-9 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 text-white/60 transition-colors"
+              >
+                <span class="material-symbols-outlined text-xl"
+                  >chevron_left</span
+                >
+              </button>
+              <button
+                class="h-9 w-9 flex items-center justify-center rounded-lg bg-primary text-white font-bold text-sm"
+              >
+                1
+              </button>
+              <button
+                class="h-9 w-9 flex items-center justify-center rounded-lg hover:bg-white/10 text-white font-bold text-sm transition-colors"
+              >
+                2
+              </button>
+              <button
+                class="h-9 w-9 flex items-center justify-center rounded-lg hover:bg-white/10 text-white font-bold text-sm transition-colors"
+              >
+                3
+              </button>
+              <span class="text-white">...</span>
+              <button
+                class="h-9 w-9 flex items-center justify-center rounded-lg hover:bg-white/10 text-white font-bold text-sm transition-colors"
+              >
+                10
+              </button>
+              <button
+                class="h-9 w-9 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 text-white/60 transition-colors"
+              >
+                <span class="material-symbols-outlined text-xl"
+                  >chevron_right</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="../../js/app.js"></script>
+  </body>
+</html>

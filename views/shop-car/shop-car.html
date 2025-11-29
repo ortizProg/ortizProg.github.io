@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Shopping Cart - AeroParts</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+  </head>
+  <body class="bg-base-100 font-display text-base-content">
+    <div class="relative flex min-h-screen w-full flex-col" id="root">
+      <header
+        class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-white/10 bg-background-dark/80 backdrop-blur-sm"
+      >
+        <div
+          class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 py-3"
+        >
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-2 text-white">
+              <span class="material-symbols-outlined text-primary text-2xl"
+                >electric_moped</span
+              >
+              <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
+                FlyTech Market
+              </h2>
+            </div>
+            <nav class="hidden md:flex items-center gap-6">
+              <a
+                class="text-sm font-medium text-white/80 hover:text-primary transition-colors"
+                href="#"
+                >Drones</a
+              >
+              <a
+                class="text-sm font-medium text-white/80 hover:text-primary transition-colors"
+                href="#"
+                >RC Planes</a
+              >
+              <a
+                class="text-sm font-medium text-white/80 hover:text-primary transition-colors"
+                href="#"
+                >RC Helicopters</a
+              >
+              <a class="text-sm font-medium text-primary" href="#"
+                >Components</a
+              >
+            </nav>
+          </div>
+          <div class="flex flex-1 justify-end gap-4 items-center">
+            <label class="hidden sm:flex flex-col min-w-40 !h-10 max-w-64">
+              <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                <div
+                  class="text-white/60 flex border border-r-0 border-white/20 bg-white/5 items-center justify-center pl-3 rounded-l-lg"
+                >
+                  <span class="material-symbols-outlined text-xl">search</span>
+                </div>
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-l-0 border-white/20 bg-white/5 h-full placeholder:text-white/60 px-4 rounded-l-none pl-2 text-sm font-normal leading-normal"
+                  placeholder="Search components..."
+                  value=""
+                />
+              </div>
+            </label>
+            <div class="flex gap-2">
+              <button
+                class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-white/5 text-white/80 hover:bg-white/10 transition-colors"
+              >
+                <span class="material-symbols-outlined text-xl">favorite</span>
+              </button>
+              <button
+                class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-white/5 text-white/80 hover:bg-white/10 transition-colors"
+              >
+                <span class="material-symbols-outlined text-xl"
+                  >shopping_cart</span
+                >
+              </button>
+            </div>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              data-alt="User profile picture"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_6EeJRcl7TYtUcUdkIrfrIof0ElWSb19-3cPTz4PmEz7-ZP5Uatg09lDW-_2Bfeio9iNJ7n_7S13KxnDrtDifqwfg8awpDj9hHW8qvfyQfnvVfFZVkC2szi-AmWr3Stp7vzS-SrU_4K8kTWZ_GfOmSHEzyYL83uQ3icWP4YjuMun9mFH1uOeT3T-MMjFBSALYyO2AM9arRgOxp57Hx6c82ZUjpsDE-5qcmVfwSEVLINvQsPZ4WV4fvDUNd_igxieBX6kcl6HsVVA');
+              "
+            ></div>
+          </div>
+        </div>
+      </header>
+      <main class="container mx-auto flex-1 px-4 py-8 lg:py-12">
+        <div class="mb-8">
+          <p class="text-4xl font-black tracking-tighter text-white">
+            Shopping Cart
+          </p>
+          <p class="text-base-content-secondary">
+            You have 3 items in your cart.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-12">
+          <div class="space-y-6 lg:col-span-2">
+            <div
+              class="divide-y divide-white/10 rounded-xl border border-white/10 bg-base-300/30 backdrop-blur-sm"
+            >
+              <div
+                class="flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div class="flex items-center gap-4">
+                  <div
+                    class="aspect-square w-20 flex-shrink-0 rounded-lg bg-cover bg-center"
+                    data-alt="Brushless motor for drones"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7e6zec-I5eDmkfgMZNPm3YfJKnU_O15r2bl3fXKOMSgmaAsacc2jCzt45MZQOmMgec1N21bS9OBYT7PIeeE3O4HlOH-Ca3Hh97BhxSLCikrD5Q5gkxhF5YE74ApGgKPfeHKYHrtLPrSroBNnfrSRTNddf1wtH-U2J3iy1LeuCFIfRCS-JK-nNA-flZzOzrWIDQgUsKMhLlWw_sw3Dh-2DJHXO_I2pZUV5CSt257EeGHR3ikG8MnRd-Mr4o1XKAxv4Cc5XThG1X8E');
+                    "
+                  ></div>
+                  <div class="flex flex-1 flex-col justify-center">
+                    <p class="font-medium text-white">
+                      Motor Brushless 2207 2450KV
+                    </p>
+                    <p class="text-sm text-base-content-secondary">
+                      Unit Price: $24.99
+                    </p>
+                    <p class="text-sm text-base-content-secondary">
+                      Subtotal: $49.98
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center justify-between sm:justify-end sm:gap-6"
+                >
+                  <div class="flex items-center gap-2">
+                    <button
+                      class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
+                    >
+                      -
+                    </button>
+                    <input
+                      class="w-10 border-none bg-transparent p-0 text-center text-white focus:outline-0 focus:ring-0 [appearance:textfield] [&amp;::-webkit-inner-spin-button]:appearance-none [&amp;::-webkit-outer-spin-button]:appearance-none"
+                      type="number"
+                      value="2"
+                    />
+                    <button
+                      class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div class="flex gap-1">
+                    <button
+                      class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-base-content-secondary hover:bg-white/10 hover:text-primary"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >favorite</span
+                      >
+                    </button>
+                    <button
+                      class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-base-content-secondary hover:bg-accent/10 hover:text-accent"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >delete</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div class="flex items-center gap-4">
+                  <div
+                    class="aspect-square w-20 flex-shrink-0 rounded-lg bg-cover bg-center"
+                    data-alt="Carbon fiber drone frame kit"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB6C4ASzcGCyc6JfaV7nJcv1MCKnyWqopF4xMctYgz1wE3u93ATu6NyW0gYjQ9hmwjbfMdJwwSpPexLiAjbztAj8zoR-YDPowf4w6ltKfYqwG4nczjIB5jWsGfOvutvyG-lSV5VhbspephvojlqSTg01jBE0mAjWs89ZlBzlVt_3C4b-W6rSxP_fJ2qDTFfqaPjXVKsNaU7P5cOUnwZsHSp1unc0lRFPEdKkhHZ_-vcQp-co8RYAUYQQTVegsa6AEUvMSFeIJ92U_E');
+                    "
+                  ></div>
+                  <div class="flex flex-1 flex-col justify-center">
+                    <p class="font-medium text-white">
+                      FPV Drone Frame Kit 5-inch
+                    </p>
+                    <p class="text-sm text-base-content-secondary">
+                      Unit Price: $59.90
+                    </p>
+                    <p class="text-sm text-base-content-secondary">
+                      Subtotal: $59.90
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center justify-between sm:justify-end sm:gap-6"
+                >
+                  <div class="flex items-center gap-2">
+                    <button
+                      class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
+                    >
+                      -
+                    </button>
+                    <input
+                      class="w-10 border-none bg-transparent p-0 text-center text-white focus:outline-0 focus:ring-0 [appearance:textfield] [&amp;::-webkit-inner-spin-button]:appearance-none [&amp;::-webkit-outer-spin-button]:appearance-none"
+                      type="number"
+                      value="1"
+                    />
+                    <button
+                      class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div class="flex gap-1">
+                    <button
+                      class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-base-content-secondary hover:bg-white/10 hover:text-primary"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >favorite</span
+                      >
+                    </button>
+                    <button
+                      class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-base-content-secondary hover:bg-accent/10 hover:text-accent"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >delete</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div class="flex items-center gap-4">
+                  <div
+                    class="aspect-square w-20 flex-shrink-0 rounded-lg bg-cover bg-center"
+                    data-alt="An FPV video transmitter"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCeOhzhFuGtz82urmM2fi0XziKywS1FpGoKVC8ks2ubCMHQxY5y2F2N7oP8Pp-Hj_3_r58Cl6fll0Xr3uQULb23dtE0uPS12OCAOd1nINg8-_Cw38LDi7uGK8vOFL6SzMzUgzV-OsjONXIBmog6Qlh0OPsUsVsKg3w_g1V5893-jGvYo2fEgRMVSfunSvh6G1si1zc_odBctKd3yC8mLV6tFpzQHEVZb6-x_9-13NjrsvJ1gvR6DFKOyESFA-LmwJOvtWAuR81zLCI');
+                    "
+                  ></div>
+                  <div class="flex flex-1 flex-col justify-center">
+                    <p class="font-medium text-white">
+                      VTX Video Transmitter 5.8GHz
+                    </p>
+                    <p class="text-sm text-base-content-secondary">
+                      Unit Price: $35.50
+                    </p>
+                    <p class="text-sm text-base-content-secondary">
+                      Subtotal: $35.50
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center justify-between sm:justify-end sm:gap-6"
+                >
+                  <div class="flex items-center gap-2">
+                    <button
+                      class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
+                    >
+                      -
+                    </button>
+                    <input
+                      class="w-10 border-none bg-transparent p-0 text-center text-white focus:outline-0 focus:ring-0 [appearance:textfield] [&amp;::-webkit-inner-spin-button]:appearance-none [&amp;::-webkit-outer-spin-button]:appearance-none"
+                      type="number"
+                      value="1"
+                    />
+                    <button
+                      class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div class="flex gap-1">
+                    <button
+                      class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-base-content-secondary hover:bg-white/10 hover:text-primary"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >favorite</span
+                      >
+                    </button>
+                    <button
+                      class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-base-content-secondary hover:bg-accent/10 hover:text-accent"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >delete</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-8 lg:col-span-1">
+            <div
+              class="space-y-4 rounded-xl border border-white/10 bg-base-300/30 p-6 backdrop-blur-sm"
+            >
+              <h3 class="text-xl font-bold text-white">Order Summary</h3>
+              <div class="space-y-3">
+                <div class="flex justify-between text-base-content-secondary">
+                  <span>Subtotal</span>
+                  <span>$145.38</span>
+                </div>
+                <div class="flex justify-between text-base-content-secondary">
+                  <span>Shipping</span>
+                  <span>$10.00</span>
+                </div>
+                <div class="flex justify-between text-base-content-secondary">
+                  <span>Taxes (VAT)</span>
+                  <span>$29.08</span>
+                </div>
+              </div>
+              <div class="h-px bg-white/10"></div>
+              <div class="flex justify-between">
+                <span class="text-lg font-bold text-white">Total</span>
+                <span class="text-lg font-bold text-white">$184.46</span>
+              </div>
+              <button
+                class="flex w-full cursor-pointer items-center justify-center rounded-lg bg-primary py-3 text-base font-bold text-white transition-colors hover:bg-primary-hover"
+              >
+                Proceed to Checkout
+              </button>
+            </div>
+            <div
+              class="space-y-4 rounded-xl border border-white/10 bg-base-300/30 p-6 backdrop-blur-sm"
+            >
+              <h3 class="text-xl font-bold text-white">
+                Shipping &amp; Delivery
+              </h3>
+              <div>
+                <label
+                  class="mb-1 block text-sm font-medium text-base-content-secondary"
+                  for="postal-code"
+                  >City / Postal Code</label
+                >
+                <input
+                  class="w-full rounded-lg border-white/20 bg-base-200 text-white focus:border-primary focus:ring-primary"
+                  id="postal-code"
+                  placeholder="Enter your postal code"
+                  type="text"
+                />
+              </div>
+              <p class="text-sm text-base-content-secondary">
+                Estimated delivery: Oct 28, 2024 - Nov 02, 2024
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 lg:mt-16">
+          <h2 class="mb-6 text-2xl font-bold tracking-tight text-white">
+            You Might Also Need...
+          </h2>
+          <div
+            class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+          >
+            <div
+              class="group relative flex flex-col overflow-hidden rounded-xl border border-white/10 bg-base-300/30 backdrop-blur-sm"
+            >
+              <div
+                class="aspect-square w-full bg-cover bg-center"
+                data-alt="A set of four propellers for a drone"
+                style="
+                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBemRfcb8MGHEoOxi4O3muN2CR7YvVHOLRcMGABvuDXrux2Uq18wj0VENpn69znQOe_q_hwle1MEr0TpLR8lEFz3K2P8_pLXAgKiMW1Jqrd7J3AulGmlpBP_xKmISb0Op37kC_fwB9IvWmwasy7pVZ93TTMMWw58seqNMT_V1zYp0x-7jSmDd_9ENFQyNY59ogOJtEVns8-F5XEfSfcpVGlDAVZPedoZB4vSOiMs9Z0nRxhNvEIAc7jpcgk4dwY4q9PHuNZBUo_sh8');
+                "
+              ></div>
+              <div class="flex flex-1 flex-col p-4">
+                <h4 class="font-medium text-white">
+                  5-inch Propellers (4-Pack)
+                </h4>
+                <p class="text-sm text-base-content-secondary">$8.99</p>
+              </div>
+              <button
+                class="m-4 mt-0 flex cursor-pointer items-center justify-center rounded-lg bg-primary/20 py-2 text-sm font-bold text-primary transition-colors hover:bg-primary hover:text-white"
+              >
+                Add to Cart
+              </button>
+            </div>
+            <div
+              class="group relative flex flex-col overflow-hidden rounded-xl border border-white/10 bg-base-300/30 backdrop-blur-sm"
+            >
+              <div
+                class="aspect-square w-full bg-cover bg-center"
+                data-alt="A LiPo battery for RC vehicles"
+                style="
+                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCSNjY2q-c6qdnJWyiapUF6gf8IztC16UzHYaOYpYJPskXACZPIjjZisnlv1ZMOW4ChCKy0qw7uBbkn7XrPfKF2UnzUi3CWSmFZcR4jD9j2xRk9O-v7CpClXFXc2ebxC0zZbPg7dcZY72sRs1ZKtcmYCWBH_piH7N_wua9V2ZjkKS8nE8YbLgbG7DqoSZ6Y0mqMAkO0aClpVpBSE-A66kNo0w0NP4xvOZZdyXlewBylLfX4HXSuVkmyOPb0uwICRg33-Gb5STsTcEo');
+                "
+              ></div>
+              <div class="flex flex-1 flex-col p-4">
+                <h4 class="font-medium text-white">LiPo Battery 4S 1500mAh</h4>
+                <p class="text-sm text-base-content-secondary">$29.99</p>
+              </div>
+              <button
+                class="m-4 mt-0 flex cursor-pointer items-center justify-center rounded-lg bg-primary/20 py-2 text-sm font-bold text-primary transition-colors hover:bg-primary hover:text-white"
+              >
+                Add to Cart
+              </button>
+            </div>
+            <div
+              class="group relative flex flex-col overflow-hidden rounded-xl border border-white/10 bg-base-300/30 backdrop-blur-sm"
+            >
+              <div
+                class="aspect-square w-full bg-cover bg-center"
+                data-alt="A set of assorted M3 screws"
+                style="
+                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDcOqpXNkz7aidkMHXxK32sh6dYHcN-YQty5cCj1PpA_o_64gI3WhcVJ4akun4R7mG8osmD4O_vr5LCLt23xPO_IspwRSRuHQV5UQ2Bx_I3eU98vlc8Y9cCcsaNldlk_pMytk_K_6U7GP9xp3BHuxHUsFGu1z0Lkte7_BLUXW_v4hku7I3utx9N8_fZDH7w8HAWtlslEkH-OJxybPQteUXvocPaccVfdy23ms-wu5G62Wh2UKGu0gW9XdBawbDa9yuIq88J2FQtI5k');
+                "
+              ></div>
+              <div class="flex flex-1 flex-col p-4">
+                <h4 class="font-medium text-white">M3 Screw Kit (180pcs)</h4>
+                <p class="text-sm text-base-content-secondary">$12.50</p>
+              </div>
+              <button
+                class="m-4 mt-0 flex cursor-pointer items-center justify-center rounded-lg bg-primary/20 py-2 text-sm font-bold text-primary transition-colors hover:bg-primary hover:text-white"
+              >
+                Add to Cart
+              </button>
+            </div>
+            <div
+              class="group relative flex flex-col overflow-hidden rounded-xl border border-white/10 bg-base-300/30 backdrop-blur-sm"
+            >
+              <div
+                class="aspect-square w-full bg-cover bg-center"
+                data-alt="A roll of double-sided adhesive tape"
+                style="
+                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCCUS91dlpU9IfwnQzhkFcv5L_HC3rBiEWT4eJGwFk_NutZiiscBLe8XCiPv8hnDp-YY8303TfSNibjCc68SQG5rSIU9A3e3HSTnrVnm3da0R4N71_b1r3o7mIgMu7EPkWYqFkpZuFRR-vk6Jsm4gXo6hUZUg712xZsxgCdXlty9E0319JsZq1TNetq_98G4bamBam_Ez2NbGvleqXEl2ufzOb8DhkldUXKMJU8pKjz94-VPJtCLUdodmz-8lDerCaxg-ZbqnAWep0');
+                "
+              ></div>
+              <div class="flex flex-1 flex-col p-4">
+                <h4 class="font-medium text-white">Double-Sided Tape</h4>
+                <p class="text-sm text-base-content-secondary">$4.99</p>
+              </div>
+              <button
+                class="m-4 mt-0 flex cursor-pointer items-center justify-center rounded-lg bg-primary/20 py-2 text-sm font-bold text-primary transition-colors hover:bg-primary hover:text-white"
+              >
+                Add to Cart
+              </button>
+            </div>
+            <div
+              class="group relative flex flex-col overflow-hidden rounded-xl border border-white/10 bg-base-300/30 backdrop-blur-sm"
+            >
+              <div
+                class="aspect-square w-full bg-cover bg-center"
+                data-alt="A roll of silicone wire"
+                style="
+                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA1IMGAo24RzXM5LZIHYwPSxtS30zAuV62ZbLjy6gqLiOGCZQVGDDvht6Qz838bMf78kU0SmGkSMJkz8oYRFGeqhD8n5Vx0u5VlSJwf_fJ_rbQIFp_Qd5dr1GGPlKnLbD_oGepXKVxmv4tKU04Nzp6tqWWZwf_B0BcKX8dhRgwqt2BQuYSsvLWKUabKgYbBUld91HnmzB2Mt0Ft8U2jBxWbzMntKiEj2cjcAaN7qSmCPyYv82NdKINhyOOMxRPxXz8gnZfJHwHa7b4');
+                "
+              ></div>
+              <div class="flex flex-1 flex-col p-4">
+                <h4 class="font-medium text-white">Silicone Wire 14AWG</h4>
+                <p class="text-sm text-base-content-secondary">$6.75</p>
+              </div>
+              <button
+                class="m-4 mt-0 flex cursor-pointer items-center justify-center rounded-lg bg-primary/20 py-2 text-sm font-bold text-primary transition-colors hover:bg-primary hover:text-white"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="../../js/app.js"></script>
+  </body>
+</html>

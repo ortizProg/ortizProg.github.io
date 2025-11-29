@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Checkout - AeroParts Inc.</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2b58ee",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101422",
+            },
+            fontFamily: {
+              display: ["Space Grotesk", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Space Grotesk", sans-serif;
+      }
+      .glassmorphism {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .dark .glassmorphism {
+        background: rgba(40, 44, 57, 0.5);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200"
+  >
+    <div class="relative flex h-auto min-h-screen w-full flex-col">
+      <!-- TopNavBar -->
+      <header
+        class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-white/10 bg-background-dark/80 backdrop-blur-sm"
+      >
+        <div
+          class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 py-3"
+        >
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-2 text-white">
+              <span class="material-symbols-outlined text-primary text-2xl"
+                >electric_moped</span
+              >
+              <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
+                FlyTech Market
+              </h2>
+            </div>
+            <nav class="hidden md:flex items-center gap-6">
+              <a
+                class="text-sm font-medium text-white/80 hover:text-primary transition-colors"
+                href="#"
+                >Drones</a
+              >
+              <a
+                class="text-sm font-medium text-white/80 hover:text-primary transition-colors"
+                href="#"
+                >RC Planes</a
+              >
+              <a
+                class="text-sm font-medium text-white/80 hover:text-primary transition-colors"
+                href="#"
+                >RC Helicopters</a
+              >
+              <a class="text-sm font-medium text-primary" href="#"
+                >Components</a
+              >
+            </nav>
+          </div>
+          <div class="flex flex-1 justify-end gap-4 items-center">
+            <label class="hidden sm:flex flex-col min-w-40 !h-10 max-w-64">
+              <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                <div
+                  class="text-white/60 flex border border-r-0 border-white/20 bg-white/5 items-center justify-center pl-3 rounded-l-lg"
+                >
+                  <span class="material-symbols-outlined text-xl">search</span>
+                </div>
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-l-0 border-white/20 bg-white/5 h-full placeholder:text-white/60 px-4 rounded-l-none pl-2 text-sm font-normal leading-normal"
+                  placeholder="Search components..."
+                  value=""
+                />
+              </div>
+            </label>
+            <div class="flex gap-2">
+              <button
+                class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-white/5 text-white/80 hover:bg-white/10 transition-colors"
+              >
+                <span class="material-symbols-outlined text-xl">favorite</span>
+              </button>
+              <button
+                class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-white/5 text-white/80 hover:bg-white/10 transition-colors"
+              >
+                <span class="material-symbols-outlined text-xl"
+                  >shopping_cart</span
+                >
+              </button>
+            </div>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              data-alt="User profile picture"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_6EeJRcl7TYtUcUdkIrfrIof0ElWSb19-3cPTz4PmEz7-ZP5Uatg09lDW-_2Bfeio9iNJ7n_7S13KxnDrtDifqwfg8awpDj9hHW8qvfyQfnvVfFZVkC2szi-AmWr3Stp7vzS-SrU_4K8kTWZ_GfOmSHEzyYL83uQ3icWP4YjuMun9mFH1uOeT3T-MMjFBSALYyO2AM9arRgOxp57Hx6c82ZUjpsDE-5qcmVfwSEVLINvQsPZ4WV4fvDUNd_igxieBX6kcl6HsVVA');
+              "
+            ></div>
+          </div>
+        </div>
+      </header>
+      <main class="container mx-auto flex-1 px-4 py-8 lg:px-8 lg:py-12">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-12">
+          <!-- Left Column: Checkout Form -->
+          <div class="lg:col-span-2">
+            <!-- Breadcrumbs -->
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="text-base font-bold text-gray-900 dark:text-white"
+                >Personal Info</span
+              >
+              <span
+                class="material-symbols-outlined text-gray-400 dark:text-gray-500"
+                >chevron_right</span
+              >
+              <span
+                class="text-base font-medium text-gray-500 dark:text-gray-400"
+                >Shipping</span
+              >
+              <span
+                class="material-symbols-outlined text-gray-400 dark:text-gray-500"
+                >chevron_right</span
+              >
+              <span
+                class="text-base font-medium text-gray-500 dark:text-gray-400"
+                >Payment</span
+              >
+            </div>
+            <!-- Page Heading -->
+            <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+              <p
+                class="text-3xl font-black leading-tight tracking-[-0.033em] text-gray-900 dark:text-white lg:text-4xl"
+              >
+                Checkout
+              </p>
+            </div>
+            <!-- Segmented Buttons -->
+            <div class="mt-8 flex w-full">
+              <div
+                class="flex h-12 flex-1 items-center justify-center rounded-xl bg-gray-200 p-1 dark:bg-gray-800"
+              >
+                <label
+                  class="flex h-full flex-1 cursor-pointer items-center justify-center overflow-hidden rounded-lg px-2 text-sm font-medium leading-normal text-gray-600 has-[:checked]:bg-white has-[:checked]:text-gray-900 has-[:checked]:shadow-sm dark:text-gray-400 dark:has-[:checked]:bg-background-dark dark:has-[:checked]:text-white"
+                >
+                  <span class="truncate">Continue as Guest</span>
+                  <input
+                    checked=""
+                    class="invisible w-0"
+                    name="account-option"
+                    type="radio"
+                    value="Continue as Guest"
+                  />
+                </label>
+                <label
+                  class="flex h-full flex-1 cursor-pointer items-center justify-center overflow-hidden rounded-lg px-2 text-sm font-medium leading-normal text-gray-600 has-[:checked]:bg-white has-[:checked]:text-gray-900 has-[:checked]:shadow-sm dark:text-gray-400 dark:has-[:checked]:bg-background-dark dark:has-[:checked]:text-white"
+                >
+                  <span class="truncate">Log In / Create Account</span>
+                  <input
+                    class="invisible w-0"
+                    name="account-option"
+                    type="radio"
+                    value="Log In / Create Account"
+                  />
+                </label>
+              </div>
+            </div>
+            <!-- Form Section -->
+            <div class="mt-10">
+              <h2
+                class="text-xl font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white lg:text-2xl"
+              >
+                Contact Information
+              </h2>
+              <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2">
+                <div>
+                  <label
+                    class="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-300"
+                    for="first-name"
+                    >First Name</label
+                  >
+                  <div class="relative mt-2">
+                    <input
+                      class="block w-full rounded-lg border-0 bg-gray-200/50 py-2.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-gray-800 dark:text-white dark:ring-gray-700 dark:focus:ring-primary"
+                      id="first-name"
+                      name="first-name"
+                      placeholder="John"
+                      type="text"
+                      value="John"
+                    />
+                    <div
+                      class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3"
+                    >
+                      <span class="material-symbols-outlined text-green-500"
+                        >check_circle</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label
+                    class="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-300"
+                    for="last-name"
+                    >Last Name</label
+                  >
+                  <div class="mt-2">
+                    <input
+                      class="block w-full rounded-lg border-0 bg-gray-200/50 py-2.5 pl-3 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-gray-800 dark:text-white dark:ring-gray-700 dark:focus:ring-primary"
+                      id="last-name"
+                      name="last-name"
+                      placeholder="Doe"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                <div class="sm:col-span-2">
+                  <label
+                    class="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-300"
+                    for="email"
+                    >Email Address</label
+                  >
+                  <div class="relative mt-2">
+                    <input
+                      class="block w-full rounded-lg border-0 bg-gray-200/50 py-2.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-gray-800 dark:text-white dark:ring-gray-700 dark:focus:ring-primary"
+                      id="email"
+                      name="email"
+                      placeholder="you@example.com"
+                      type="email"
+                      value="john.doe@example.com"
+                    />
+                  </div>
+                </div>
+                <div class="sm:col-span-2">
+                  <label
+                    class="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-300"
+                    for="phone"
+                    >Phone Number
+                    <span class="text-gray-500 dark:text-gray-400"
+                      >(Optional)</span
+                    ></label
+                  >
+                  <div class="mt-2">
+                    <input
+                      class="block w-full rounded-lg border-0 bg-gray-200/50 py-2.5 pl-3 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-gray-800 dark:text-white dark:ring-gray-700 dark:focus:ring-primary"
+                      id="phone"
+                      name="phone"
+                      placeholder="+1 (555) 123-4567"
+                      type="tel"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- CTA Button -->
+            <div
+              class="mt-10 border-t border-gray-200 pt-6 dark:border-gray-800"
+            >
+              <button
+                class="flex w-full items-center justify-center rounded-lg bg-primary px-6 py-3.5 text-base font-bold text-white shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:bg-primary/50"
+                type="submit"
+              >
+                Continue to Shipping
+              </button>
+            </div>
+          </div>
+          <!-- Right Column: Order Summary -->
+          <div class="lg:col-span-1">
+            <div class="sticky top-28">
+              <div
+                class="rounded-xl border border-gray-200/80 p-6 dark:border-white/10 glassmorphism"
+              >
+                <h2 class="text-xl font-bold text-gray-900 dark:text-white">
+                  Your Order
+                </h2>
+                <ul
+                  class="mt-6 divide-y divide-gray-200/80 dark:divide-white/10"
+                  role="list"
+                >
+                  <li class="flex py-4">
+                    <div
+                      class="h-20 w-20 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 dark:border-gray-700"
+                    >
+                      <img
+                        class="h-full w-full object-cover object-center"
+                        data-alt="An FPV drone with black propellers and a central camera, resting on a textured concrete surface."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnCcA6STd71dmgEBmmI6txmq7MCcUBT8jjpiJQAx-dPeajh0uWhRL_1qU6eXXkzY0YlRJNY_VusxRInLkl7O5FfoZAgnY2HMJhx5r-IU26cnzTBFTdWBwtTsdyDnUpPjhgUyqNuCuL20j-R59TSmtBnlZbkgak4JqwJ4EGbvVVN2AWFxPw7m2blln4ljfFm8XG65nf10h_CMo1hpN3IMdAuOxDOMHbrApJoRfmkaTJu8hXq3A-P6QMvVlf-Xr9oQCgqYKjBswU1RU"
+                      />
+                    </div>
+                    <div class="ml-4 flex flex-1 flex-col">
+                      <div>
+                        <div
+                          class="flex justify-between text-base font-medium text-gray-900 dark:text-white"
+                        >
+                          <h3><a href="#">X-Class FPV Drone Frame</a></h3>
+                          <p class="ml-4">$129.00</p>
+                        </div>
+                        <p
+                          class="mt-1 text-sm text-gray-500 dark:text-gray-400"
+                        >
+                          Carbon Fiber
+                        </p>
+                      </div>
+                      <div
+                        class="flex flex-1 items-end justify-between text-sm"
+                      >
+                        <p class="text-gray-500 dark:text-gray-400">Qty 1</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="flex py-4">
+                    <div
+                      class="h-20 w-20 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 dark:border-gray-700"
+                    >
+                      <img
+                        class="h-full w-full object-cover object-center"
+                        data-alt="Close-up of a high-performance brushless motor for a drone, showing intricate copper windings and a sleek metal casing."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCs9WVNMVkG_PYloYeMpXqGaZHMrrYMQbgYZGQuTWTNglR1O6Ru35yafu1ydZH9yjayBRs_7ERokT9w4W5B4jLXY9X7Sg-qOCR5BkiHzhCadhVeYg05lsF8OhJ5XCbva9tTv-pNGWglUA9Z2vARt8tyrdCHXzz1rUiw4uCUjV6xTSwL7nO8DJx4zho36A5arOnTSm9rPe5mtNBSKcGrTP0dSORx0l2CdVR6TqEHl6FLG8HWeat_9SQO4-2tm0TSQr_V4ZvoZ7aybU"
+                      />
+                    </div>
+                    <div class="ml-4 flex flex-1 flex-col">
+                      <div>
+                        <div
+                          class="flex justify-between text-base font-medium text-gray-900 dark:text-white"
+                        >
+                          <h3><a href="#">Brushless Motor 2207</a></h3>
+                          <p class="ml-4">$96.00</p>
+                        </div>
+                        <p
+                          class="mt-1 text-sm text-gray-500 dark:text-gray-400"
+                        >
+                          2450KV
+                        </p>
+                      </div>
+                      <div
+                        class="flex flex-1 items-end justify-between text-sm"
+                      >
+                        <p class="text-gray-500 dark:text-gray-400">Qty 4</p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <div
+                  class="mt-6 space-y-4 border-t border-gray-200/80 pt-6 dark:border-white/10"
+                >
+                  <div
+                    class="flex items-center justify-between text-sm text-gray-600 dark:text-gray-300"
+                  >
+                    <dt>Subtotal</dt>
+                    <dd class="font-medium">$225.00</dd>
+                  </div>
+                  <div
+                    class="flex items-center justify-between text-sm text-gray-600 dark:text-gray-300"
+                  >
+                    <dt>Shipping</dt>
+                    <dd class="font-medium">$15.00</dd>
+                  </div>
+                  <div
+                    class="flex items-center justify-between border-t border-gray-200/80 pt-4 text-base font-bold text-gray-900 dark:border-white/10 dark:text-white"
+                  >
+                    <dt>Total</dt>
+                    <dd>$240.00</dd>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="../../js/app.js"></script>
+  </body>
+</html>

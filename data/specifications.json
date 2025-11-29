@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Tamaño"
+    },
+    {
+        "id": 2,
+        "name": "Peso"
+    },
+    {
+        "id": 3,
+        "name": "Voltaje"
+    },
+    {
+        "id": 4,
+        "name": "Dimensiones"
+    },
+    {
+        "id": 5,
+        "name": "Materiales"
+    },
+    {
+        "id": 6,
+        "name": "KV del motor"
+    },
+    {
+        "id": 7,
+        "name": "Número de celdas (S)"
+    },
+    {
+        "id": 8,
+        "name": "Capacidad (mAh)"
+    },
+    {
+        "id": 9,
+        "name": "Conector"
+    },
+    {
+        "id": 10,
+        "name": "Uso recomendado"
+    }
+]
