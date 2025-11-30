@@ -1,6 +1,10 @@
 import StaticDataManager from "./StaticDataManager.js";
 import { InlineData } from "./InlineData.js"
 
+/**
+ * home.js - Lógica específica para la página de inicio
+ */
+
 // Inicializar el DataManager
 const dataManager = new StaticDataManager();
 dataManager.initialize(InlineData);
@@ -11,9 +15,9 @@ const state = {
         search: '',
         inStock: false,
         preOrder: false,
-        brands: [],
-        minPrice: 0,
-        maxPrice: 10000000,
+        brands: [], // Array of IDs
+        minPrice: undefined,
+        maxPrice: undefined,
         minScore: 0
     },
     sort: 'relevance', // relevance, price-asc, price-desc, rating
@@ -27,12 +31,15 @@ const state = {
 const dom = {
     grid: document.getElementById('products-grid'),
     resultsCount: document.getElementById('results-count'),
+    searchInput: document.getElementById('search-input'),
     filters: {
         inStock: document.getElementById('filter-instock'),
         preOrder: document.getElementById('filter-preorder'),
         brandsContainer: document.getElementById('brands-filter-container'),
-        priceSlider: document.getElementById('price-slider'), // Placeholder
-        rating: document.getElementById('rating-filter') // Placeholder
+        minPrice: document.getElementById('min-price'),
+        maxPrice: document.getElementById('max-price'),
+        applyPriceBtn: document.getElementById('apply-price'),
+        ratingContainer: document.getElementById('rating-filter-container')
     },
     sortButton: document.getElementById('sort-button'),
     sortLabel: document.getElementById('sort-label'),
@@ -59,16 +66,42 @@ function init() {
 // ========== Lógica de Renderizado ==========
 
 function updateView() {
-    // 1. Filtrar productos
-    let products = dataManager.getAllProducts();
+    // 1. Filtrar productos usando el DataManager
+    // Mapeamos el estado de filtros al formato que espera DataManager
+    const filterOptions = {
+        search: state.filters.search,
+        inStock: state.filters.inStock,
+        minPrice: state.filters.minPrice,
+        maxPrice: state.filters.maxPrice,
+        minScore: state.filters.minScore
+    };
 
-    // Aplicar filtros
-    if (state.filters.inStock) {
-        products = products.filter(p => p.isInStock());
-    }
+    // DataManager espera brandId (singular) pero aquí soportamos múltiples.
+    // Hacemos el filtrado base con DataManager y luego refinamos si es necesario.
+    let products = dataManager.filterProducts(filterOptions);
 
+    // Filtrado adicional para múltiples marcas (si DataManager solo soporta una)
+    // O si DataManager no soporta array de marcas, lo hacemos aquí.
+    // StaticDataManager.js filterProducts soporta 'brandId' singular.
+    // Así que filtramos marcas manualmente aquí para soportar selección múltiple.
     if (state.filters.brands.length > 0) {
         products = products.filter(p => state.filters.brands.includes(p.brandId));
+    }
+
+    // Filtrado de Pre-order (asumiendo que pre-order es stock <= 0 pero disponible, o una lógica específica)
+    // En este caso, si el usuario selecciona "Pre-order", mostramos productos con stock 0 o flag de pre-order.
+    // Ajustaremos la lógica según necesidad. Por ahora, si "Pre-order" está activo,
+    // mostramos productos que NO están en stock pero son visibles.
+    if (state.filters.preOrder) {
+        // Si solo Pre-order está activo, mostramos solo pre-order.
+        // Si In-Stock Y Pre-order están activos, mostramos ambos.
+        if (!state.filters.inStock) {
+            products = products.filter(p => !p.isInStock());
+        }
+        // Si ambos están activos, no filtramos por stock (mostramos todo).
+    } else if (state.filters.inStock) {
+        // Si solo In-Stock está activo (y no Pre-order), ya lo filtró filterProducts o lo hacemos aquí
+        products = products.filter(p => p.isInStock());
     }
 
     // 2. Ordenar productos
@@ -79,6 +112,9 @@ function updateView() {
 
     // 4. Paginar
     const totalPages = Math.ceil(products.length / state.pagination.itemsPerPage);
+    // Asegurar que la página actual es válida
+    if (state.pagination.page > totalPages) state.pagination.page = Math.max(1, totalPages);
+
     const startIndex = (state.pagination.page - 1) * state.pagination.itemsPerPage;
     const paginatedProducts = products.slice(startIndex, startIndex + state.pagination.itemsPerPage);
 
@@ -115,7 +151,7 @@ function renderProductGrid(products) {
         }
 
         // Imagen principal (manejo de fallback)
-        const mainImage = product.getMainImage() || 'https://via.placeholder.com/300?text=No+Image';
+        const mainImage = product.getMainImage() || 'https://www.shutterstock.com/image-vector/product-defect-label-line-icon-600nw-2252869127.jpg';
 
         return `
             <div class="flex flex-col group animate-fade-in">
@@ -124,7 +160,7 @@ function renderProductGrid(products) {
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         src="${mainImage}"
                         alt="${product.name}"
-                        onerror="this.src='https://via.placeholder.com/300?text=Error'"
+                        onerror="this.src='https://www.shutterstock.com/image-vector/product-defect-label-line-icon-600nw-2252869127.jpg'"
                     />
                     ${stockBadge}
                 </div>
@@ -148,8 +184,8 @@ function renderProductGrid(products) {
                     <div class="flex items-center justify-between mt-2">
                         <p class="text-lg font-bold text-white">${product.getFormattedPrice()}</p>
                         <button 
-                            onclick="addToCart(${product.id})"
-                            class="flex items-center justify-center h-9 w-9 rounded-lg ${product.isInStock() ? 'bg-primary hover:bg-primary/90' : 'bg-white/20 cursor-not-allowed'} text-white transition-colors"
+                            data-product-id="${product.id}"
+                            class="add-to-cart-btn flex items-center justify-center h-9 w-9 rounded-lg ${product.isInStock() ? 'bg-primary hover:bg-primary/90' : 'bg-white/20 cursor-not-allowed'} text-white transition-colors"
                             ${!product.isInStock() ? 'disabled' : ''}
                         >
                             <span class="material-symbols-outlined text-xl">add_shopping_cart</span>
@@ -172,7 +208,6 @@ function renderBrandFilters() {
                 type="checkbox" 
                 value="${brand.id}"
                 class="form-checkbox rounded bg-white/10 border-white/20 text-primary focus:ring-primary/50 transition-colors"
-                onchange="toggleBrandFilter(${brand.id})"
             />
             <span class="text-sm text-white/80 group-hover:text-white transition-colors">${brand.name}</span>
         </label>
@@ -189,33 +224,40 @@ function renderPagination(totalPages) {
 
     let html = `
         <button 
-            onclick="changePage(${state.pagination.page - 1})"
+            data-page="${state.pagination.page - 1}"
             class="h-9 w-9 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 text-white/60 transition-colors ${state.pagination.page === 1 ? 'opacity-50 cursor-not-allowed' : ''}"
             ${state.pagination.page === 1 ? 'disabled' : ''}
         >
-            <span class="material-symbols-outlined text-xl">chevron_left</span>
+            <span class="material-symbols-outlined text-xl pointer-events-none">chevron_left</span>
         </button>
     `;
 
+    // Lógica simple de paginación (mostrar todas o rango)
+    // Para simplificar, mostramos rango alrededor de la actual
     for (let i = 1; i <= totalPages; i++) {
-        const isActive = i === state.pagination.page;
-        html += `
-            <button 
-                onclick="changePage(${i})"
-                class="h-9 w-9 flex items-center justify-center rounded-lg ${isActive ? 'bg-primary text-white' : 'hover:bg-white/10 text-white'} font-bold text-sm transition-colors"
-            >
-                ${i}
-            </button>
-        `;
+        // Mostrar primera, última, y rango de 2 alrededor de la actual
+        if (i === 1 || i === totalPages || (i >= state.pagination.page - 1 && i <= state.pagination.page + 1)) {
+            const isActive = i === state.pagination.page;
+            html += `
+                <button 
+                    data-page="${i}"
+                    class="h-9 w-9 flex items-center justify-center rounded-lg ${isActive ? 'bg-primary text-white' : 'hover:bg-white/10 text-white'} font-bold text-sm transition-colors"
+                >
+                    ${i}
+                </button>
+            `;
+        } else if (i === state.pagination.page - 2 || i === state.pagination.page + 2) {
+            html += `<span class="text-white/40">...</span>`;
+        }
     }
 
     html += `
         <button 
-            onclick="changePage(${state.pagination.page + 1})"
+            data-page="${state.pagination.page + 1}"
             class="h-9 w-9 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 text-white/60 transition-colors ${state.pagination.page === totalPages ? 'opacity-50 cursor-not-allowed' : ''}"
             ${state.pagination.page === totalPages ? 'disabled' : ''}
         >
-            <span class="material-symbols-outlined text-xl">chevron_right</span>
+            <span class="material-symbols-outlined text-xl pointer-events-none">chevron_right</span>
         </button>
     `;
 
@@ -262,6 +304,7 @@ function toggleBrandFilter(brandId) {
 }
 
 function changePage(newPage) {
+    if (newPage < 1) return;
     state.pagination.page = newPage;
     updateView();
     // Scroll suave hacia arriba
@@ -275,6 +318,7 @@ function addToCart(productId) {
     } else {
         const product = dataManager.getProduct(productId);
         if (product && product.isInStock()) {
+            // Feedback visual simple
             alert(`¡${product.name} añadido al carrito!`);
         }
     }
@@ -283,6 +327,15 @@ function addToCart(productId) {
 // ========== Event Listeners ==========
 
 function setupEventListeners() {
+    // Search
+    if (dom.searchInput) {
+        dom.searchInput.addEventListener('input', (e) => {
+            state.filters.search = e.target.value;
+            state.pagination.page = 1;
+            updateView();
+        });
+    }
+
     // Filtro de Stock
     if (dom.filters.inStock) {
         dom.filters.inStock.addEventListener('change', (e) => {
@@ -292,9 +345,91 @@ function setupEventListeners() {
         });
     }
 
+    // Filtro de Pre-order
+    if (dom.filters.preOrder) {
+        dom.filters.preOrder.addEventListener('change', (e) => {
+            state.filters.preOrder = e.target.checked;
+            state.pagination.page = 1;
+            updateView();
+        });
+    }
+
+    // Filtro de Marcas (Delegación de eventos)
+    if (dom.filters.brandsContainer) {
+        dom.filters.brandsContainer.addEventListener('change', (e) => {
+            if (e.target.type === 'checkbox') {
+                const brandId = parseInt(e.target.value);
+                toggleBrandFilter(brandId);
+            }
+        });
+    }
+
+    // Filtro de Precio
+    if (dom.filters.applyPriceBtn) {
+        dom.filters.applyPriceBtn.addEventListener('click', () => {
+            const min = parseFloat(dom.filters.minPrice.value);
+            const max = parseFloat(dom.filters.maxPrice.value);
+
+            state.filters.minPrice = isNaN(min) ? undefined : min;
+            state.filters.maxPrice = isNaN(max) ? undefined : max;
+
+            state.pagination.page = 1;
+            updateView();
+        });
+    }
+
+    // Filtro de Rating (Delegación)
+    if (dom.filters.ratingContainer) {
+        dom.filters.ratingContainer.addEventListener('change', (e) => {
+            if (e.target.type === 'radio') {
+                state.filters.minScore = parseFloat(e.target.value);
+                state.pagination.page = 1;
+                updateView();
+            }
+        });
+    }
+
     // Ordenamiento
-    // Aquí podríamos implementar un dropdown custom, por ahora simulamos con botones si existieran
-    // O conectamos con el botón existente en el HTML
+    if (dom.sortButton) {
+        dom.sortButton.addEventListener('click', () => {
+            // Ciclar modos de ordenamiento
+            const modes = ['relevance', 'price-asc', 'price-desc', 'rating'];
+            const currentIdx = modes.indexOf(state.sort);
+            state.sort = modes[(currentIdx + 1) % modes.length];
+
+            // Actualizar etiqueta
+            const labels = {
+                'relevance': 'Relevance',
+                'price-asc': 'Price: Low to High',
+                'price-desc': 'Price: High to Low',
+                'rating': 'Top Rated'
+            };
+            if (dom.sortLabel) dom.sortLabel.textContent = `Sort by: ${labels[state.sort]}`;
+
+            updateView();
+        });
+    }
+
+    // Paginación (Delegación)
+    if (dom.pagination) {
+        dom.pagination.addEventListener('click', (e) => {
+            const btn = e.target.closest('button');
+            if (btn && !btn.disabled && btn.dataset.page) {
+                changePage(parseInt(btn.dataset.page));
+            }
+        });
+    }
+
+    // Grid de Productos (Delegación para Add to Cart)
+    if (dom.grid) {
+        dom.grid.addEventListener('click', (e) => {
+            const btn = e.target.closest('.add-to-cart-btn');
+            if (btn && !btn.disabled) {
+                const productId = parseInt(btn.dataset.productId);
+                addToCart(productId);
+            }
+        });
+    }
 }
 
 // Iniciar cuando el DOM esté listo
