@@ -66,63 +66,81 @@ function init() {
 // ========== Lógica de Renderizado ==========
 
 function updateView() {
-    // 1. Filtrar productos usando el DataManager
-    // Mapeamos el estado de filtros al formato que espera DataManager
-    const filterOptions = {
-        search: state.filters.search,
-        inStock: state.filters.inStock,
-        minPrice: state.filters.minPrice,
-        maxPrice: state.filters.maxPrice,
-        minScore: state.filters.minScore
-    };
-
-    // DataManager espera brandId (singular) pero aquí soportamos múltiples.
-    // Hacemos el filtrado base con DataManager y luego refinamos si es necesario.
-    let products = dataManager.filterProducts(filterOptions);
-
-    // Filtrado adicional para múltiples marcas (si DataManager solo soporta una)
-    // O si DataManager no soporta array de marcas, lo hacemos aquí.
-    // StaticDataManager.js filterProducts soporta 'brandId' singular.
-    // Así que filtramos marcas manualmente aquí para soportar selección múltiple.
-    if (state.filters.brands.length > 0) {
-        products = products.filter(p => state.filters.brands.includes(p.brandId));
+    // Mostrar spinner inmediatamente
+    if (dom.grid) {
+        dom.grid.innerHTML = `
+            <div class="col-span-full flex items-center justify-center min-h-[50vh]">
+                <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+            </div>
+        `;
+    }
+    if (dom.pagination) {
+        dom.pagination.innerHTML = ''; // Limpiar paginación durante carga
+    }
+    if (dom.resultsCount) {
+        dom.resultsCount.textContent = 'Cargando...';
     }
 
-    // Filtrado de Pre-order (asumiendo que pre-order es stock <= 0 pero disponible, o una lógica específica)
-    // En este caso, si el usuario selecciona "Pre-order", mostramos productos con stock 0 o flag de pre-order.
-    // Ajustaremos la lógica según necesidad. Por ahora, si "Pre-order" está activo,
-    // mostramos productos que NO están en stock pero son visibles.
-    if (state.filters.preOrder) {
-        // Si solo Pre-order está activo, mostramos solo pre-order.
-        // Si In-Stock Y Pre-order están activos, mostramos ambos.
-        if (!state.filters.inStock) {
-            products = products.filter(p => !p.isInStock());
+    // Simular delay de 500ms
+    setTimeout(() => {
+        // 1. Filtrar productos usando el DataManager
+        // Mapeamos el estado de filtros al formato que espera DataManager
+        const filterOptions = {
+            search: state.filters.search,
+            inStock: state.filters.inStock,
+            minPrice: state.filters.minPrice,
+            maxPrice: state.filters.maxPrice,
+            minScore: state.filters.minScore
+        };
+
+        // DataManager espera brandId (singular) pero aquí soportamos múltiples.
+        // Hacemos el filtrado base con DataManager y luego refinamos si es necesario.
+        let products = dataManager.filterProducts(filterOptions);
+
+        // Filtrado adicional para múltiples marcas (si DataManager solo soporta una)
+        // O si DataManager no soporta array de marcas, lo hacemos aquí.
+        // StaticDataManager.js filterProducts soporta 'brandId' singular.
+        // Así que filtramos marcas manualmente aquí para soportar selección múltiple.
+        if (state.filters.brands.length > 0) {
+            products = products.filter(p => state.filters.brands.includes(p.brandId));
         }
-        // Si ambos están activos, no filtramos por stock (mostramos todo).
-    } else if (state.filters.inStock) {
-        // Si solo In-Stock está activo (y no Pre-order), ya lo filtró filterProducts o lo hacemos aquí
-        products = products.filter(p => p.isInStock());
-    }
 
-    // 2. Ordenar productos
-    products = sortProducts(products);
+        // Filtrado de Pre-order (asumiendo que pre-order es stock <= 0 pero disponible, o una lógica específica)
+        // En este caso, si el usuario selecciona "Pre-order", mostramos productos con stock 0 o flag de pre-order.
+        // Ajustaremos la lógica según necesidad. Por ahora, si "Pre-order" está activo,
+        // mostramos productos que NO están en stock pero son visibles.
+        if (state.filters.preOrder) {
+            // Si solo Pre-order está activo, mostramos solo pre-order.
+            // Si In-Stock Y Pre-order están activos, mostramos ambos.
+            if (!state.filters.inStock) {
+                products = products.filter(p => !p.isInStock());
+            }
+            // Si ambos están activos, no filtramos por stock (mostramos todo).
+        } else if (state.filters.inStock) {
+            // Si solo In-Stock está activo (y no Pre-order), ya lo filtró filterProducts o lo hacemos aquí
+            products = products.filter(p => p.isInStock());
+        }
 
-    // 3. Actualizar contadores
-    updateResultsCount(products.length);
+        // 2. Ordenar productos
+        products = sortProducts(products);
 
-    // 4. Paginar
-    const totalPages = Math.ceil(products.length / state.pagination.itemsPerPage);
-    // Asegurar que la página actual es válida
-    if (state.pagination.page > totalPages) state.pagination.page = Math.max(1, totalPages);
+        // 3. Actualizar contadores
+        updateResultsCount(products.length);
 
-    const startIndex = (state.pagination.page - 1) * state.pagination.itemsPerPage;
-    const paginatedProducts = products.slice(startIndex, startIndex + state.pagination.itemsPerPage);
+        // 4. Paginar
+        const totalPages = Math.ceil(products.length / state.pagination.itemsPerPage);
+        // Asegurar que la página actual es válida
+        if (state.pagination.page > totalPages) state.pagination.page = Math.max(1, totalPages);
 
-    // 5. Renderizar grid
-    renderProductGrid(paginatedProducts);
+        const startIndex = (state.pagination.page - 1) * state.pagination.itemsPerPage;
+        const paginatedProducts = products.slice(startIndex, startIndex + state.pagination.itemsPerPage);
 
-    // 6. Renderizar paginación
-    renderPagination(totalPages);
+        // 5. Renderizar grid
+        renderProductGrid(paginatedProducts);
+
+        // 6. Renderizar paginación
+        renderPagination(totalPages);
+    }, 500); // 500ms de delay
 }
 
 function renderProductGrid(products) {
