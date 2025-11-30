@@ -1,7 +1,7 @@
 /**
  * Category - Represents a product category
  */
-class Category {
+export default class Category {
     /**
      * @param {Object} data - Category data
      * @param {number} data.id - Category ID
@@ -44,9 +44,4 @@ class Category {
     toString() {
         return this.name;
     }
-}
-
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = Category;
 }

@@ -2,7 +2,7 @@
  * InlineData - All data embedded directly in JavaScript
  * This eliminates the need for fetch() and allows the page to work as a static site
  */
-const InlineData = {
+export const InlineData = {
     categories: [
         { "id": 1, "name": "Drones RTF" },
         { "id": 2, "name": "RC Aviones" },
@@ -60,26 +60,26 @@ const InlineData = {
     ],
 
     products: [
-        { "id": 1, "name": "Motor brushless 2207 2450KV AeroX Falcon", "description": "Motor brushless 2207 de alto rendimiento para drones freestyle 5 pulgadas.", "image": "url:/images/productos/motor-2207-falcon.jpg", "score": 4.9, "category_id": 5, "brand_id": 3, "price": 149900, "stock": 20 },
-        { "id": 2, "name": "Motor brushless 2306 1750KV Raptor Pro V2", "description": "Motor 2306 1750KV ideal para drones de largo alcance en 6S.", "image": "url:/images/productos/motor-2306-raptor.jpg", "score": 4.7, "category_id": 5, "brand_id": 4, "price": 139900, "stock": 15 },
-        { "id": 3, "name": "Frame freestyle 5 pulgadas Carbono X5", "description": "Frame de 5 pulgadas en fibra de carbono 3K para drones freestyle.", "image": "url:/images/productos/frame-x5.jpg", "score": 4.8, "category_id": 4, "brand_id": 2, "price": 189900, "stock": 12 },
-        { "id": 4, "name": "Frame long range 7 pulgadas Explorer LR7", "description": "Frame de 7 pulgadas para vuelos de largo alcance, diseño ligero y resistente.", "image": "url:/images/productos/frame-lr7.jpg", "score": 4.6, "category_id": 4, "brand_id": 5, "price": 219900, "stock": 8 },
-        { "id": 5, "name": "Hélices 5x4.3x3 triblades pack x4", "description": "Juego de 4 hélices triblade 5x4.3 para drones racing o freestyle.", "image": "url:/images/productos/helices-5x4-3.jpg", "score": 4.5, "category_id": 6, "brand_id": 1, "price": 19900, "stock": 60 },
-        { "id": 6, "name": "Hélices 7x3.5x2 para long range pack x4", "description": "Hélices 7 pulgadas de dos palas optimizadas para eficiencia en largo alcance.", "image": "url:/images/productos/helices-7x3-5.jpg", "score": 4.4, "category_id": 6, "brand_id": 1, "price": 24900, "stock": 40 },
-        { "id": 7, "name": "Batería LiPo 6S 1300mAh 100C FPV Pro", "description": "Batería LiPo de alto rendimiento para drones racing en 6S.", "image": "url:/images/productos/lipo-6s-1300.jpg", "score": 4.8, "category_id": 7, "brand_id": 5, "price": 129900, "stock": 25 },
-        { "id": 8, "name": "Batería LiPo 4S 1500mAh 75C Freestyle", "description": "Batería 4S ideal para drones freestyle de 5 pulgadas.", "image": "url:/images/productos/lipo-4s-1500.jpg", "score": 4.6, "category_id": 7, "brand_id": 5, "price": 109900, "stock": 30 },
-        { "id": 9, "name": "Controladora de vuelo F7 con OSD", "description": "FC F7 con OSD integrado, soporte para Betaflight e INAV.", "image": "url:/images/productos/fc-f7-osd.jpg", "score": 4.9, "category_id": 8, "brand_id": 4, "price": 209900, "stock": 18 },
-        { "id": 10, "name": "ESC 4 en 1 45A BLHeli_32", "description": "Variador 4 en 1 de 45A con soporte 3–6S y firmware BLHeli_32.", "image": "url:/images/productos/esc-4en1-45a.jpg", "score": 4.7, "category_id": 8, "brand_id": 3, "price": 229900, "stock": 16 },
-        { "id": 11, "name": "VTx 800mW 5.8GHz con SmartAudio", "description": "Transmisor de video 5.8GHz con potencia ajustable hasta 800mW.", "image": "url:/images/productos/vtx-800mw.jpg", "score": 4.6, "category_id": 8, "brand_id": 2, "price": 159900, "stock": 20 },
-        { "id": 12, "name": "Antena FPV pagoda RHCP 5.8GHz", "description": "Antena tipo pagoda RHCP para gafas o dron FPV.", "image": "url:/images/productos/antena-pagoda.jpg", "score": 4.5, "category_id": 8, "brand_id": 1, "price": 49900, "stock": 50 },
-        { "id": 13, "name": "Gafas FPV digitales 1080p", "description": "Gafas FPV con pantalla de alta resolución y receptor digital.", "image": "url:/images/productos/gafas-fpv-digitales.jpg", "score": 4.9, "category_id": 1, "brand_id": 4, "price": 1899900, "stock": 6 },
-        { "id": 14, "name": "Kit de dron freestyle 5 pulgadas RTF", "description": "Kit completo listo para volar con control remoto, dron y receptor.", "image": "url:/images/productos/kit-freestyle-rtf.jpg", "score": 4.7, "category_id": 1, "brand_id": 3, "price": 2399900, "stock": 5 },
-        { "id": 15, "name": "Transmisor de radio 2.4GHz multiprotocolo", "description": "Radio de control 2.4GHz con protocolo multiprotocolo y pantalla LCD.", "image": "url:/images/productos/radio-2-4ghz.jpg", "score": 4.8, "category_id": 4, "brand_id": 2, "price": 899900, "stock": 10 },
-        { "id": 16, "name": "Kit de herramientas para drones", "description": "Kit con destornilladores, llaves hexagonales y accesorios para montaje.", "image": "url:/images/productos/kit-herramientas.jpg", "score": 4.4, "category_id": 9, "brand_id": 1, "price": 99900, "stock": 35 },
-        { "id": 17, "name": "Soldador eléctrico 60W punta fina", "description": "Soldador de 60W con temperatura ajustable para electrónica.", "image": "url:/images/productos/soldador-60w.jpg", "score": 4.5, "category_id": 9, "brand_id": 2, "price": 79900, "stock": 28 },
-        { "id": 18, "name": "Cargador balanceador dual 2x100W", "description": "Cargador inteligente con dos canales independientes hasta 6S.", "image": "url:/images/productos/cargador-2x100w.jpg", "score": 4.7, "category_id": 7, "brand_id": 4, "price": 369900, "stock": 9 },
-        { "id": 19, "name": "Cableado de silicona 14AWG rojo/negro 1m", "description": "Par de cables de silicona 14AWG de alta flexibilidad.", "image": "url:/images/productos/cables-14awg.jpg", "score": 4.3, "category_id": 4, "brand_id": 5, "price": 15900, "stock": 80 },
-        { "id": 20, "name": "Tornillería M3 acero inoxidable surtida", "description": "Set de tornillos M3 surtidos para montaje de drones y frames.", "image": "url:/images/productos/tornilleria-m3.jpg", "score": 4.6, "category_id": 4, "brand_id": 3, "price": 29900, "stock": 70 }
+        { "id": 1, "name": "Motor brushless 2207 2450KV AeroX Falcon", "description": "Motor brushless 2207 de alto rendimiento para drones freestyle 5 pulgadas.", "image": "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=400&h=400&fit=crop", "score": 4.9, "category_id": 5, "brand_id": 3, "price": 149900, "stock": 20 },
+        { "id": 2, "name": "Motor brushless 2306 1750KV Raptor Pro V2", "description": "Motor 2306 1750KV ideal para drones de largo alcance en 6S.", "image": "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=400&h=400&fit=crop", "score": 4.7, "category_id": 5, "brand_id": 4, "price": 139900, "stock": 15 },
+        { "id": 3, "name": "Frame freestyle 5 pulgadas Carbono X5", "description": "Frame de 5 pulgadas en fibra de carbono 3K para drones freestyle.", "image": "https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?w=400&h=400&fit=crop", "score": 4.8, "category_id": 4, "brand_id": 2, "price": 189900, "stock": 12 },
+        { "id": 4, "name": "Frame long range 7 pulgadas Explorer LR7", "description": "Frame de 7 pulgadas para vuelos de largo alcance, diseño ligero y resistente.", "image": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=400&h=400&fit=crop", "score": 4.6, "category_id": 4, "brand_id": 5, "price": 219900, "stock": 8 },
+        { "id": 5, "name": "Hélices 5x4.3x3 triblades pack x4", "description": "Juego de 4 hélices triblade 5x4.3 para drones racing o freestyle.", "image": "https://images.unsplash.com/photo-1579829366248-204fe8413f31?w=400&h=400&fit=crop", "score": 4.5, "category_id": 6, "brand_id": 1, "price": 19900, "stock": 60 },
+        { "id": 6, "name": "Hélices 7x3.5x2 para long range pack x4", "description": "Hélices 7 pulgadas de dos palas optimizadas para eficiencia en largo alcance.", "image": "https://images.unsplash.com/photo-1579829366248-204fe8413f31?w=400&h=400&fit=crop", "score": 4.4, "category_id": 6, "brand_id": 1, "price": 24900, "stock": 40 },
+        { "id": 7, "name": "Batería LiPo 6S 1300mAh 100C FPV Pro", "description": "Batería LiPo de alto rendimiento para drones racing en 6S.", "image": "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=400&fit=crop", "score": 4.8, "category_id": 7, "brand_id": 5, "price": 129900, "stock": 25 },
+        { "id": 8, "name": "Batería LiPo 4S 1500mAh 75C Freestyle", "description": "Batería 4S ideal para drones freestyle de 5 pulgadas.", "image": "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=400&fit=crop", "score": 4.6, "category_id": 7, "brand_id": 5, "price": 109900, "stock": 30 },
+        { "id": 9, "name": "Controladora de vuelo F7 con OSD", "description": "FC F7 con OSD integrado, soporte para Betaflight e INAV.", "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=400&fit=crop", "score": 4.9, "category_id": 8, "brand_id": 4, "price": 209900, "stock": 18 },
+        { "id": 10, "name": "ESC 4 en 1 45A BLHeli_32", "description": "Variador 4 en 1 de 45A con soporte 3–6S y firmware BLHeli_32.", "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=400&fit=crop", "score": 4.7, "category_id": 8, "brand_id": 3, "price": 229900, "stock": 16 },
+        { "id": 11, "name": "VTx 800mW 5.8GHz con SmartAudio", "description": "Transmisor de video 5.8GHz con potencia ajustable hasta 800mW.", "image": "https://images.unsplash.com/photo-1597589022928-DE8fbea1e207?w=400&h=400&fit=crop", "score": 4.6, "category_id": 8, "brand_id": 2, "price": 159900, "stock": 20 },
+        { "id": 12, "name": "Antena FPV pagoda RHCP 5.8GHz", "description": "Antena tipo pagoda RHCP para gafas o dron FPV.", "image": "https://images.unsplash.com/photo-1597589022928-DE8fbea1e207?w=400&h=400&fit=crop", "score": 4.5, "category_id": 8, "brand_id": 1, "price": 49900, "stock": 50 },
+        { "id": 13, "name": "Gafas FPV digitales 1080p", "description": "Gafas FPV con pantalla de alta resolución y receptor digital.", "image": "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=400&h=400&fit=crop", "score": 4.9, "category_id": 1, "brand_id": 4, "price": 1899900, "stock": 6 },
+        { "id": 14, "name": "Kit de dron freestyle 5 pulgadas RTF", "description": "Kit completo listo para volar con control remoto, dron y receptor.", "image": "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=400&h=400&fit=crop", "score": 4.7, "category_id": 1, "brand_id": 3, "price": 2399900, "stock": 5 },
+        { "id": 15, "name": "Transmisor de radio 2.4GHz multiprotocolo", "description": "Radio de control 2.4GHz con protocolo multiprotocolo y pantalla LCD.", "image": "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=400&h=400&fit=crop", "score": 4.8, "category_id": 4, "brand_id": 2, "price": 899900, "stock": 10 },
+        { "id": 16, "name": "Kit de herramientas para drones", "description": "Kit con destornilladores, llaves hexagonales y accesorios para montaje.", "image": "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=400&h=400&fit=crop", "score": 4.4, "category_id": 9, "brand_id": 1, "price": 99900, "stock": 35 },
+        { "id": 17, "name": "Soldador eléctrico 60W punta fina", "description": "Soldador de 60W con temperatura ajustable para electrónica.", "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=400&fit=crop", "score": 4.5, "category_id": 9, "brand_id": 2, "price": 79900, "stock": 28 },
+        { "id": 18, "name": "Cargador balanceador dual 2x100W", "description": "Cargador inteligente con dos canales independientes hasta 6S.", "image": "https://images.unsplash.com/photo-1609976711693-a1dbc0b3e368?w=400&h=400&fit=crop", "score": 4.7, "category_id": 7, "brand_id": 4, "price": 369900, "stock": 9 },
+        { "id": 19, "name": "Cableado de silicona 14AWG rojo/negro 1m", "description": "Par de cables de silicona 14AWG de alta flexibilidad.", "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop", "score": 4.3, "category_id": 4, "brand_id": 5, "price": 15900, "stock": 80 },
+        { "id": 20, "name": "Tornillería M3 acero inoxidable surtida", "description": "Set de tornillos M3 surtidos para montaje de drones y frames.", "image": "https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?w=400&h=400&fit=crop", "score": 4.6, "category_id": 4, "brand_id": 3, "price": 29900, "stock": 70 }
     ],
 
     productImages: [
@@ -202,8 +202,3 @@ const InlineData = {
         { "id": 1, "name": "Cupón basico", "disc_porcent": 10, "code": "basic1" }
     ]
 };
-
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = InlineData;
-}

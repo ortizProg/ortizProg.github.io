@@ -1,7 +1,7 @@
 /**
  * Product - Represents a product with all its properties and relationships
  */
-class Product {
+export default class Product {
     /**
      * @param {Object} data - Product data
      * @param {number} data.id - Product ID
@@ -244,9 +244,4 @@ class Product {
     toString() {
         return `${this.name} - ${this.getFormattedPrice()}`;
     }
-}
-
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = Product;
 }

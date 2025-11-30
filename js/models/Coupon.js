@@ -1,7 +1,7 @@
 /**
  * Coupon - Represents a discount coupon
  */
-class Coupon {
+export default class Coupon {
     /**
      * @param {Object} data - Coupon data
      * @param {number} data.id - Coupon ID
@@ -99,9 +99,4 @@ class Coupon {
     toString() {
         return `${this.name} (${this.code}) - ${this.getFormattedDiscount()}`;
     }
-}
-
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = Coupon;
 }

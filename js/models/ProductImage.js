@@ -1,7 +1,7 @@
 /**
  * ProductImage - Represents a product image
  */
-class ProductImage {
+export default class ProductImage {
     /**
      * @param {Object} data - Product image data
      * @param {number} data.product_id - Product ID
@@ -59,9 +59,4 @@ class ProductImage {
     toString() {
         return `Image #${this.order}: ${this.getImageUrl()}`;
     }
-}
-
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = ProductImage;
 }

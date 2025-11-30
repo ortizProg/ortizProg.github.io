@@ -1,7 +1,7 @@
 /**
  * Brand - Represents a product brand
  */
-class Brand {
+export default class Brand {
     /**
      * @param {Object} data - Brand data
      * @param {number} data.id - Brand ID
@@ -44,9 +44,4 @@ class Brand {
     toString() {
         return this.name;
     }
-}
-
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = Brand;
 }

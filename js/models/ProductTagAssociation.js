@@ -1,7 +1,7 @@
 /**
  * ProductTagAssociation - Represents the association between a product and a tag
  */
-class ProductTagAssociation {
+export default class ProductTagAssociation {
     /**
      * @param {Object} data - Product tag association data
      * @param {number} data.tag_id - Tag ID
@@ -64,9 +64,4 @@ class ProductTagAssociation {
     toString() {
         return this.getTagName() || `Tag ${this.tagId}`;
     }
-}
-
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = ProductTagAssociation;
 }

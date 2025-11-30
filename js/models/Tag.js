@@ -1,7 +1,7 @@
 /**
  * Tag - Represents a product tag
  */
-class Tag {
+export default class Tag {
     /**
      * @param {Object} data - Tag data
      * @param {number} data.id - Tag ID
@@ -44,9 +44,4 @@ class Tag {
     toString() {
         return this.name;
     }
-}
-
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = Tag;
 }

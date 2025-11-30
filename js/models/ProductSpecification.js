@@ -1,7 +1,7 @@
 /**
  * ProductSpecification - Represents a specific specification value for a product
  */
-class ProductSpecification {
+export default class ProductSpecification {
     /**
      * @param {Object} data - Product specification data
      * @param {number} data.product_id - Product ID
@@ -71,9 +71,4 @@ class ProductSpecification {
         const name = this.getSpecificationName() || `Spec ${this.specificationId}`;
         return `${name}: ${this.value}`;
     }
-}
-
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = ProductSpecification;
 }

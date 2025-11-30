@@ -1,8 +1,15 @@
-/**
- * StaticDataManager - Version for static sites (no backend required)
- * Uses inline data instead of fetch() to work without a server
- */
-class StaticDataManager {
+import Product from "./models/Product.js";
+import Category from "./models/Category.js";
+import Brand from "./models/Brand.js";
+import Tag from "./models/Tag.js";
+import Specification from "./models/Specification.js";
+import Coupon from "./models/Coupon.js";
+import ProductImage from "./models/ProductImage.js";
+import ProductSpecification from "./models/ProductSpecification.js";
+import ProductTagAssociation from "./models/ProductTagAssociation.js";
+
+
+export default class StaticDataManager {
     constructor() {
         // Initialize empty repositories (will be populated from inline data)
         this.categoriesData = [];
@@ -360,9 +367,4 @@ class StaticDataManager {
         const total = this.productsData.reduce((sum, p) => sum + p.score, 0);
         return Math.round((total / this.productsData.length) * 10) / 10;
     }
-}
-
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = StaticDataManager;
 }

@@ -1,7 +1,7 @@
 /**
  * Specification - Represents a type of specification (e.g., "Peso", "Voltaje")
  */
-class Specification {
+export default class Specification {
     /**
      * @param {Object} data - Specification data
      * @param {number} data.id - Specification ID
@@ -44,9 +44,4 @@ class Specification {
     toString() {
         return this.name;
     }
-}
-
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = Specification;
 }
