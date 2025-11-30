@@ -15,6 +15,7 @@ const state = {
         search: '',
         inStock: false,
         preOrder: false,
+        categories: [], // Array of IDs
         brands: [], // Array of IDs
         minPrice: undefined,
         maxPrice: undefined,
@@ -35,6 +36,7 @@ const dom = {
     filters: {
         inStock: document.getElementById('filter-instock'),
         preOrder: document.getElementById('filter-preorder'),
+        headerCategories: document.getElementById('header-categories'),
         brandsContainer: document.getElementById('brands-filter-container'),
         minPrice: document.getElementById('min-price'),
         maxPrice: document.getElementById('max-price'),
@@ -51,7 +53,8 @@ const dom = {
 function init() {
     console.log('🏠 Inicializando Home...');
 
-    // Renderizar filtros dinámicos (marcas)
+    // Renderizar filtros dinámicos
+    renderHeaderCategories();
     renderBrandFilters();
 
     // Configurar event listeners
@@ -97,27 +100,22 @@ function updateView() {
         // Hacemos el filtrado base con DataManager y luego refinamos si es necesario.
         let products = dataManager.filterProducts(filterOptions);
 
-        // Filtrado adicional para múltiples marcas (si DataManager solo soporta una)
-        // O si DataManager no soporta array de marcas, lo hacemos aquí.
-        // StaticDataManager.js filterProducts soporta 'brandId' singular.
-        // Así que filtramos marcas manualmente aquí para soportar selección múltiple.
+        // Filtrado manual para Categorías (múltiple selección)
+        if (state.filters.categories.length > 0) {
+            products = products.filter(p => state.filters.categories.includes(p.categoryId));
+        }
+
+        // Filtrado manual para Marcas (múltiple selección)
         if (state.filters.brands.length > 0) {
             products = products.filter(p => state.filters.brands.includes(p.brandId));
         }
 
-        // Filtrado de Pre-order (asumiendo que pre-order es stock <= 0 pero disponible, o una lógica específica)
-        // En este caso, si el usuario selecciona "Pre-order", mostramos productos con stock 0 o flag de pre-order.
-        // Ajustaremos la lógica según necesidad. Por ahora, si "Pre-order" está activo,
-        // mostramos productos que NO están en stock pero son visibles.
+        // Filtrado de Pre-order
         if (state.filters.preOrder) {
-            // Si solo Pre-order está activo, mostramos solo pre-order.
-            // Si In-Stock Y Pre-order están activos, mostramos ambos.
             if (!state.filters.inStock) {
                 products = products.filter(p => !p.isInStock());
             }
-            // Si ambos están activos, no filtramos por stock (mostramos todo).
         } else if (state.filters.inStock) {
-            // Si solo In-Stock está activo (y no Pre-order), ya lo filtró filterProducts o lo hacemos aquí
             products = products.filter(p => p.isInStock());
         }
 
@@ -140,6 +138,9 @@ function updateView() {
 
         // 6. Renderizar paginación
         renderPagination(totalPages);
+
+        // 7. Actualizar estado visual de categorías en header
+        updateHeaderCategoriesState();
     }, 500); // 500ms de delay
 }
 
@@ -213,6 +214,42 @@ function renderProductGrid(products) {
             </div>
         `;
     }).join('');
+}
+
+function renderHeaderCategories() {
+    if (!dom.filters.headerCategories) return;
+
+    const categories = dataManager.getAllCategories();
+
+    // Agregar opción "All" o manejar selección vacía como "All"
+    // Aquí renderizamos las categorías como links
+    dom.filters.headerCategories.innerHTML = categories.map(category => `
+        <a 
+            href="#" 
+            data-category-id="${category.id}"
+            class="header-category-link text-sm font-medium text-white/80 hover:text-primary transition-colors"
+        >
+            ${category.name}
+        </a>
+    `).join('');
+}
+
+function updateHeaderCategoriesState() {
+    if (!dom.filters.headerCategories) return;
+
+    const links = dom.filters.headerCategories.querySelectorAll('.header-category-link');
+    links.forEach(link => {
+        const categoryId = parseInt(link.dataset.categoryId);
+        const isActive = state.filters.categories.includes(categoryId);
+
+        if (isActive) {
+            link.classList.remove('text-white/80');
+            link.classList.add('text-primary');
+        } else {
+            link.classList.add('text-white/80');
+            link.classList.remove('text-primary');
+        }
+    });
 }
 
 function renderBrandFilters() {
@@ -310,6 +347,25 @@ function sortProducts(products) {
     }
 }
 
+function toggleCategoryFilter(categoryId) {
+    // Si ya está seleccionado, lo quitamos (toggle)
+    // Si no, limpiamos otros y seleccionamos este (comportamiento tipo tab)
+    // O permitimos múltiple selección? En header suele ser single select.
+    // Vamos a implementar single select con toggle (click en activo lo desactiva)
+
+    const index = state.filters.categories.indexOf(categoryId);
+    if (index !== -1) {
+        // Ya estaba activo, lo quitamos
+        state.filters.categories = [];
+    } else {
+        // Nuevo, reemplazamos selección anterior
+        state.filters.categories = [categoryId];
+    }
+
+    state.pagination.page = 1; // Resetear a primera página
+    updateView();
+}
+
 function toggleBrandFilter(brandId) {
     const index = state.filters.brands.indexOf(brandId);
     if (index === -1) {
@@ -369,6 +425,18 @@ function setupEventListeners() {
             state.filters.preOrder = e.target.checked;
             state.pagination.page = 1;
             updateView();
+        });
+    }
+
+    // Filtro de Categorías en Header (Delegación de eventos)
+    if (dom.filters.headerCategories) {
+        dom.filters.headerCategories.addEventListener('click', (e) => {
+            e.preventDefault(); // Evitar navegación real
+            const link = e.target.closest('.header-category-link');
+            if (link) {
+                const categoryId = parseInt(link.dataset.categoryId);
+                toggleCategoryFilter(categoryId);
+            }
         });
     }
 
