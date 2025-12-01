@@ -1,439 +1,248 @@
 <!DOCTYPE html>
 <html class="dark" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>AeroParts - Product Detail</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        font-family: "Space Grotesk", sans-serif;
-      }
-      .material-symbols-outlined {
-        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-      }
-    </style>
-  </head>
-  <body
-    class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-ink-dark"
-  >
-    <div
-      class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden"
-    >
-      <header
-        class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-white/10 bg-background-dark/80 backdrop-blur-sm"
-      >
-        <div
-          class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 py-3"
-        >
-          <div class="flex items-center gap-8">
-            <div class="flex items-center gap-2 text-white">
-              <span class="material-symbols-outlined text-primary text-2xl"
-                >electric_moped</span
-              >
-              <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
-                FlyTech Market
-              </h2>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>AeroParts - Product Detail</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <style>
+    body {
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-ink-dark">
+  <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+    <header
+      class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-white/10 bg-background-dark/80 backdrop-blur-sm">
+      <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 py-3">
+        <div class="flex items-center gap-8">
+          <div class="flex items-center gap-2 text-white">
+            <span class="material-symbols-outlined text-primary text-2xl">electric_moped</span>
+            <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
+              FlyTech Market
+            </h2>
+          </div>
+          <nav class="hidden md:flex items-center gap-6">
+            <a class="text-sm font-medium text-white/80 hover:text-primary transition-colors" href="#">Drones</a>
+            <a class="text-sm font-medium text-white/80 hover:text-primary transition-colors" href="#">RC Planes</a>
+            <a class="text-sm font-medium text-white/80 hover:text-primary transition-colors" href="#">RC
+              Helicopters</a>
+            <a class="text-sm font-medium text-primary" href="#">Components</a>
+          </nav>
+        </div>
+        <div class="flex flex-1 justify-end gap-4 items-center">
+          <label class="hidden sm:flex flex-col min-w-40 !h-10 max-w-64">
+            <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+              <div
+                class="text-white/60 flex border border-r-0 border-white/20 bg-white/5 items-center justify-center pl-3 rounded-l-lg">
+                <span class="material-symbols-outlined text-xl">search</span>
+              </div>
+              <input
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-l-0 border-white/20 bg-white/5 h-full placeholder:text-white/60 px-4 rounded-l-none pl-2 text-sm font-normal leading-normal"
+                placeholder="Search components..." value="" />
             </div>
-            <nav class="hidden md:flex items-center gap-6">
-              <a
-                class="text-sm font-medium text-white/80 hover:text-primary transition-colors"
-                href="#"
-                >Drones</a
-              >
-              <a
-                class="text-sm font-medium text-white/80 hover:text-primary transition-colors"
-                href="#"
-                >RC Planes</a
-              >
-              <a
-                class="text-sm font-medium text-white/80 hover:text-primary transition-colors"
-                href="#"
-                >RC Helicopters</a
-              >
-              <a class="text-sm font-medium text-primary" href="#"
-                >Components</a
-              >
+          </label>
+          <div class="flex gap-2">
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-white/5 text-white/80 hover:bg-white/10 transition-colors">
+              <span class="material-symbols-outlined text-xl">favorite</span>
+            </button>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-white/5 text-white/80 hover:bg-white/10 transition-colors">
+              <span class="material-symbols-outlined text-xl">shopping_cart</span>
+            </button>
+          </div>
+          <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+            data-alt="User profile picture" style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_6EeJRcl7TYtUcUdkIrfrIof0ElWSb19-3cPTz4PmEz7-ZP5Uatg09lDW-_2Bfeio9iNJ7n_7S13KxnDrtDifqwfg8awpDj9hHW8qvfyQfnvVfFZVkC2szi-AmWr3Stp7vzS-SrU_4K8kTWZ_GfOmSHEzyYL83uQ3icWP4YjuMun9mFH1uOeT3T-MMjFBSALYyO2AM9arRgOxp57Hx6c82ZUjpsDE-5qcmVfwSEVLINvQsPZ4WV4fvDUNd_igxieBX6kcl6HsVVA');
+              "></div>
+        </div>
+      </div>
+    </header>
+    <main class="layout-container flex h-full grow flex-col">
+      <div class="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap gap-2 pb-4" id="breadcrumbs">
+          <a class="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400"
+            href="../../index.html">Home</a>
+          <span class="text-sm font-medium text-gray-500 dark:text-gray-400">/</span>
+          <span class="text-sm font-medium text-gray-800 dark:text-ink-dark"
+            id="breadcrumb-product-name">Loading...</span>
+        </div>
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+          <div class="flex flex-col gap-4">
+            <div
+              class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden rounded-xl min-h-80 aspect-square border border-white/10"
+              id="main-image" style="background-image: url('');">
+              <button
+                class="m-4 self-end rounded-full bg-black/50 p-2 text-white backdrop-blur-sm transition hover:bg-black/70">
+                <span class="material-symbols-outlined">zoom_in</span>
+              </button>
+            </div>
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(80px,1fr))] gap-3" id="thumbnails-container">
+              <!-- Thumbnails will be injected here -->
+            </div>
+          </div>
+          <div class="flex flex-col gap-6">
+            <div class="flex flex-wrap justify-between gap-3">
+              <div class="flex flex-col gap-2">
+                <p class="text-3xl font-black leading-tight tracking-[-0.033em] text-gray-900 dark:text-ink-dark lg:text-4xl"
+                  id="product-name">
+                  Loading...
+                </p>
+                <div class="flex items-center gap-4">
+                  <div class="flex items-center gap-1 text-yellow-400">
+                    <span class="material-symbols-outlined !text-xl">star</span>
+                    <span class="material-symbols-outlined !text-xl">star</span>
+                    <span class="material-symbols-outlined !text-xl">star</span>
+                    <span class="material-symbols-outlined !text-xl">star</span>
+                    <span class="material-symbols-outlined !text-xl">star_half</span>
+                    <span class="ml-1 text-sm font-medium text-gray-500 dark:text-gray-400">(127 Reviews)</span>
+                  </div>
+                </div>
+                <p class="text-3xl font-bold text-primary" id="product-price">--</p>
+                <p class="text-sm font-semibold flex items-center gap-2" id="product-stock">
+                  <!-- Stock status -->
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-4 rounded-xl border border-white/10 bg-surface-dark p-6 backdrop-blur-sm">
+              <div class="flex items-end gap-4">
+                <div class="flex-1">
+                  <label class="block text-sm font-medium text-gray-600 dark:text-gray-300"
+                    for="quantity">Quantity</label>
+                  <input
+                    class="mt-1 block w-full rounded-md border-gray-300 bg-gray-50 dark:border-white/10 dark:bg-surface-2-dark dark:text-ink-dark dark:placeholder-gray-400 shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
+                    id="quantity" min="1" name="quantity" type="number" value="1" />
+                </div>
+                <button
+                  class="flex items-center justify-center rounded-md p-2 text-gray-600 dark:text-gray-300 bg-surface-2-dark hover:text-primary dark:hover:text-primary transition">
+                  <span class="material-symbols-outlined">favorite</span>
+                </button>
+                <button
+                  class="flex items-center justify-center rounded-md p-2 text-gray-600 dark:text-gray-300 bg-surface-2-dark hover:text-primary dark:hover:text-primary transition">
+                  <span class="material-symbols-outlined">share</span>
+                </button>
+              </div>
+              <div class="flex flex-col gap-3">
+                <button id="add-to-cart-btn"
+                  class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-primary text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition">
+                  Add to Cart
+                </button>
+                <button
+                  class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-primary/20 text-primary gap-2 text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/30 transition">
+                  Buy Now
+                </button>
+              </div>
+            </div>
+            <div class="rounded-xl border border-white/10 p-4 bg-surface-dark">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">local_shipping</span>
+                <div class="flex flex-col">
+                  <p class="font-bold">Shipping Info</p>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                    Est. delivery: 3-5 business days.
+                    <a class="underline" href="#">Return Policy</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 rounded-xl border border-white/10 p-4 bg-surface-dark">
+              <input
+                class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary dark:border-white/10 dark:bg-surface-2-dark"
+                id="compare" type="checkbox" />
+              <label class="font-medium" for="compare">Compare this product</label>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12">
+          <div class="border-b border-gray-200 dark:border-white/10">
+            <nav aria-label="Tabs" class="-mb-px flex space-x-8">
+              <a class="whitespace-nowrap border-b-2 border-primary px-1 py-4 text-sm font-medium text-primary"
+                href="#">Specifications</a>
+              <a class="whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:border-primary/50 dark:hover:text-gray-300"
+                href="#">Compatibility</a>
+              <a class="whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:border-primary/50 dark:hover:text-gray-300"
+                href="#">Reviews</a>
+              <a class="whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:border-primary/50 dark:hover:text-gray-300"
+                href="#">Q&amp;A</a>
             </nav>
           </div>
-          <div class="flex flex-1 justify-end gap-4 items-center">
-            <label class="hidden sm:flex flex-col min-w-40 !h-10 max-w-64">
-              <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
-                <div
-                  class="text-white/60 flex border border-r-0 border-white/20 bg-white/5 items-center justify-center pl-3 rounded-l-lg"
-                >
-                  <span class="material-symbols-outlined text-xl">search</span>
-                </div>
-                <input
-                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-l-0 border-white/20 bg-white/5 h-full placeholder:text-white/60 px-4 rounded-l-none pl-2 text-sm font-normal leading-normal"
-                  placeholder="Search components..."
-                  value=""
-                />
-              </div>
-            </label>
-            <div class="flex gap-2">
-              <button
-                class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-white/5 text-white/80 hover:bg-white/10 transition-colors"
-              >
-                <span class="material-symbols-outlined text-xl">favorite</span>
-              </button>
-              <button
-                class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-white/5 text-white/80 hover:bg-white/10 transition-colors"
-              >
-                <span class="material-symbols-outlined text-xl"
-                  >shopping_cart</span
-                >
-              </button>
+          <div class="py-8">
+            <div class="prose prose-sm dark:prose-invert max-w-none prose-p:my-2 prose-ul:my-2">
+              <p id="product-description">
+                <!-- Description -->
+              </p>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-3" role="list" id="product-specs">
+                <!-- Specs -->
+              </ul>
             </div>
-            <div
-              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
-              data-alt="User profile picture"
-              style="
-                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_6EeJRcl7TYtUcUdkIrfrIof0ElWSb19-3cPTz4PmEz7-ZP5Uatg09lDW-_2Bfeio9iNJ7n_7S13KxnDrtDifqwfg8awpDj9hHW8qvfyQfnvVfFZVkC2szi-AmWr3Stp7vzS-SrU_4K8kTWZ_GfOmSHEzyYL83uQ3icWP4YjuMun9mFH1uOeT3T-MMjFBSALYyO2AM9arRgOxp57Hx6c82ZUjpsDE-5qcmVfwSEVLINvQsPZ4WV4fvDUNd_igxieBX6kcl6HsVVA');
-              "
-            ></div>
           </div>
         </div>
-      </header>
-      <main class="layout-container flex h-full grow flex-col">
-        <div class="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <div class="flex flex-wrap gap-2 pb-4">
-            <a
-              class="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400"
-              href="#"
-              >Home</a
-            >
-            <span class="text-sm font-medium text-gray-500 dark:text-gray-400"
-              >/</span
-            >
-            <a
-              class="text-sm font-medium text-gray-500 hover:text-primary dark:text-gray-400"
-              href="#"
-              >Components</a
-            >
-            <span class="text-sm font-medium text-gray-500 dark:text-gray-400"
-              >/</span
-            >
-            <span class="text-sm font-medium text-gray-800 dark:text-ink-dark"
-              >Brushless Motors</span
-            >
-          </div>
-          <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
-            <div class="flex flex-col gap-4">
-              <div
-                class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden rounded-xl min-h-80 aspect-square border border-white/10"
-                data-alt="T-Motor F60 PRO V brushless motor from the side"
-                style="
-                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA21v80s_lCk80FSz8xcpaahxc8P4g094QP8Zr9twN1ywxauaS8qPPU1qb--Oi4K3g7PBAxdpkeX2FKdwkwynGi2cqDayKFtyPP369XzDkBwZJ6oP_WjifKFRdfICFFQuSgZlhqHNFXvubHu8UOSmhaWVf0UoVT56cgrIQ9fIgC5O0EEyDuocYauWLsnPdWSnBBxE6h4SL6df6qgUtOlGF4bWGHs03Em5K8e8UhvoS-ug15UJnY_6dEKp1d1UwmwqAn0KkAXDq5dPI');
-                "
-              >
-                <button
-                  class="m-4 self-end rounded-full bg-black/50 p-2 text-white backdrop-blur-sm transition hover:bg-black/70"
-                >
-                  <span class="material-symbols-outlined">zoom_in</span>
-                </button>
-              </div>
-              <div
-                class="grid grid-cols-[repeat(auto-fit,minmax(80px,1fr))] gap-3"
-              >
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg border-2 border-primary"
-                  data-alt="T-Motor F60 PRO V brushless motor from the side"
-                  style="
-                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBrYbk_Wb49aZqyDNwksti2nmHFytG45Ry6jok4IvzvwDDuxUcV9oZjtTPJ95PvYKmaY_PN6cRAb8rVozAAiLkkYc88lauYvYiktr5lPY-W5T0i8TKnaKIBDyUn-RISsWtYuMyj31o6xPxVmXz7eioAtYY8gE3uRkzkKA93XilbW_gV1Eg8zS5D5qwad83Oh5owx2vptdKUXK2RMuhVOkq2kLfHOdlqVFZ9Gj8yny7NFuCFnckE5uZb2q5nVxblSBtI8UKWrSNPZFo');
-                  "
-                ></div>
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg border border-white/10"
-                  data-alt="T-Motor F60 PRO V brushless motor top view"
-                  style="
-                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZZEhRJGiYaBIZE62AEIFrDwz0KFMQmBCMxSRthdF7LVsGTESdNStAyppW8fy0UCBpgMLfYG3oXfnG69CKd2dnSezB7CcJUgiVqHeAMlGGqRcFcVm4BcKcXnMQAvCoAVGqYue9A7BxN7lMe9gXdr8K0s9vvRRvK3HTnIrI0VdID3LdSuq0xQS6OI6ylKf-5fclCQ7I7w4ZPaBbIGcs4-P4YD3nXDF6ALTqyC9FomsDqhRsirE-Sm4LNlyNQ7nW3RggHf6j3aFusGM');
-                  "
-                ></div>
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg border border-white/10"
-                  data-alt="T-Motor F60 PRO V brushless motor on a drone frame"
-                  style="
-                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJe_Q_Y-vWbd8tqvZKFVEaIBLvP34QTG2Vhfdi8OtPElfosy12jctKg3VoISw5hnkoVUnix4MjNnrUjGwZxB8cUTPgRkO-eBRPgltfo-yiGJjTkCGJ_gfcjXaaT_fc59VxOG3U7Iy6-h3JSFUEuH3noApCECm5Ujc4dfEaeliexwdAkw3yRmDIIsoo-AcZtVhuen7-VpPisFob1ZVWeCq3I2Bo22OAq9vmLMzyZZiI0NNTG3a5t3pnPMvgzQKLBGyif1JeWpQYt8U');
-                  "
-                ></div>
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg border border-white/10"
-                  data-alt="User submitted photo of the motor in use"
-                  style="
-                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDW0nEIIOF2ZDxkAi8_shC3iNZLMs_d_N7kdLO6JubGfo3IpdKMfzxbL_vI8lz7GmlWE5Awo2KmViZr2e_PRCo5evILesbiuMFV6xHQGyAVIk5CYRiopBGNjO1FXe4kVdC0FwvYRNLV2Tp4DYpTiHinth2yLhw0xJM97j5JWsjSAxZDZW4XtNum4abu5TsEGkuDp_7JGdRe-C4fVKgV8bEgE8xrjuA_X_FwHZLhPgroSOepyLhgr_2M8q1aZjk0tWzKrACKDP13N0w');
-                  "
-                ></div>
-                <div
-                  class="flex flex-col items-center justify-center gap-1 w-full bg-primary/10 aspect-square rounded-lg border border-primary/30 text-primary cursor-pointer"
-                >
-                  <span class="material-symbols-outlined text-4xl"
-                    >view_in_ar</span
-                  >
-                  <span class="text-xs font-bold">360° View</span>
-                </div>
-              </div>
-            </div>
-            <div class="flex flex-col gap-6">
-              <div class="flex flex-wrap justify-between gap-3">
-                <div class="flex flex-col gap-2">
-                  <p
-                    class="text-3xl font-black leading-tight tracking-[-0.033em] text-gray-900 dark:text-ink-dark lg:text-4xl"
-                  >
-                    T-Motor F60 PRO V 2207 2550KV Brushless Motor
-                  </p>
-                  <div class="flex items-center gap-4">
-                    <div class="flex items-center gap-1 text-yellow-400">
-                      <span class="material-symbols-outlined !text-xl"
-                        >star</span
-                      >
-                      <span class="material-symbols-outlined !text-xl"
-                        >star</span
-                      >
-                      <span class="material-symbols-outlined !text-xl"
-                        >star</span
-                      >
-                      <span class="material-symbols-outlined !text-xl"
-                        >star</span
-                      >
-                      <span class="material-symbols-outlined !text-xl"
-                        >star_half</span
-                      >
-                      <span
-                        class="ml-1 text-sm font-medium text-gray-500 dark:text-gray-400"
-                        >(127 Reviews)</span
-                      >
-                    </div>
-                  </div>
-                  <p class="text-3xl font-bold text-primary">€45.99</p>
-                  <p
-                    class="text-sm font-semibold text-green-500 flex items-center gap-2"
-                  >
-                    <span class="material-symbols-outlined !text-base"
-                      >check_circle</span
-                    >
-                    In Stock
-                  </p>
-                </div>
-              </div>
-              <div
-                class="flex flex-col gap-4 rounded-xl border border-white/10 bg-surface-dark p-6 backdrop-blur-sm"
-              >
-                <div class="flex items-end gap-4">
-                  <div class="flex-1">
-                    <label
-                      class="block text-sm font-medium text-gray-600 dark:text-gray-300"
-                      for="quantity"
-                      >Quantity</label
-                    >
-                    <input
-                      class="mt-1 block w-full rounded-md border-gray-300 bg-gray-50 dark:border-white/10 dark:bg-surface-2-dark dark:text-ink-dark dark:placeholder-gray-400 shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
-                      id="quantity"
-                      min="1"
-                      name="quantity"
-                      type="number"
-                      value="1"
-                    />
-                  </div>
-                  <button
-                    class="flex items-center justify-center rounded-md p-2 text-gray-600 dark:text-gray-300 bg-surface-2-dark hover:text-primary dark:hover:text-primary transition"
-                  >
-                    <span class="material-symbols-outlined">favorite</span>
-                  </button>
-                  <button
-                    class="flex items-center justify-center rounded-md p-2 text-gray-600 dark:text-gray-300 bg-surface-2-dark hover:text-primary dark:hover:text-primary transition"
-                  >
-                    <span class="material-symbols-outlined">share</span>
-                  </button>
-                </div>
-                <div class="flex flex-col gap-3">
-                  <button
-                    class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-primary text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition"
-                  >
-                    Add to Cart
-                  </button>
-                  <button
-                    class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-primary/20 text-primary gap-2 text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/30 transition"
-                  >
-                    Buy Now
-                  </button>
-                </div>
-              </div>
-              <div
-                class="rounded-xl border border-white/10 p-4 bg-surface-dark"
-              >
-                <div class="flex items-center gap-3">
-                  <span class="material-symbols-outlined text-primary"
-                    >local_shipping</span
-                  >
-                  <div class="flex flex-col">
-                    <p class="font-bold">Shipping Info</p>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">
-                      Est. delivery: 3-5 business days.
-                      <a class="underline" href="#">Return Policy</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="flex items-center gap-2 rounded-xl border border-white/10 p-4 bg-surface-dark"
-              >
-                <input
-                  class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary dark:border-white/10 dark:bg-surface-2-dark"
-                  id="compare"
-                  type="checkbox"
-                />
-                <label class="font-medium" for="compare"
-                  >Compare this product</label
-                >
-              </div>
-            </div>
-          </div>
-          <div class="mt-12">
-            <div class="border-b border-gray-200 dark:border-white/10">
-              <nav aria-label="Tabs" class="-mb-px flex space-x-8">
-                <a
-                  class="whitespace-nowrap border-b-2 border-primary px-1 py-4 text-sm font-medium text-primary"
-                  href="#"
-                  >Specifications</a
-                >
-                <a
-                  class="whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:border-primary/50 dark:hover:text-gray-300"
-                  href="#"
-                  >Compatibility</a
-                >
-                <a
-                  class="whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:border-primary/50 dark:hover:text-gray-300"
-                  href="#"
-                  >Reviews</a
-                >
-                <a
-                  class="whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:border-primary/50 dark:hover:text-gray-300"
-                  href="#"
-                  >Q&amp;A</a
-                >
-              </nav>
-            </div>
-            <div class="py-8">
-              <div
-                class="prose prose-sm dark:prose-invert max-w-none prose-p:my-2 prose-ul:my-2"
-              >
-                <p>
-                  The T-Motor F60 PRO V is the latest iteration in the F60
-                  series, engineered for maximum performance in FPV racing and
-                  freestyle flying. With enhanced materials and a refined
-                  design, it delivers unparalleled thrust and efficiency.
-                </p>
-                <ul
-                  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-3"
-                  role="list"
-                >
-                  <li class="flex items-center gap-2">
-                    <span class="font-bold text-gray-700 dark:text-gray-300"
-                      >KV:</span
-                    >
-                    2550
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="font-bold text-gray-700 dark:text-gray-300"
-                      >Voltage:</span
-                    >
-                    4-6S LiPo
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="font-bold text-gray-700 dark:text-gray-300"
-                      >Max Thrust:</span
-                    >
-                    2.3kg
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="font-bold text-gray-700 dark:text-gray-300"
-                      >Weight:</span
-                    >
-                    32g (w/o cable)
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="font-bold text-gray-700 dark:text-gray-300"
-                      >Prop Size:</span
-                    >
-                    5-inch
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="font-bold text-gray-700 dark:text-gray-300"
-                      >Materials:</span
-                    >
-                    Titanium Alloy Shaft
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div
-            class="mt-8 rounded-xl border border-white/10 bg-surface-dark p-6 backdrop-blur-sm"
-          >
-            <h3 class="text-2xl font-bold tracking-tight">
-              Complete Your Build
-            </h3>
-            <p class="text-gray-500 dark:text-gray-400 mt-1">
-              Suggested components for this motor.
-            </p>
-            <div
-              class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
-            >
-              <div class="flex flex-col items-center text-center">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg border border-white/10"
-                  data-alt="T-Motor P60A ESC"
-                  style="
+        <div class="mt-8 rounded-xl border border-white/10 bg-surface-dark p-6 backdrop-blur-sm">
+          <h3 class="text-2xl font-bold tracking-tight">
+            Complete Your Build
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400 mt-1">
+            Suggested components for this motor.
+          </p>
+          <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="flex flex-col items-center text-center">
+              <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg border border-white/10"
+                data-alt="T-Motor P60A ESC" style="
                     background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBVyP_3QKHFMOrbnHi9ba32zTNEvQDX4st_q7j-hQoRvAaPdF3il7I6bLTbw7zjUXhXMGdsx-6GWkkPLeMA98D291DeQEFmgCSI_US53l8W64eXzbKIxcl8gr-df033cnrbNT2BBoyBd_5IZTxsGpoBOXLqet5hVobzd6mARLC20goPPQksQaTIuXJvgEZ2hP96zsek0vUHK1Vux5U7EFSZ1oX6-tjyZFw8rPAyxNCCvWgsy4jklYfMziPqToN_SJ1UvqpDTR51IXM');
-                  "
-                ></div>
-                <h4 class="mt-2 font-semibold">T-Motor P60A ESC</h4>
-                <p class="text-sm text-gray-500 dark:text-gray-400">€24.99</p>
-              </div>
-              <div
-                class="hidden sm:flex items-center justify-center text-3xl font-light text-gray-400"
-              >
-                +
-              </div>
-              <div class="flex flex-col items-center text-center">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg border border-white/10"
-                  data-alt="Matek F722-SE Flight Controller"
-                  style="
+                  "></div>
+              <h4 class="mt-2 font-semibold">T-Motor P60A ESC</h4>
+              <p class="text-sm text-gray-500 dark:text-gray-400">€24.99</p>
+            </div>
+            <div class="hidden sm:flex items-center justify-center text-3xl font-light text-gray-400">
+              +
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg border border-white/10"
+                data-alt="Matek F722-SE Flight Controller" style="
                     background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuClcKStTBD3dG-VkalO0de14wsj5gf83PxGz7FevctjbKwguxg7yg71kW_6SfMsZjWW2Y2SxeuNN9c3CIpIAWE9KiTgi_moTtAS29geQBYOtyqN3QXN7aDGf77xDUTq5kzDC5l9y5vX_U3mUXTHLXT46gZR153nFXBQj4ddB80lwyz7pWmWcNtVT9i9rMzwJH2J79x96T3dQwzrEdsciyzeUl0r4Cv1aL8mCbWjT7iSFwAHBqPaUmrsRwGQ00f_S0doQLURMPOKwIE');
-                  "
-                ></div>
-                <h4 class="mt-2 font-semibold">Matek F722-SE FC</h4>
-                <p class="text-sm text-gray-500 dark:text-gray-400">€59.99</p>
-              </div>
-              <div
-                class="flex flex-col items-center justify-center gap-4 lg:col-start-4"
-              >
-                <p class="text-xl font-bold">
-                  Bundle Price: <span class="text-primary">€129.99</span>
-                </p>
-                <button
-                  class="flex w-full max-w-xs cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-primary text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition"
-                >
-                  Add Bundle to Cart
-                </button>
-              </div>
+                  "></div>
+              <h4 class="mt-2 font-semibold">Matek F722-SE FC</h4>
+              <p class="text-sm text-gray-500 dark:text-gray-400">€59.99</p>
+            </div>
+            <div class="flex flex-col items-center justify-center gap-4 lg:col-start-4">
+              <p class="text-xl font-bold">
+                Bundle Price: <span class="text-primary">€129.99</span>
+              </p>
+              <button
+                class="flex w-full max-w-xs cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-primary text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition">
+                Add Bundle to Cart
+              </button>
             </div>
           </div>
         </div>
-      </main>
-    </div>
-    <script src="../../js/app.js"></script>
-  </body>
+      </div>
+    </main>
+  </div>
+  <script src="../../js/app.js"></script>
+  <script src="../../js/models/Category.js"></script>
+  <script src="../../js/models/Brand.js"></script>
+  <script src="../../js/models/Tag.js"></script>
+  <script src="../../js/models/Specification.js"></script>
+  <script src="../../js/models/ProductSpecification.js"></script>
+  <script src="../../js/models/ProductImage.js"></script>
+  <script src="../../js/models/ProductTagAssociation.js"></script>
+  <script src="../../js/models/Product.js"></script>
+  <script src="../../js/models/Coupon.js"></script>
+  <script src="../../js/InlineData.js"></script>
+  <script src="../../js/StaticDataManager.js"></script>
+  <script src="../../js/product-detail.js" type="module"></script>
+</body>
+
 </html>

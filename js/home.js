@@ -173,7 +173,7 @@ function renderProductGrid(products) {
         const mainImage = product.getMainImage() || 'https://www.shutterstock.com/image-vector/product-defect-label-line-icon-600nw-2252869127.jpg';
 
         return `
-            <div class="flex flex-col group animate-fade-in">
+            <div class="flex flex-col group animate-fade-in product-card cursor-pointer" data-product-id="${product.id}">
                 <div class="relative w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl bg-white/5 overflow-hidden">
                     <img 
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -509,10 +509,21 @@ function setupEventListeners() {
     // Grid de Productos (Delegación para Add to Cart)
     if (dom.grid) {
         dom.grid.addEventListener('click', (e) => {
+            // 1. Add to Cart
             const btn = e.target.closest('.add-to-cart-btn');
-            if (btn && !btn.disabled) {
-                const productId = parseInt(btn.dataset.productId);
-                addToCart(productId);
+            if (btn) {
+                if (!btn.disabled) {
+                    const productId = parseInt(btn.dataset.productId);
+                    addToCart(productId);
+                }
+                return;
+            }
+
+            // 2. Product Card Click
+            const card = e.target.closest('.product-card');
+            if (card) {
+                const productId = parseInt(card.dataset.productId);
+                window.location.href = `../../views/product-detail/product-detail.html?id=${productId}`;
             }
         });
     }
