@@ -1,13 +1,16 @@
 import StaticDataManager from "./StaticDataManager.js";
-import { InlineData } from "./InlineData.js"
+import { InlineData } from "./InlineData.js";
+import CartManager from "./CartManager.js";
 
 /**
  * home.js - Lógica específica para la página de inicio
  */
 
-// Inicializar el DataManager
+// Inicializar managers
 const dataManager = new StaticDataManager();
 dataManager.initialize(InlineData);
+
+const cartManager = new CartManager();
 
 // Estado de la aplicación
 const state = {
@@ -45,7 +48,8 @@ const dom = {
     },
     sortButton: document.getElementById('sort-button'),
     sortLabel: document.getElementById('sort-label'),
-    pagination: document.getElementById('pagination-container')
+    pagination: document.getElementById('pagination-container'),
+    cartBadge: document.getElementById('cart-badge')
 };
 
 // ========== Inicialización ==========
@@ -62,6 +66,9 @@ function init() {
 
     // Renderizar productos iniciales
     updateView();
+
+    // Actualizar badge del carrito
+    updateCartBadge();
 
     console.log('✅ Home inicializado');
 }
@@ -386,14 +393,38 @@ function changePage(newPage) {
 }
 
 function addToCart(productId) {
-    // Reutilizamos la función global si existe, o implementamos una básica
-    if (window.addToCartGlobal) {
-        window.addToCartGlobal(productId);
-    } else {
-        const product = dataManager.getProduct(productId);
-        if (product && product.isInStock()) {
-            // Feedback visual simple
-            alert(`¡${product.name} añadido al carrito!`);
+    const product = dataManager.getProduct(productId);
+
+    if (!product) {
+        console.error('Producto no encontrado');
+        return;
+    }
+
+    if (!product.isInStock()) {
+        alert('Este producto está agotado');
+        return;
+    }
+
+    // Añadir al carrito
+    cartManager.addItem(productId, 1);
+
+    // Feedback visual
+    alert(`✅ ${product.name} añadido al carrito!`);
+
+    // Actualizar badge
+    updateCartBadge();
+}
+
+// Actualizar badge del carrito
+function updateCartBadge() {
+    const itemCount = cartManager.getItemCount();
+
+    if (dom.cartBadge) {
+        if (itemCount > 0) {
+            dom.cartBadge.textContent = itemCount;
+            dom.cartBadge.classList.remove('hidden');
+        } else {
+            dom.cartBadge.classList.add('hidden');
         }
     }
 }

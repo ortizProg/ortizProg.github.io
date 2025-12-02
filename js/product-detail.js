@@ -1,13 +1,16 @@
 import StaticDataManager from "./StaticDataManager.js";
 import { InlineData } from "./InlineData.js";
+import CartManager from "./CartManager.js";
 
 /**
  * product-detail.js - Lógica para la página de detalle de producto
  */
 
-// Inicializar el DataManager
+// Inicializar managers
 const dataManager = new StaticDataManager();
 dataManager.initialize(InlineData);
+
+const cartManager = new CartManager();
 
 // Referencias DOM
 const dom = {
@@ -19,7 +22,9 @@ const dom = {
     productStock: document.getElementById('product-stock'),
     productDescription: document.getElementById('product-description'),
     productSpecs: document.getElementById('product-specs'),
-    addToCartBtn: document.getElementById('add-to-cart-btn')
+    addToCartBtn: document.getElementById('add-to-cart-btn'),
+    quantityInput: document.getElementById('quantity'),
+    cartBadge: document.getElementById('cart-badge')
 };
 
 // Inicialización
@@ -46,6 +51,8 @@ function init() {
     }
 
     renderProductDetails(product);
+    setupEventListeners(product);
+    updateCartBadge();
 }
 
 function renderProductDetails(product) {
@@ -126,5 +133,48 @@ window.changeMainImage = function (url, element) {
     element.classList.remove('border-white/10');
     element.classList.add('border-primary');
 };
+
+// Actualizar badge del carrito
+function updateCartBadge() {
+    const itemCount = cartManager.getItemCount();
+
+    if (dom.cartBadge) {
+        if (itemCount > 0) {
+            dom.cartBadge.textContent = itemCount;
+            dom.cartBadge.classList.remove('hidden');
+        } else {
+            dom.cartBadge.classList.add('hidden');
+        }
+    }
+}
+
+// Configurar event listeners
+function setupEventListeners(product) {
+    // Botón de añadir al carrito
+    if (dom.addToCartBtn) {
+        dom.addToCartBtn.addEventListener('click', () => {
+            if (!product.isInStock()) {
+                alert('Este producto está agotado');
+                return;
+            }
+
+            const quantity = parseInt(dom.quantityInput?.value || 1);
+
+            if (quantity <= 0) {
+                alert('Cantidad inválida');
+                return;
+            }
+
+            // Añadir al carrito
+            cartManager.addItem(product.id, quantity);
+
+            // Feedback visual
+            alert(`✅ ${product.name} (x${quantity}) añadido al carrito!`);
+
+            // Actualizar badge
+            updateCartBadge();
+        });
+    }
+}
 
 document.addEventListener('DOMContentLoaded', init);
