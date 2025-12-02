@@ -239,7 +239,8 @@ function setupEventListeners() {
                 alert('Tu carrito está vacío. Añade productos para continuar.');
                 return;
             }
-            alert('Funcionalidad de checkout próximamente disponible!');
+            // Redirect to checkout page
+            window.location.href = '../checkout/checkout.html';
         });
     }
 }
