@@ -1,6 +1,7 @@
 import StaticDataManager from "../../js/StaticDataManager.js";
 import { InlineData } from "../../js/InlineData.js";
 import CartManager from "../../js/CartManager.js";
+import { formatCOP } from "../../js/utils/formatCurrency.js";
 
 /**
  * shop-car.js - Lógica para la página del carrito de compras
@@ -62,8 +63,8 @@ function renderCart() {
                     ></div>
                     <div class="flex flex-1 flex-col justify-center">
                         <p class="font-medium text-white">${product.name}</p>
-                        <p class="text-sm text-base-content-secondary">Unit Price: ${product.getFormattedPrice()}</p>
-                        <p class="text-sm text-base-content-secondary">Subtotal: $${item.subtotal.toFixed(2)}</p>
+                        <p class="text-sm text-base-content-secondary">Unit Price: ${formatCOP(product.price)}</p>
+                        <p class="text-sm text-base-content-secondary">Subtotal: ${formatCOP(item.subtotal)}</p>
                     </div>
                 </div>
                 <div class="flex items-center justify-between sm:justify-end sm:gap-6">
@@ -136,19 +137,19 @@ function updateOrderSummary(totals) {
     }
 
     if (dom.subtotalElement) {
-        dom.subtotalElement.textContent = `$${totals.subtotal.toFixed(2)}`;
+        dom.subtotalElement.textContent = formatCOP(totals.subtotal);
     }
 
     if (dom.shippingElement) {
-        dom.shippingElement.textContent = `$${totals.shipping.toFixed(2)}`;
+        dom.shippingElement.textContent = formatCOP(totals.shipping);
     }
 
     if (dom.taxElement) {
-        dom.taxElement.textContent = `$${totals.tax.toFixed(2)}`;
+        dom.taxElement.textContent = formatCOP(totals.tax);
     }
 
     if (dom.totalElement) {
-        dom.totalElement.textContent = `$${totals.total.toFixed(2)}`;
+        dom.totalElement.textContent = formatCOP(totals.total);
     }
 }
 
