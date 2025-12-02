@@ -153,23 +153,60 @@ class CartManager {
         const subtotal = cartWithDetails.reduce((sum, item) => sum + item.subtotal, 0);
         const shipping = subtotal > 0 ? 15000 : 0; // Envío fijo de $15.000
         const taxRate = 0.19; // 19% de IVA
-        const tax = subtotal * taxRate;
-        const total = subtotal + shipping + tax;
+
+        let discount = 0;
+        const appliedCoupon = this.getAppliedCoupon();
+        if (appliedCoupon) {
+            discount = Math.round(subtotal * (appliedCoupon.disc_porcent / 100));
+        }
+
+        const subtotalAfterDiscount = subtotal - discount;
+        const tax = subtotalAfterDiscount * taxRate;
+        const total = subtotalAfterDiscount + shipping + tax;
 
         return {
             subtotal: subtotal,
+            discount: discount,
             shipping: shipping,
             tax: tax,
             total: total,
             itemCount: this.getItemCount()
         };
     }
+
+    /**
+     * Guarda el cupón aplicado en localStorage
+     * @param {Object} coupon - Objeto cupón
+     */
+    applyCoupon(coupon) {
+        try {
+            localStorage.setItem('aeroparts_coupon', JSON.stringify(coupon));
+            return true;
+        } catch (error) {
+            console.error('Error al guardar el cupón:', error);
+            return false;
+        }
+    }
+
+    /**
+     * Obtiene el cupón aplicado
+     * @returns {Object|null}
+     */
+    getAppliedCoupon() {
+        try {
+            const couponData = localStorage.getItem('aeroparts_coupon');
+            return couponData ? JSON.parse(couponData) : null;
+        } catch (error) {
+            return null;
+        }
+    }
+
+    /**
+     * Elimina el cupón aplicado
+     */
+    removeCoupon() {
+        localStorage.removeItem('aeroparts_coupon');
+    }
 }
 
-// Exportar como módulo ES6 y también como variable global para compatibilidad
 export default CartManager;
-
-// Para uso sin módulos ES6
-if (typeof window !== 'undefined') {
-    window.CartManager = CartManager;
-}

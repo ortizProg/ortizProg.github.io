@@ -2,7 +2,7 @@
  * BaseRepository - Base class for all repositories
  * Provides common CRUD operations and data management
  */
-class BaseRepository {
+export default class BaseRepository {
     /**
      * @param {string} dataPath - Path to the JSON data file
      * @param {Function} ModelClass - Model class constructor
@@ -84,9 +84,4 @@ class BaseRepository {
     isLoaded() {
         return this.loaded;
     }
-}
-
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = BaseRepository;
 }

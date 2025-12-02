@@ -79,10 +79,23 @@ function renderOrderSummary(isBuyNow) {
     }
 
     // Render totals
+    // Render totals
     if (dom.subtotal) dom.subtotal.textContent = formatCOP(totals.subtotal);
     if (dom.shipping) dom.shipping.textContent = formatCOP(totals.shipping);
     if (dom.tax) dom.tax.textContent = formatCOP(totals.tax);
     if (dom.total) dom.total.textContent = formatCOP(totals.total);
+
+    // Render discount
+    const discountRow = document.getElementById('summary-discount-row');
+    const discountEl = document.getElementById('summary-discount');
+    if (discountRow && discountEl) {
+        if (totals.discount > 0) {
+            discountEl.textContent = `-${formatCOP(totals.discount)}`;
+            discountRow.classList.remove('hidden');
+        } else {
+            discountRow.classList.add('hidden');
+        }
+    }
 }
 
 function setupEventListeners(isBuyNow) {

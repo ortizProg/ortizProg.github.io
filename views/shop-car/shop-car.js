@@ -22,7 +22,12 @@ const dom = {
     taxElement: document.getElementById('tax'),
     totalElement: document.getElementById('total'),
     checkoutBtn: document.getElementById('checkout-btn'),
-    cartBadge: document.getElementById('cart-badge')
+    cartBadge: document.getElementById('cart-badge'),
+    couponCodeInput: document.getElementById('coupon-code'),
+    applyCouponBtn: document.getElementById('apply-coupon-btn'),
+    couponMessage: document.getElementById('coupon-message'),
+    discountRow: document.getElementById('discount-row'),
+    discountElement: document.getElementById('discount')
 };
 
 // Inicialización
@@ -32,6 +37,13 @@ function init() {
     renderCart();
     setupEventListeners();
     updateCartBadge();
+
+    // Check for existing coupon
+    const appliedCoupon = cartManager.getAppliedCoupon();
+    if (appliedCoupon) {
+        showCouponMessage(`Cupón ${appliedCoupon.code} aplicado: ${appliedCoupon.disc_porcent}% descuento`, true);
+        if (dom.couponCodeInput) dom.couponCodeInput.value = appliedCoupon.code;
+    }
 
     console.log('✅ Shopping Cart inicializado');
 }
@@ -45,7 +57,7 @@ function renderCart() {
     // Si el carrito está vacío
     if (cartWithDetails.length === 0) {
         renderEmptyCart();
-        updateOrderSummary({ subtotal: 0, shipping: 0, tax: 0, total: 0, itemCount: 0 });
+        updateOrderSummary({ subtotal: 0, shipping: 0, tax: 0, total: 0, itemCount: 0, discount: 0 });
         return;
     }
 
@@ -131,20 +143,19 @@ function updateOrderSummary(totals) {
         dom.cartItemCount.textContent = `Tienes ${totals.itemCount} ${itemText} en tu carrito.`;
     }
 
-    if (dom.subtotalElement) {
-        dom.subtotalElement.textContent = formatCOP(totals.subtotal);
-    }
+    if (dom.subtotalElement) dom.subtotalElement.textContent = formatCOP(totals.subtotal);
+    if (dom.shippingElement) dom.shippingElement.textContent = formatCOP(totals.shipping);
+    if (dom.taxElement) dom.taxElement.textContent = formatCOP(totals.tax);
+    if (dom.totalElement) dom.totalElement.textContent = formatCOP(totals.total);
 
-    if (dom.shippingElement) {
-        dom.shippingElement.textContent = formatCOP(totals.shipping);
-    }
-
-    if (dom.taxElement) {
-        dom.taxElement.textContent = formatCOP(totals.tax);
-    }
-
-    if (dom.totalElement) {
-        dom.totalElement.textContent = formatCOP(totals.total);
+    // Handle discount display
+    if (dom.discountRow && dom.discountElement) {
+        if (totals.discount > 0) {
+            dom.discountElement.textContent = `-${formatCOP(totals.discount)}`;
+            dom.discountRow.classList.remove('hidden');
+        } else {
+            dom.discountRow.classList.add('hidden');
+        }
     }
 }
 
@@ -159,6 +170,14 @@ function updateCartBadge() {
         } else {
             dom.cartBadge.classList.add('hidden');
         }
+    }
+}
+
+function showCouponMessage(message, isSuccess) {
+    if (dom.couponMessage) {
+        dom.couponMessage.textContent = message;
+        dom.couponMessage.className = `text-sm mt-2 ${isSuccess ? 'text-green-500' : 'text-red-500'}`;
+        dom.couponMessage.classList.remove('hidden');
     }
 }
 
@@ -236,6 +255,29 @@ function setupEventListeners() {
             }
             // Redirect to checkout page
             window.location.href = '../checkout/checkout.html';
+        });
+    }
+
+    // Coupon Button
+    if (dom.applyCouponBtn) {
+        dom.applyCouponBtn.addEventListener('click', () => {
+            const code = dom.couponCodeInput.value.trim();
+            if (!code) {
+                showCouponMessage('Por favor ingresa un código', false);
+                return;
+            }
+
+            const coupon = dataManager.getCouponByCode(code);
+            console.log("🚀 ~ applyCouponBtn ~ coupon:", coupon);
+            if (coupon) {
+                cartManager.applyCoupon(coupon);
+                showCouponMessage(`Cupón aplicado: ${coupon.discPorcent}% descuento`, true);
+                renderCart(); // Re-render to update totals
+            } else {
+                cartManager.removeCoupon();
+                showCouponMessage('Código inválido', false);
+                renderCart();
+            }
         });
     }
 }

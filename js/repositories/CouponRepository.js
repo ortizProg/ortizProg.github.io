@@ -1,7 +1,9 @@
 /**
  * CouponRepository - Repository for Coupon entities
  */
-class CouponRepository extends BaseRepository {
+import BaseRepository from "./BaseRepository.js";
+import Coupon from "../models/Coupon.js";
+export default class CouponRepository extends BaseRepository {
     /**
      * Constructor
      */
@@ -39,9 +41,4 @@ class CouponRepository extends BaseRepository {
     getByMinDiscount(minDiscount) {
         return this.filter(coupon => coupon.discPorcent >= minDiscount);
     }
-}
-
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = CouponRepository;
 }
