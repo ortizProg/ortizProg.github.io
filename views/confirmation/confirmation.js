@@ -10,6 +10,9 @@ const dom = {
     orderItems: document.getElementById('order-items'),
     subtotal: document.getElementById('order-subtotal'),
     shipping: document.getElementById('order-shipping'),
+    tax: document.getElementById('order-tax'),
+    discountRow: document.getElementById('order-discount-row'),
+    discount: document.getElementById('order-discount'),
     total: document.getElementById('order-total'),
     customerName: document.getElementById('customer-name')
 };
@@ -68,6 +71,18 @@ function renderOrderDetails(order) {
     // Render Totals
     if (dom.subtotal) dom.subtotal.textContent = formatCOP(order.totals.subtotal);
     if (dom.shipping) dom.shipping.textContent = formatCOP(order.totals.shipping);
+    if (dom.tax) dom.tax.textContent = formatCOP(order.totals.tax || 0);
+
+    // Handle discount display
+    if (dom.discountRow && dom.discount) {
+        if (order.totals.discount && order.totals.discount > 0) {
+            dom.discount.textContent = `-${formatCOP(order.totals.discount)}`;
+            dom.discountRow.classList.remove('hidden');
+        } else {
+            dom.discountRow.classList.add('hidden');
+        }
+    }
+
     if (dom.total) dom.total.textContent = formatCOP(order.totals.total);
 }
 
