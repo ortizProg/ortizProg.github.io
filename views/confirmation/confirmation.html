@@ -11,6 +11,47 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3B82F6",
+                        "background-light": "#f6f7f7",
+                        "background-dark": "#0B0F14",
+                        "surface-dark": "#181C1F",
+                        "bar-dark": "#101519",
+                        "text-dark": "#EEF0E5"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .glassmorphism-light {
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .glassmorphism-dark {
+            background-color: rgba(24, 28, 31, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+    </style>
 </head>
 
 <body class="font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-text-dark">
@@ -108,7 +149,7 @@
                             </div>
                             <div
                                 class="rounded-xl p-6 glassmorphism-light dark:bg-surface-dark/60 dark:border dark:border-primary/20 backdrop-blur-lg">
-                                <details class="group" open>
+                                <details class="group">
                                     <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
                                         <p class="text-gray-900 dark:text-text-dark text-lg font-bold">Resumen del
                                             Pedido</p>
@@ -164,7 +205,7 @@
                                 <h3 class="text-gray-900 dark:text-text-dark font-bold mb-3">Dirección de Envío</h3>
                                 <div id="shipping-address"
                                     class="text-gray-600 dark:text-text-dark/80 text-sm space-y-1">
-                                    <!-- Dynamic address -->
+                                    <!-- Dynamic Address -->
                                 </div>
                             </div>
                             <div
@@ -188,69 +229,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mt-8">
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-text-dark mb-6">También te podría
-                            interesar</h2>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                            <div class="flex flex-col gap-3 group">
-                                <div class="relative overflow-hidden rounded-xl">
-                                    <div class="aspect-square w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-                                        data-alt="Lipo Battery"
-                                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYx-oaPj_wpN2NFeGowZGVY13nWY46YeRNA4UrlI0VwjosLsZAVTR6HQWQOO2bDvTt1WNQRT05bW5UiI2KdpJ-Hc706jbgFt130QPCNXLd2py1g_dn8IrB754eaIZphZnDV3B3jtMA_Q1lqUS1ZYedO_yjw4Mx-BEWgqiA4GD_cehEE5OGEyMcRAchwl6lOMJoZ5sJL2smGwzTR9jes7-vZwSNqezP0LAIum1No9QN3zRDuo1guC13xC7sLIw3kk-3GSqgyIfZ8bw')">
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-gray-800 dark:text-text-dark">Batería LiPo 4S 1500mAh
-                                    </h3>
-                                    <p class="text-sm text-gray-500 dark:text-text-dark/70">$29.99</p>
-                                </div>
-                            </div>
-                            <div class="flex flex-col gap-3 group">
-                                <div class="relative overflow-hidden rounded-xl">
-                                    <div class="aspect-square w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-                                        data-alt="Remote Controller"
-                                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCxk9GTyQh7EQADkAF_ZlaLRAl996S4G5j-b8KutwRum7Vt_yaidQfsyywOtKQUfxMdyc4igO_Sv6j1Jza3bJvHF5gEIpS5tSxk-z8TkacwIuDzlnZgOUMHHs2ahe2sRCBAEjxqLDswyh05KSparmkv5zAKC7LT36ui6mW_fu5qfYHd5clB_hfNu5IgdnVn6c_-gWJTUyOLDH0pkx8yJb7FAsUIVIU3oSCRbEqfYRH3oEZW43wXQwOnVgr9AiO_sVdItXhBna8trA')">
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-gray-800 dark:text-text-dark">Mando RadioMaster TX16S
-                                    </h3>
-                                    <p class="text-sm text-gray-500 dark:text-text-dark/70">$199.99</p>
-                                </div>
-                            </div>
-                            <div class="flex flex-col gap-3 group">
-                                <div class="relative overflow-hidden rounded-xl">
-                                    <div class="aspect-square w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-                                        data-alt="FPV Goggles"
-                                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDav77OMulao1FsAnLeNGQJ_q8EgKS90__7dujmsL05NX_sV8lEbmszEeSz_pK5Chm0z7r8pmmmVzIm1-zWhjaEAZnBywYgWSD71Wdb89wIBoi5VVk-JiH165pPQUF4RAy-B7pnLPst6r0b04SZBgcYW_eluEy9LtCxoqQL_y8joVTZc-TQ6-t5LwQvYyLVp7A-vA_bEDfEO116KOHvwovySYTOFbLhtFBa19Z9Uupeq6Qqb8XC7jzfpq_7xXOIoqtIZif19SwhSIM')">
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-gray-800 dark:text-text-dark">Gafas FPV SkyZone 04X
-                                    </h3>
-                                    <p class="text-sm text-gray-500 dark:text-text-dark/70">$549.00</p>
-                                </div>
-                            </div>
-                            <div class="flex flex-col gap-3 group">
-                                <div class="relative overflow-hidden rounded-xl">
-                                    <div class="aspect-square w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-                                        data-alt="Drone Motor"
-                                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDDaDdxEIXXNRCkS9eDF7YSDupj1wpZotKg7h7iyVhib6ESMb9W9wZ_FVsF5KIZvjsHdyLEZx219Um6bt5lzv1neznFGACXrjTzG5zOC0T9mjBvY2t1fKSiAjXKF9Yv5rOMlGgU7jW-GDV1X8ekGYEkv3Aod-JpOR6kt7mw5Lyc_nbiiOXjleGUxwcqaxLsoWmDhhzdtd2OBJFVxl9oYL0Z4gYRAz3d-PBDlqqYnds8S-Ik2olh93E798IUb79jp-T-nKOAEreb4TA')">
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-gray-800 dark:text-text-dark">Motor Brushless 2207
-                                    </h3>
-                                    <p class="text-sm text-gray-500 dark:text-text-dark/70">$18.50</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </main>
         </div>
     </div>
-    <script type="module" src="../../js/app.js"></script>
     <script type="module" src="./confirmation.js"></script>
 </body>
 

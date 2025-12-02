@@ -54,7 +54,7 @@ function renderOrderDetails(order) {
         dom.orderItems.innerHTML = order.items.map(item => `
             <div class="flex items-center gap-4">
                 <div class="w-16 h-16 rounded-lg bg-center bg-cover" 
-                     style="background-image: url('${item.product.getMainImage()}')">
+                     style="background-image: url('${item.product.image}')">
                 </div>
                 <div class="flex-1">
                     <p class="text-gray-800 dark:text-text-dark font-medium">${item.product.name}</p>
