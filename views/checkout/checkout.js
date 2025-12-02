@@ -73,7 +73,7 @@ function setupEventListeners() {
             localStorage.setItem('aeroparts_shipping_info', JSON.stringify(shippingData));
 
             // Redirect to payment
-            window.location.href = 'views/payment/payment.html';
+            window.location.href = '../payment/payment.html';
         });
     }
 }

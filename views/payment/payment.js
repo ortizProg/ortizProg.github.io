@@ -27,7 +27,7 @@ function init() {
 
     // Check if cart is empty
     if (cartManager.getItemCount() === 0) {
-        window.location.href = 'views/shop-car/shop-car.html';
+        window.location.href = '../shop-car/shop-car.html';
         return;
     }
 
@@ -79,7 +79,7 @@ function setupEventListeners() {
 
             // Simulate processing
             dom.payBtn.disabled = true;
-            dom.payBtn.textContent = 'Processing...';
+            dom.payBtn.textContent = 'Procesando...';
 
             await new Promise(resolve => setTimeout(resolve, 2000));
 
@@ -97,7 +97,7 @@ function setupEventListeners() {
 
             // Clear cart and redirect to confirmation
             cartManager.clearCart();
-            window.location.href = 'views/confirmation/confirmation.html';
+            window.location.href = '../confirmation/confirmation.html';
         });
     }
 }
