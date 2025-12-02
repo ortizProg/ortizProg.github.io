@@ -26,7 +26,7 @@ function init() {
 
     // Check if cart is empty
     if (cartManager.getItemCount() === 0) {
-        window.location.href = '../shop-car/shop-car.html';
+        window.location.href = 'views/shop-car/shop-car.html';
         return;
     }
 
@@ -73,7 +73,7 @@ function setupEventListeners() {
             localStorage.setItem('aeroparts_shipping_info', JSON.stringify(shippingData));
 
             // Redirect to payment
-            window.location.href = '../payment/payment.html';
+            window.location.href = 'views/payment/payment.html';
         });
     }
 }

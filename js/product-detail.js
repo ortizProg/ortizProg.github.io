@@ -38,7 +38,7 @@ function init() {
     if (!productId) {
         console.error('❌ No se proporcionó ID de producto');
         // Redirigir a home o mostrar error
-        window.location.href = '../../index.html';
+        window.location.href = 'index.html';
         return;
     }
 

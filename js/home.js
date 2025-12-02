@@ -554,7 +554,7 @@ function setupEventListeners() {
             const card = e.target.closest('.product-card');
             if (card) {
                 const productId = parseInt(card.dataset.productId);
-                window.location.href = `../../views/product-detail/product-detail.html?id=${productId}`;
+                window.location.href = `views/product-detail/product-detail.html?id=${productId}`;
             }
         });
     }

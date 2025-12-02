@@ -27,7 +27,7 @@ function init() {
 
     // Check if cart is empty
     if (cartManager.getItemCount() === 0) {
-        window.location.href = '../shop-car/shop-car.html';
+        window.location.href = 'views/shop-car/shop-car.html';
         return;
     }
 
@@ -97,7 +97,7 @@ function setupEventListeners() {
 
             // Clear cart and redirect to confirmation
             cartManager.clearCart();
-            window.location.href = '../confirmation/confirmation.html';
+            window.location.href = 'views/confirmation/confirmation.html';
         });
     }
 }

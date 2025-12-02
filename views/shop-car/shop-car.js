@@ -235,7 +235,7 @@ function setupEventListeners() {
                 return;
             }
             // Redirect to checkout page
-            window.location.href = '../checkout/checkout.html';
+            window.location.href = 'views/checkout/checkout.html';
         });
     }
 }
