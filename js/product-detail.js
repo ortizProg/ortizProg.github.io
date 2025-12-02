@@ -24,7 +24,8 @@ const dom = {
     productSpecs: document.getElementById('product-specs'),
     addToCartBtn: document.getElementById('add-to-cart-btn'),
     quantityInput: document.getElementById('quantity'),
-    cartBadge: document.getElementById('cart-badge')
+    cartBadge: document.getElementById('cart-badge'),
+    buyNowBtn: document.getElementById('buy-now-btn')
 };
 
 // Inicialización
@@ -173,6 +174,30 @@ function setupEventListeners(product) {
 
             // Actualizar badge
             updateCartBadge();
+        });
+    }
+
+    // Botón de comprar ahora
+    if (dom.buyNowBtn) {
+        dom.buyNowBtn.addEventListener('click', () => {
+            if (!product.isInStock()) {
+                alert('Este producto está agotado');
+                return;
+            }
+
+            const quantity = parseInt(dom.quantityInput?.value || 1);
+
+            if (quantity <= 0) {
+                alert('Cantidad inválida');
+                return;
+            }
+
+            // Guardar compra directa en localStorage
+            const directBuyItem = { productId: product.id, quantity: quantity };
+            localStorage.setItem('aeroparts_direct_buy', JSON.stringify(directBuyItem));
+
+            // Redirigir al checkout con flag
+            window.location.href = '../checkout/checkout.html?type=buy_now';
         });
     }
 }

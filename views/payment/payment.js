@@ -25,23 +25,48 @@ const dom = {
 function init() {
     console.log('💳 Initializing Payment...');
 
-    // Check if cart is empty
-    if (cartManager.getItemCount() === 0) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const isBuyNow = urlParams.get('type') === 'buy_now';
+
+    // Check if cart is empty (only if not buy now)
+    if (!isBuyNow && cartManager.getItemCount() === 0) {
         window.location.href = '../shop-car/shop-car.html';
         return;
     }
 
-    renderOrderSummary();
-    setupEventListeners();
+    renderOrderSummary(isBuyNow);
+    setupEventListeners(isBuyNow);
 }
 
-function renderOrderSummary() {
-    const cartWithDetails = cartManager.getCartWithDetails(dataManager);
-    const totals = cartManager.getCartTotals(dataManager);
+function renderOrderSummary(isBuyNow) {
+    let items = [];
+    let totals = { subtotal: 0, shipping: 0, tax: 0, total: 0 };
+
+    if (isBuyNow) {
+        const directBuyData = JSON.parse(localStorage.getItem('aeroparts_direct_buy'));
+        if (directBuyData) {
+            const product = dataManager.getProduct(directBuyData.productId);
+            if (product) {
+                const subtotal = product.price * directBuyData.quantity;
+                items = [{
+                    product: product,
+                    quantity: directBuyData.quantity,
+                    subtotal: subtotal
+                }];
+                totals.subtotal = subtotal;
+                totals.shipping = 15000; // Flat rate
+                totals.tax = subtotal * 0.19;
+                totals.total = totals.subtotal + totals.shipping + totals.tax;
+            }
+        }
+    } else {
+        items = cartManager.getCartWithDetails(dataManager);
+        totals = cartManager.getCartTotals(dataManager);
+    }
 
     // Render items
     if (dom.orderItems) {
-        dom.orderItems.innerHTML = cartWithDetails.map(item => `
+        dom.orderItems.innerHTML = items.map(item => `
             <div class="flex items-center gap-4">
                 <img class="h-16 w-16 rounded-lg object-cover"
                     src="${item.product.getMainImage()}" />
@@ -65,7 +90,7 @@ function renderOrderSummary() {
     if (dom.total) dom.total.textContent = formatCOP(totals.total);
 }
 
-function setupEventListeners() {
+function setupEventListeners(isBuyNow) {
     if (dom.payBtn) {
         dom.payBtn.addEventListener('click', async (e) => {
             e.preventDefault();
@@ -83,20 +108,51 @@ function setupEventListeners() {
 
             await new Promise(resolve => setTimeout(resolve, 2000));
 
+            let orderItems = [];
+            let orderTotals = {};
+
+            if (isBuyNow) {
+                const directBuyData = JSON.parse(localStorage.getItem('aeroparts_direct_buy'));
+                if (directBuyData) {
+                    const product = dataManager.getProduct(directBuyData.productId);
+                    const subtotal = product.price * directBuyData.quantity;
+                    orderItems = [{
+                        product: product,
+                        quantity: directBuyData.quantity,
+                        subtotal: subtotal
+                    }];
+                    orderTotals = {
+                        subtotal: subtotal,
+                        shipping: 15000,
+                        tax: subtotal * 0.19,
+                        total: subtotal + 15000 + (subtotal * 0.19)
+                    };
+                }
+            } else {
+                orderItems = cartManager.getCartWithDetails(dataManager);
+                orderTotals = cartManager.getCartTotals(dataManager);
+            }
+
             // Create order object
             const order = {
                 id: 'AP-' + Math.floor(Math.random() * 10000) + '-99',
                 date: new Date().toISOString(),
-                items: cartManager.getCartWithDetails(dataManager),
-                totals: cartManager.getCartTotals(dataManager),
+                items: orderItems,
+                totals: orderTotals,
                 shipping: JSON.parse(localStorage.getItem('aeroparts_shipping_info') || '{}')
             };
 
             // Save order to localStorage for confirmation page
             localStorage.setItem('aeroparts_last_order', JSON.stringify(order));
 
-            // Clear cart and redirect to confirmation
-            cartManager.clearCart();
+            // Clear cart ONLY if not buy now
+            if (!isBuyNow) {
+                cartManager.clearCart();
+            } else {
+                // Clear direct buy data
+                localStorage.removeItem('aeroparts_direct_buy');
+            }
+
             window.location.href = '../confirmation/confirmation.html';
         });
     }

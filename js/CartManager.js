@@ -151,8 +151,8 @@ class CartManager {
         const cartWithDetails = this.getCartWithDetails(dataManager);
 
         const subtotal = cartWithDetails.reduce((sum, item) => sum + item.subtotal, 0);
-        const shipping = subtotal > 0 ? 10.00 : 0; // Envío fijo de $10 o gratis si el carrito está vacío
-        const taxRate = 0.20; // 20% de IVA
+        const shipping = subtotal > 0 ? 15000 : 0; // Envío fijo de $15.000
+        const taxRate = 0.19; // 19% de IVA
         const tax = subtotal * taxRate;
         const total = subtotal + shipping + tax;
 

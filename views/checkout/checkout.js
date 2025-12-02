@@ -24,23 +24,48 @@ const dom = {
 function init() {
     console.log('📦 Initializing Checkout...');
 
-    // Check if cart is empty
-    if (cartManager.getItemCount() === 0) {
-        window.location.href = 'views/shop-car/shop-car.html';
+    const urlParams = new URLSearchParams(window.location.search);
+    const isBuyNow = urlParams.get('type') === 'buy_now';
+
+    // Check if cart is empty (only if not buy now)
+    if (!isBuyNow && cartManager.getItemCount() === 0) {
+        window.location.href = '../shop-car/shop-car.html';
         return;
     }
 
-    renderOrderSummary();
-    setupEventListeners();
+    renderOrderSummary(isBuyNow);
+    setupEventListeners(isBuyNow);
 }
 
-function renderOrderSummary() {
-    const cartWithDetails = cartManager.getCartWithDetails(dataManager);
-    const totals = cartManager.getCartTotals(dataManager);
+function renderOrderSummary(isBuyNow) {
+    let items = [];
+    let totals = { subtotal: 0, shipping: 0, tax: 0, total: 0 };
+
+    if (isBuyNow) {
+        const directBuyData = JSON.parse(localStorage.getItem('aeroparts_direct_buy'));
+        if (directBuyData) {
+            const product = dataManager.getProduct(directBuyData.productId);
+            if (product) {
+                const subtotal = product.price * directBuyData.quantity;
+                items = [{
+                    product: product,
+                    quantity: directBuyData.quantity,
+                    subtotal: subtotal
+                }];
+                totals.subtotal = subtotal;
+                totals.shipping = 15000; // Flat rate for example
+                totals.tax = subtotal * 0.19;
+                totals.total = totals.subtotal + totals.shipping + totals.tax;
+            }
+        }
+    } else {
+        items = cartManager.getCartWithDetails(dataManager);
+        totals = cartManager.getCartTotals(dataManager);
+    }
 
     // Render items
     if (dom.orderItems) {
-        dom.orderItems.innerHTML = cartWithDetails.map(item => `
+        dom.orderItems.innerHTML = items.map(item => `
             <div class="flex items-center gap-3 py-2">
                 <div class="h-12 w-12 flex-shrink-0 rounded bg-cover bg-center" 
                      style="background-image: url('${item.product.getMainImage()}');"></div>
@@ -60,7 +85,7 @@ function renderOrderSummary() {
     if (dom.total) dom.total.textContent = formatCOP(totals.total);
 }
 
-function setupEventListeners() {
+function setupEventListeners(isBuyNow) {
     if (dom.form) {
         dom.form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -73,7 +98,8 @@ function setupEventListeners() {
             localStorage.setItem('aeroparts_shipping_info', JSON.stringify(shippingData));
 
             // Redirect to payment
-            window.location.href = '../payment/payment.html';
+            const redirectUrl = isBuyNow ? '../payment/payment.html?type=buy_now' : '../payment/payment.html';
+            window.location.href = redirectUrl;
         });
     }
 }
