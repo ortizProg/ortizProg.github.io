@@ -79,7 +79,12 @@ function renderProductDetails(product) {
     }
 
     if (dom.thumbnailsContainer) {
-        const images = product.images.length > 0 ? product.images : [{ url: mainImgUrl }];
+        let images = [];
+        if (product.images.length > 0) {
+            images = product.images.map(img => ({ url: img.getImageUrl() }));
+        } else {
+            images = [{ url: mainImgUrl }];
+        }
 
         dom.thumbnailsContainer.innerHTML = images.map((img, index) => `
             <div
