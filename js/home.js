@@ -516,12 +516,12 @@ function setupEventListeners() {
 
             // Actualizar etiqueta
             const labels = {
-                'relevance': 'Relevance',
-                'price-asc': 'Price: Low to High',
-                'price-desc': 'Price: High to Low',
-                'rating': 'Top Rated'
+                'relevance': 'Relevancia',
+                'price-asc': 'Precio: Bajo a Alto',
+                'price-desc': 'Precio: Alto a Bajo',
+                'rating': 'Mejor calificados'
             };
-            if (dom.sortLabel) dom.sortLabel.textContent = `Sort by: ${labels[state.sort]}`;
+            if (dom.sortLabel) dom.sortLabel.textContent = `Ordenar por: ${labels[state.sort]}`;
 
             updateView();
         });

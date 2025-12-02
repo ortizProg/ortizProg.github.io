@@ -1,258 +1,152 @@
 <!DOCTYPE html>
-
 <html class="dark" lang="es">
 
 <head>
+  <script type="module" src="../../js/app.js"></script>
+  <script type="module" src="../../js/home.js"></script>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>AeroParts - Componentes de Precisión para tu Vuelo</title>
+  <title>AeroParts - FPV Drone Motors</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com" rel="preconnect" />
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&amp;display=swap"
     rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-  <style type="text/tailwindcss">
-    @layer base {
-        .material-symbols-outlined {
-          font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-        }
-      }
-    </style>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+  </style>
 </head>
 
-<body
-  class="bg-background-light dark:bg-background-dark font-display text-text-light-primary dark:text-text-dark-primary">
-  <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-    <div class="layout-container flex h-full grow flex-col">
-      <div class="flex flex-1 justify-center px-4 py-5 sm:px-8 md:px-16 lg:px-24">
-        <div class="layout-content-container flex w-full max-w-7xl flex-1 flex-col">
-          <!-- TopNavBar -->
-          <header
-            class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-2 py-3 lg:px-4">
-            <div class="flex items-center gap-4">
-              <div class="text-text-light-primary dark:text-text-dark-primary text-2xl">
-                <span class="material-symbols-outlined"> all_out </span>
-              </div>
-              <h2 class="text-lg font-bold tracking-[-0.015em] lg:text-xl">
-                AeroParts
-              </h2>
-            </div>
-            <nav class="hidden items-center gap-9 lg:flex">
-              <a class="text-sm font-medium" href="#">Drones/FPV</a>
-              <a class="text-sm font-medium" href="#">Ala Fija</a>
-              <a class="text-sm font-medium" href="#">Helis</a>
-            </nav>
-            <div class="flex items-center gap-2">
-              </span>
-              </button>
-            </div>
-          </header>
-          <main class="flex flex-col gap-12 pt-8 md:gap-16 lg:gap-20">
-            <!-- HeroSection -->
-            <section class="w-full @container">
-              <div class="@[480px]:p-4">
-                <div
-                  class="flex min-h-[480px] flex-col items-center justify-center gap-6 rounded-xl bg-cover bg-center bg-no-repeat p-4 @[480px]:gap-8"
-                  data-alt="Abstract background image with a tech-aero feel, featuring subtle geometric patterns and soft gradients."
-                  style="
-                      background-image: linear-gradient(
-                          rgba(4, 9, 26, 0.6) 0%,
-                          rgba(4, 9, 26, 0.8) 100%
-                        ),
-                        url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRUB9sMbwuwQUcaZepofAbqK2IwYkUsn9ddVOYZegE8zGjk8hpB1BI2yaImiWd2bTCkECJz1RyxT2Dq48ZiFKTaE3130TG_XQGm2hJZhvox9Y0SXTk8GotNUHQMPEpL6RGCknuefOHSjVAb-ezujccjBY2iqX0tBxLLAdG0GstuHeZ6mOSh82_VOkgssB903p_r-zFFTq5iWSUDXAKQHzWhhUdDhTT5Qf9EYwcwWOHjJq4z7Pzn1AKyYWLwKOymO3um5M9LjK7Au8');
-                    ">
-                  <div class="flex flex-col gap-2 text-center text-white">
-                    <h1 class="text-4xl font-bold leading-tight tracking-[-0.033em] @[480px]:text-5xl">
-                      Componentes de Precisión para tu Vuelo
-                    </h1>
-                    <p class="text-text-dark-secondary @[480px]:text-base">
-                      Encuentra todo lo que necesitas para tu drone, avión o
-                      helicóptero RC.
-                    </p>
-                  </div>
-                  <label class="flex h-14 w-full max-w-[480px] flex-col @[480px]:h-16">
-                    <div class="flex h-full w-full flex-1 items-stretch rounded-lg">
-                      <div
-                        class="flex items-center justify-center rounded-l-lg border border-r-0 border-border-dark bg-card-dark/70 pl-[15px] text-text-dark-secondary backdrop-blur-xl">
-                        <span class="material-symbols-outlined">
-                          search
-                        </span>
-                      </div>
-                      <input
-                        class="form-input h-full min-w-0 flex-1 resize-none overflow-hidden rounded-none border-y border-x-0 border-border-dark bg-card-dark/70 px-[15px] text-sm text-text-dark-primary placeholder:text-text-dark-secondary focus:border-primary focus:outline-0 focus:ring-0 @[480px]:text-base backdrop-blur-xl"
-                        placeholder="Busca por modelo: iFlight Nazgul, DJI FPV…" value="" />
-                      <div
-                        class="flex items-center justify-center rounded-r-lg border border-l-0 border-border-dark bg-card-dark/70 pr-[7px] backdrop-blur-xl">
-                        <button
-                          class="flex h-10 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-4 text-sm font-bold text-white @[480px]:h-12 @[480px]:px-5 @[480px]:text-base">
-                          <span class="truncate">Buscar</span>
-                        </button>
-                      </div>
-                    </div>
-                  </label>
-                </div>
-              </div>
-            </section>
-            <!-- Carousel Section -->
-            <section class="flex flex-col gap-4">
-              <h2 class="px-4 text-xl font-bold leading-tight tracking-[-0.015em] md:text-2xl">
-                Novedades
-              </h2>
+<body class="bg-background-light dark:bg-background-dark font-display">
+  <div class="relative flex h-auto min-h-screen w-full flex-col">
+    <header
+      class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-white/10 bg-background-dark/80 backdrop-blur-sm">
+      <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 py-3">
+        <div class="flex items-center gap-8">
+          <a href="" class="flex items-center gap-2 text-white">
+            <span class="material-symbols-outlined text-primary text-2xl">electric_moped</span>
+            <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
+              FlyTech Market
+            </h2>
+          </a>
+          <nav id="header-categories" class="hidden md:flex items-center gap-6">
+            <!-- Dynamic categories will be injected here -->
+          </nav>
+        </div>
+        <div class="flex flex-1 justify-end gap-4 items-center">
+          <label class="hidden sm:flex flex-col min-w-40 !h-10 max-w-64">
+            <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
               <div
-                class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
-                <div id="novedades-container" class="flex items-stretch gap-4 p-4">
-                  <!-- Productos cargados dinámicamente -->
-                  <div
-                    class="flex items-center justify-center p-8 text-text-light-secondary dark:text-text-dark-secondary">
-                    Cargando productos...
-                  </div>
-                </div>
+                class="text-white/60 flex border border-r-0 border-white/20 bg-white/5 items-center justify-center pl-3 rounded-l-lg">
+                <span class="material-symbols-outlined text-xl">search</span>
               </div>
-            </section>
-
-            <section class="flex flex-col gap-4 px-4">
-              <h2 class="text-xl font-bold leading-tight tracking-[-0.015em] md:text-2xl">
-                Colecciones Rápidas
-              </h2>
-              <div class="flex flex-wrap gap-3">
-                <button
-                  class="cursor-pointer rounded-full border border-border-light bg-card-light px-4 py-2 text-sm font-medium dark:border-border-dark dark:bg-card-dark hover:bg-primary/10 dark:hover:bg-primary/20">
-                  Frames 5”
-                </button>
-                <button
-                  class="cursor-pointer rounded-full border border-border-light bg-card-light px-4 py-2 text-sm font-medium dark:border-border-dark dark:bg-card-dark hover:bg-primary/10 dark:hover:bg-primary/20">
-                  Motores 2207/2306
-                </button>
-                <button
-                  class="cursor-pointer rounded-full border border-border-light bg-card-light px-4 py-2 text-sm font-medium dark:border-border-dark dark:bg-card-dark hover:bg-primary/10 dark:hover:bg-primary/20">
-                  VTx
-                </button>
-                <button
-                  class="cursor-pointer rounded-full border border-border-light bg-card-light px-4 py-2 text-sm font-medium dark:border-border-dark dark:bg-card-dark hover:bg-primary/10 dark:hover:bg-primary/20">
-                  Baterías 6S
-                </button>
-                <button
-                  class="cursor-pointer rounded-full border border-border-light bg-card-light px-4 py-2 text-sm font-medium dark:border-border-dark dark:bg-card-dark hover:bg-primary/10 dark:hover:bg-primary/20">
-                  Helis
-                </button>
-                <button
-                  class="cursor-pointer rounded-full border border-border-light bg-card-light px-4 py-2 text-sm font-medium dark:border-border-dark dark:bg-card-dark hover:bg-primary/10 dark:hover:bg-primary/20">
-                  Ala fija
-                </button>
-              </div>
-            </section>
-            <!-- Más Vendidos Carousel -->
-            <section class="flex flex-col gap-4">
-              <h2 class="px-4 text-xl font-bold leading-tight tracking-[-0.015em] md:text-2xl">
-                Más Vendidos
-              </h2>
-              <div
-                class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
-                <div id="mas-vendidos-container" class="flex items-stretch gap-4 p-4">
-                  <!-- Productos cargados dinámicamente -->
-                  <div
-                    class="flex items-center justify-center p-8 text-text-light-secondary dark:text-text-dark-secondary">
-                    Cargando productos...
-                  </div>
-                </div>
-              </div>
-            </section>
-            <!-- CTA Section -->
-            <section class="grid grid-cols-1 gap-6 p-4 md:grid-cols-2">
-              <div
-                class="flex flex-col items-start gap-4 rounded-xl border border-border-light bg-card-light p-8 dark:border-border-dark dark:bg-card-dark">
-                <span class="material-symbols-outlined text-4xl text-primary">rule</span>
-                <h3 class="text-xl font-bold">Guías de Compatibilidad</h3>
-                <p class="text-text-light-secondary dark:text-text-dark-secondary">
-                  ¿No estás seguro de qué componentes funcionan juntos?
-                  Consulta nuestras guías detalladas.
-                </p>
-                <button
-                  class="mt-auto flex h-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary/20 px-4 text-sm font-bold text-primary dark:bg-primary/30">
-                  Ver Guías
-                </button>
-              </div>
-              <div
-                class="flex flex-col items-start gap-4 rounded-xl border border-border-light bg-card-light p-8 dark:border-border-dark dark:bg-card-dark">
-                <span class="material-symbols-outlined text-4xl text-primary">
-                  support_agent
-                </span>
-                <h3 class="text-xl font-bold">Soporte Técnico</h3>
-                <p class="text-text-light-secondary dark:text-text-dark-secondary">
-                  Nuestro equipo de expertos está listo para ayudarte con
-                  cualquier duda o problema técnico.
-                </p>
-                <button
-                  class="mt-auto flex h-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary/20 px-4 text-sm font-bold text-primary dark:bg-primary/30">
-                  Contactar
-                </button>
-              </div>
-            </section>
-          </main>
-          <!-- Footer -->
-          <footer class="mt-16 border-t border-border-light dark:border-border-dark py-8 px-4">
-            <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
-              <div class="flex flex-col gap-4">
-                <h4 class="font-bold">AeroParts</h4>
-                <a class="text-sm text-text-light-secondary dark:text-text-dark-secondary" href="#">Sobre nosotros</a>
-                <a class="text-sm text-text-light-secondary dark:text-text-dark-secondary" href="#">Contacto</a>
-                <a class="text-sm text-text-light-secondary dark:text-text-dark-secondary" href="#">Blog</a>
-              </div>
-              <div class="flex flex-col gap-4">
-                <h4 class="font-bold">Ayuda</h4>
-                <a class="text-sm text-text-light-secondary dark:text-text-dark-secondary" href="#">Envíos y
-                  Entregas</a>
-                <a class="text-sm text-text-light-secondary dark:text-text-dark-secondary" href="#">Devoluciones</a>
-                <a class="text-sm text-text-light-secondary dark:text-text-dark-secondary" href="#">FAQ</a>
-              </div>
-              <div class="flex flex-col gap-4">
-                <h4 class="font-bold">Legal</h4>
-                <a class="text-sm text-text-light-secondary dark:text-text-dark-secondary" href="#">Términos de
-                  Servicio</a>
-                <a class="text-sm text-text-light-secondary dark:text-text-dark-secondary" href="#">Política de
-                  Privacidad</a>
-                <a class="text-sm text-text-light-secondary dark:text-text-dark-secondary" href="#">Política de
-                  Cookies</a>
-              </div>
-              <div class="flex flex-col gap-4">
-                <h4 class="font-bold">Síguenos</h4>
-                <div class="flex gap-4">
-                  <!-- Placeholder for social icons -->
-                  <a class="text-text-light-secondary dark:text-text-dark-secondary" href="#">YT</a>
-                  <a class="text-text-light-secondary dark:text-text-dark-secondary" href="#">IG</a>
-                  <a class="text-text-light-secondary dark:text-text-dark-secondary" href="#">FB</a>
-                </div>
-              </div>
+              <input id="search-input"
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-l-0 border-white/20 bg-white/5 h-full placeholder:text-white/60 px-4 rounded-l-none pl-2 text-sm font-normal leading-normal"
+                placeholder="Buscar productos..." value="" />
             </div>
-            <div
-              class="mt-8 border-t border-border-light dark:border-border-dark pt-8 text-center text-sm text-text-light-secondary dark:text-text-dark-secondary">
-              <p>© 2024 AeroParts. Todos los derechos reservados.</p>
-            </div>
-          </footer>
+          </label>
+          <div class="flex gap-2">
+            <button onclick="window.location.href='./views/shop-car/shop-car.html'"
+              class="flex max-w-[480px] cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-white/5 text-white/80 hover:bg-white/10 transition-colors relative">
+              <span class="material-symbols-outlined text-xl">shopping_cart</span>
+              <span id="cart-badge"
+                class="hidden absolute -top-1 -right-1 bg-primary text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </header>
+    <main class="w-full max-w-7xl mx-auto px-4 py-8">
+      <div class="flex flex-col md:flex-row gap-8">
+        <aside class="w-full md:w-64 lg:w-72 flex-shrink-0">
+          <div class="sticky top-24 space-y-6">
+            <div class="flex flex-wrap justify-between gap-3 items-baseline">
+              <p class="text-white text-3xl font-black leading-tight tracking-[-0.033em]">
+                Tienda
+              </p>
+              <p id="results-count" class="text-sm text-white/60">Cargando...</p>
+            </div>
+
+            <div class="border-t border-white/10 pt-4 space-y-4">
+              <h3 class="font-bold text-white">Filtros</h3>
+              <details class="space-y-2 group" open="">
+                <summary class="flex items-center justify-between cursor-pointer text-sm font-semibold text-white">
+                  Disponibilidad
+                  <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="pt-2 space-y-2">
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input id="filter-instock"
+                      class="form-checkbox rounded bg-white/10 border-white/20 text-primary focus:ring-primary/50"
+                      type="checkbox" />
+                    <span class="text-sm text-white/80">In Stock</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input id="filter-preorder"
+                      class="form-checkbox rounded bg-white/10 border-white/20 text-primary focus:ring-primary/50"
+                      type="checkbox" />
+                    <span class="text-sm text-white/80">Pre-order</span>
+                  </label>
+                </div>
+              </details>
+              <details class="space-y-2 group" open="">
+                <summary class="flex items-center justify-between cursor-pointer text-sm font-semibold text-white">
+                  Marca
+                  <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div id="brands-filter-container" class="pt-2 space-y-2">
+                  <!-- Marcas se cargarán dinámicamente aquí -->
+                  <div class="text-white/40 text-sm">Cargando marcas...</div>
+                </div>
+              </details>
+              <details class="space-y-2 group">
+                <summary class="flex items-center justify-between cursor-pointer text-sm font-semibold text-white">
+                  Precio
+                  <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <div class="pt-2 px-1">
+                  <div class="flex items-center gap-2 mb-3">
+                    <input type="number" id="min-price" placeholder="Min"
+                      class="w-full bg-white/5 border border-white/20 rounded px-3 py-2 text-sm text-white focus:ring-primary/50 focus:border-primary/50 placeholder:text-white/30">
+                    <span class="text-white/60">-</span>
+                    <input type="number" id="max-price" placeholder="Max"
+                      class="w-full bg-white/5 border border-white/20 rounded px-3 py-2 text-sm text-white focus:ring-primary/50 focus:border-primary/50 placeholder:text-white/30">
+                  </div>
+                  <button id="apply-price"
+                    class="w-full bg-primary/20 hover:bg-primary/30 text-primary text-xs font-bold py-2 rounded transition-colors uppercase tracking-wider">
+                    Aplicar precio
+                  </button>
+                </div>
+              </details>
+            </div>
+          </div>
+        </aside>
+        <div class="flex-1">
+          <div class="flex items-center gap-3 pb-4 border-b border-white/10">
+            <button id="sort-button"
+              class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white/5 pl-3 pr-2 hover:bg-white/10 transition-colors">
+              <span class="material-symbols-outlined text-xl text-white/80">swap_vert</span>
+              <p id="sort-label" class="text-sm font-medium text-white/80">
+                Ordenar por: Relevancia
+              </p>
+              <span class="material-symbols-outlined text-xl text-white/80">expand_more</span>
+            </button>
+          </div>
+          <div id="products-grid"
+            class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pt-6">
+            <!-- Dynamic products will be injected here -->
+            <div class="col-span-full flex justify-center py-12">
+              <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+            </div>
+          </div>
+          <div id="pagination-container" class="flex justify-center items-center gap-2 mt-12">
+            <!-- Dynamic pagination will be injected here -->
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
-
-  <!-- Sistema de Clases para Datos Dinámicos -->
-  <script src="./js/models/Category.js"></script>
-  <script src="./js/models/Brand.js"></script>
-  <script src="./js/models/Tag.js"></script>
-  <script src="./js/models/Specification.js"></script>
-  <script src="./js/models/ProductSpecification.js"></script>
-  <script src="./js/models/ProductImage.js"></script>
-  <script src="./js/models/ProductTagAssociation.js"></script>
-  <script src="./js/models/Product.js"></script>
-  <script src="./js/models/Coupon.js"></script>
-  <script src="./js/InlineData.js"></script>
-  <script src="./js/StaticDataManager.js"></script>
-
-  <!-- Configuración de Tailwind -->
-  <script src="./js/app.js"></script>
-
-  <!-- Lógica principal de la aplicación -->
-  <script src="./js/main.js"></script>
 </body>
 
 </html>

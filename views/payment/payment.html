@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Payment Selection - Aeromodel Store</title>
+    <title>Pago - FlyTech Market</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
         rel="stylesheet" />
@@ -17,18 +17,18 @@
             <div class="mx-auto max-w-7xl">
                 <div class="flex flex-wrap gap-2 text-sm md:text-base">
                     <a class="text-text-light-secondary dark:text-text-dark-secondary/70 font-medium"
-                        href="../checkout/checkout.html">Shipping</a>
+                        href="../checkout/checkout.html">Envío</a>
                     <span class="text-text-light-secondary dark:text-text-dark-secondary/70">/</span>
-                    <span class="text-text-light-primary dark:text-text-dark-primary font-medium">Payment</span>
+                    <span class="text-text-light-primary dark:text-text-dark-primary font-medium">Pago</span>
                 </div>
                 <div class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-16">
                     <div class="lg:col-span-2">
                         <div class="flex flex-col gap-3">
                             <h1
                                 class="font-display text-3xl font-bold tracking-tight text-text-light-primary dark:text-text-dark-primary md:text-4xl">
-                                Select Payment Method</h1>
-                            <p class="text-base text-text-light-secondary dark:text-text-dark-secondary/70">Choose your
-                                preferred way to pay securely.</p>
+                                Selecciona un método de pago</h1>
+                            <p class="text-base text-text-light-secondary dark:text-text-dark-secondary/70">Elige tu
+                                preferido manera de pagar de forma segura.</p>
                         </div>
                         <form id="payment-form" class="mt-8 flex flex-col gap-4">
                             <div
@@ -37,10 +37,10 @@
                                     <div class="flex items-center gap-4">
                                         <div class="flex flex-col">
                                             <p class="font-medium text-text-light-primary dark:text-text-dark-primary">
-                                                Credit/Debit Card</p>
+                                                Tarjeta de crédito/débito</p>
                                             <p
                                                 class="text-sm text-text-light-secondary dark:text-text-dark-secondary/70">
-                                                Pay with any Visa, MasterCard, etc.</p>
+                                                Paga con cualquier Visa, MasterCard, etc.</p>
                                         </div>
                                     </div>
                                     <input checked=""
@@ -53,7 +53,7 @@
                                             <label class="flex flex-col">
                                                 <p
                                                     class="pb-2 text-sm font-medium text-text-light-primary dark:text-text-dark-primary">
-                                                    Card Number</p>
+                                                    Número de tarjeta</p>
                                                 <div class="relative flex w-full items-stretch">
                                                     <input
                                                         class="form-input block h-12 w-full rounded-lg border border-border-light bg-background-light p-3 text-text-light-primary placeholder:text-text-light-secondary/70 focus:border-primary focus:outline-0 focus:ring-2 focus:ring-primary/50 dark:border-border-dark dark:bg-surface-2-dark dark:text-text-dark-primary dark:placeholder:text-text-dark-secondary/70 dark:focus:border-primary"
@@ -70,7 +70,7 @@
                                             <label class="flex flex-col">
                                                 <p
                                                     class="pb-2 text-sm font-medium text-text-light-primary dark:text-text-dark-primary">
-                                                    Card Holder's Name</p>
+                                                    Nombre del titular</p>
                                                 <input
                                                     class="form-input block h-12 w-full rounded-lg border border-border-light bg-background-light p-3 text-text-light-primary placeholder:text-text-light-secondary/70 focus:border-primary focus:outline-0 focus:ring-2 focus:ring-primary/50 dark:border-border-dark dark:bg-surface-2-dark dark:text-text-dark-primary dark:placeholder:text-text-dark-secondary/70 dark:focus:border-primary"
                                                     placeholder="John M. Doe" required />
@@ -81,7 +81,7 @@
                                                 <label class="flex flex-col">
                                                     <p
                                                         class="pb-2 text-sm font-medium text-text-light-primary dark:text-text-dark-primary">
-                                                        Expiry Date</p>
+                                                        Fecha de expiración</p>
                                                     <input
                                                         class="form-input block h-12 w-full rounded-lg border border-border-light bg-background-light p-3 text-text-light-primary placeholder:text-text-light-secondary/70 focus:border-primary focus:outline-0 focus:ring-2 focus:ring-primary/50 dark:border-border-dark dark:bg-surface-2-dark dark:text-text-dark-primary dark:placeholder:text-text-dark-secondary/70 dark:focus:border-primary"
                                                         placeholder="MM/YY" required />
@@ -114,8 +114,8 @@
                     <div class="lg:col-span-1">
                         <div
                             class="sticky top-8 rounded-xl border border-border-light bg-card-light p-6 dark:border-border-dark dark:bg-card-dark">
-                            <h2 class="text-xl font-bold text-text-light-primary dark:text-text-dark-primary">Order
-                                Summary</h2>
+                            <h2 class="text-xl font-bold text-text-light-primary dark:text-text-dark-primary">Resumen
+                                de la orden</h2>
                             <div id="order-items" class="mt-6 flex flex-col gap-4 max-h-60 overflow-y-auto">
                                 <!-- Dynamic items -->
                             </div>
@@ -128,13 +128,13 @@
                                 </div>
                                 <div
                                     class="flex justify-between text-sm text-text-light-secondary dark:text-text-dark-secondary/70">
-                                    <span>Shipping</span>
+                                    <span>Envío</span>
                                     <span id="summary-shipping"
                                         class="text-text-light-primary dark:text-text-dark-primary">$0.00</span>
                                 </div>
                                 <div
                                     class="flex justify-between text-sm text-text-light-secondary dark:text-text-dark-secondary/70">
-                                    <span>Taxes</span>
+                                    <span>Impuestos (IVA)</span>
                                     <span id="summary-tax"
                                         class="text-text-light-primary dark:text-text-dark-primary">$0.00</span>
                                 </div>
@@ -147,13 +147,13 @@
                             <div class="mt-6">
                                 <button id="pay-btn"
                                     class="flex h-12 w-full items-center justify-center rounded-lg bg-primary px-6 text-base font-bold text-white transition-opacity hover:opacity-90">
-                                    Pay Now
+                                    Pagar
                                 </button>
                             </div>
                             <div
                                 class="mt-4 flex items-center justify-center gap-2 text-sm text-text-light-secondary dark:text-text-dark-secondary/70">
                                 <span class="material-symbols-outlined text-base">lock</span>
-                                <span>Your payment is processed securely.</span>
+                                <span>Tu pago se procesa de forma segura.</span>
                             </div>
                         </div>
                     </div>

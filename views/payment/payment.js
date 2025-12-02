@@ -83,9 +83,6 @@ function setupEventListeners() {
 
             await new Promise(resolve => setTimeout(resolve, 2000));
 
-            // Success
-            alert('¡Pago exitoso! Gracias por tu compra.');
-
             // Create order object
             const order = {
                 id: 'AP-' + Math.floor(Math.random() * 10000) + '-99',

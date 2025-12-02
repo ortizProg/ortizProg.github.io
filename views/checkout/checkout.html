@@ -1,169 +1,162 @@
 <!DOCTYPE html>
 <html class="dark" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Checkout - AeroParts</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-      rel="stylesheet"
-    />
-    <style>
-      .material-symbols-outlined {
-        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-      }
-    </style>
-  </head>
-  <body class="bg-base-100 font-display text-base-content">
-    <div class="relative flex min-h-screen w-full flex-col" id="root">
-      <!-- Header simplificado para checkout -->
-      <header
-        class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-white/10 bg-background-dark/80 backdrop-blur-sm"
-      >
-        <div
-          class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 py-3"
-        >
-          <div class="flex items-center gap-2 text-white">
-            <span class="material-symbols-outlined text-primary text-2xl"
-              >electric_moped</span
-            >
-            <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
-              FlyTech Market
-            </h2>
-          </div>
-          <div class="flex items-center gap-2 text-sm text-white/60">
-            <span class="text-primary font-bold">Shipping</span>
-            <span class="material-symbols-outlined text-sm">chevron_right</span>
-            <span>Payment</span>
-            <span class="material-symbols-outlined text-sm">chevron_right</span>
-            <span>Confirmation</span>
-          </div>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Checkout - AeroParts</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+  </style>
+</head>
+
+<body class="bg-base-100 font-display text-base-content">
+  <div class="relative flex min-h-screen w-full flex-col" id="root">
+    <!-- Header simplificado para checkout -->
+    <header
+      class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-white/10 bg-background-dark/80 backdrop-blur-sm">
+      <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 py-3">
+        <a href="../../index.html" class="flex items-center gap-2 text-white">
+          <span class="material-symbols-outlined text-primary text-2xl">electric_moped</span>
+          <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
+            FlyTech Market
+          </h2>
+        </a>
+        <div class="flex items-center gap-2 text-sm text-white/60">
+          <span class="text-primary font-bold">Envío</span>
+          <span class="material-symbols-outlined text-sm">chevron_right</span>
+          <span>Pago</span>
+          <span class="material-symbols-outlined text-sm">chevron_right</span>
+          <span>Confirmación</span>
         </div>
-      </header>
+      </div>
+    </header>
 
-      <main class="container mx-auto flex-1 px-4 py-8 lg:py-12">
-        <div class="mb-8">
-          <h1 class="text-3xl font-black tracking-tighter text-white">
-            Shipping Information
-          </h1>
+    <main class="container mx-auto flex-1 px-4 py-8 lg:py-12">
+      <div class="mb-8">
+        <h1 class="text-3xl font-black tracking-tighter text-white">
+          Información de envío
+        </h1>
+      </div>
+
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-12">
+        <!-- Shipping Form -->
+        <div class="space-y-6 lg:col-span-2">
+          <form id="shipping-form" class="space-y-6">
+            <div class="rounded-xl border border-white/10 bg-base-300/30 p-6 backdrop-blur-sm space-y-4">
+              <h3 class="text-xl font-bold text-white">Datos de contacto</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-base-content-secondary mb-1">Nombre</label>
+                  <input type="text" name="firstName" required
+                    class="w-full rounded-lg border-white/20 bg-base-200 text-white focus:border-primary focus:ring-primary" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-base-content-secondary mb-1">Apellido</label>
+                  <input type="text" name="lastName" required
+                    class="w-full rounded-lg border-white/20 bg-base-200 text-white focus:border-primary focus:ring-primary" />
+                </div>
+                <div class="md:col-span-2">
+                  <label class="block text-sm font-medium text-base-content-secondary mb-1">Correo electrónico</label>
+                  <input type="email" name="email" required
+                    class="w-full rounded-lg border-white/20 bg-base-200 text-white focus:border-primary focus:ring-primary" />
+                </div>
+                <div class="md:col-span-2">
+                  <label class="block text-sm font-medium text-base-content-secondary mb-1">Número de teléfono</label>
+                  <input type="tel" name="phone" required
+                    class="w-full rounded-lg border-white/20 bg-base-200 text-white focus:border-primary focus:ring-primary" />
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-xl border border-white/10 bg-base-300/30 p-6 backdrop-blur-sm space-y-4">
+              <h3 class="text-xl font-bold text-white">Dirección de envío</h3>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-sm font-medium text-base-content-secondary mb-1">Dirección</label>
+                  <input type="text" name="address" required
+                    class="w-full rounded-lg border-white/20 bg-base-200 text-white focus:border-primary focus:ring-primary"
+                    placeholder="Calle, departamento, suite, etc." />
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label class="block text-sm font-medium text-base-content-secondary mb-1">Ciudad</label>
+                    <input type="text" name="city" required
+                      class="w-full rounded-lg border-white/20 bg-base-200 text-white focus:border-primary focus:ring-primary" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-base-content-secondary mb-1">Estado / Provincia</label>
+                    <input type="text" name="state" required
+                      class="w-full rounded-lg border-white/20 bg-base-200 text-white focus:border-primary focus:ring-primary" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-base-content-secondary mb-1">Código Postal</label>
+                    <input type="text" name="zipCode" required
+                      class="w-full rounded-lg border-white/20 bg-base-200 text-white focus:border-primary focus:ring-primary" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-end">
+              <button type="submit"
+                class="flex items-center justify-center rounded-lg bg-primary px-8 py-3 text-base font-bold text-white transition-colors hover:bg-primary-hover">
+                Continuar al pago
+              </button>
+            </div>
+          </form>
         </div>
 
-        <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-12">
-          <!-- Shipping Form -->
-          <div class="space-y-6 lg:col-span-2">
-            <form id="shipping-form" class="space-y-6">
-              <div
-                class="rounded-xl border border-white/10 bg-base-300/30 p-6 backdrop-blur-sm space-y-4"
-              >
-                <h3 class="text-xl font-bold text-white">Contact Details</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label class="block text-sm font-medium text-base-content-secondary mb-1">First Name</label>
-                    <input type="text" name="firstName" required class="w-full rounded-lg border-white/20 bg-base-200 text-white focus:border-primary focus:ring-primary" />
-                  </div>
-                  <div>
-                    <label class="block text-sm font-medium text-base-content-secondary mb-1">Last Name</label>
-                    <input type="text" name="lastName" required class="w-full rounded-lg border-white/20 bg-base-200 text-white focus:border-primary focus:ring-primary" />
-                  </div>
-                  <div class="md:col-span-2">
-                    <label class="block text-sm font-medium text-base-content-secondary mb-1">Email Address</label>
-                    <input type="email" name="email" required class="w-full rounded-lg border-white/20 bg-base-200 text-white focus:border-primary focus:ring-primary" />
-                  </div>
-                  <div class="md:col-span-2">
-                    <label class="block text-sm font-medium text-base-content-secondary mb-1">Phone Number</label>
-                    <input type="tel" name="phone" required class="w-full rounded-lg border-white/20 bg-base-200 text-white focus:border-primary focus:ring-primary" />
-                  </div>
-                </div>
+        <!-- Order Summary -->
+        <div class="space-y-8 lg:col-span-1">
+          <div class="space-y-4 rounded-xl border border-white/10 bg-base-300/30 p-6 backdrop-blur-sm sticky top-24">
+            <h3 class="text-xl font-bold text-white">Resumen de la orden</h3>
+            <div id="order-items" class="space-y-3 max-h-60 overflow-y-auto pr-2">
+              <!-- Items injected via JS -->
+            </div>
+            <div class="h-px bg-white/10"></div>
+            <div class="space-y-3">
+              <div class="flex justify-between text-base-content-secondary">
+                <span>Subtotal</span>
+                <span id="summary-subtotal">$0.00</span>
               </div>
-
-              <div
-                class="rounded-xl border border-white/10 bg-base-300/30 p-6 backdrop-blur-sm space-y-4"
-              >
-                <h3 class="text-xl font-bold text-white">Shipping Address</h3>
-                <div class="space-y-4">
-                  <div>
-                    <label class="block text-sm font-medium text-base-content-secondary mb-1">Address</label>
-                    <input type="text" name="address" required class="w-full rounded-lg border-white/20 bg-base-200 text-white focus:border-primary focus:ring-primary" placeholder="Street address, apartment, suite, etc." />
-                  </div>
-                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                      <label class="block text-sm font-medium text-base-content-secondary mb-1">City</label>
-                      <input type="text" name="city" required class="w-full rounded-lg border-white/20 bg-base-200 text-white focus:border-primary focus:ring-primary" />
-                    </div>
-                    <div>
-                      <label class="block text-sm font-medium text-base-content-secondary mb-1">State / Province</label>
-                      <input type="text" name="state" required class="w-full rounded-lg border-white/20 bg-base-200 text-white focus:border-primary focus:ring-primary" />
-                    </div>
-                    <div>
-                      <label class="block text-sm font-medium text-base-content-secondary mb-1">Postal Code</label>
-                      <input type="text" name="zipCode" required class="w-full rounded-lg border-white/20 bg-base-200 text-white focus:border-primary focus:ring-primary" />
-                    </div>
-                  </div>
-                </div>
+              <div class="flex justify-between text-base-content-secondary">
+                <span>Envío</span>
+                <span id="summary-shipping">$0.00</span>
               </div>
-
-              <div class="flex justify-end">
-                <button
-                  type="submit"
-                  class="flex items-center justify-center rounded-lg bg-primary px-8 py-3 text-base font-bold text-white transition-colors hover:bg-primary-hover"
-                >
-                  Continue to Payment
-                </button>
+              <div class="flex justify-between text-base-content-secondary">
+                <span>Impuestos (IVA)</span>
+                <span id="summary-tax">$0.00</span>
               </div>
-            </form>
-          </div>
-
-          <!-- Order Summary -->
-          <div class="space-y-8 lg:col-span-1">
-            <div
-              class="space-y-4 rounded-xl border border-white/10 bg-base-300/30 p-6 backdrop-blur-sm sticky top-24"
-            >
-              <h3 class="text-xl font-bold text-white">Order Summary</h3>
-              <div id="order-items" class="space-y-3 max-h-60 overflow-y-auto pr-2">
-                <!-- Items injected via JS -->
-              </div>
-              <div class="h-px bg-white/10"></div>
-              <div class="space-y-3">
-                <div class="flex justify-between text-base-content-secondary">
-                  <span>Subtotal</span>
-                  <span id="summary-subtotal">$0.00</span>
-                </div>
-                <div class="flex justify-between text-base-content-secondary">
-                  <span>Shipping</span>
-                  <span id="summary-shipping">$0.00</span>
-                </div>
-                <div class="flex justify-between text-base-content-secondary">
-                  <span>Taxes (VAT)</span>
-                  <span id="summary-tax">$0.00</span>
-                </div>
-              </div>
-              <div class="h-px bg-white/10"></div>
-              <div class="flex justify-between">
-                <span class="text-lg font-bold text-white">Total</span>
-                <span id="summary-total" class="text-lg font-bold text-white">$0.00</span>
-              </div>
+            </div>
+            <div class="h-px bg-white/10"></div>
+            <div class="flex justify-between">
+              <span class="text-lg font-bold text-white">Total</span>
+              <span id="summary-total" class="text-lg font-bold text-white">$0.00</span>
             </div>
           </div>
         </div>
-      </main>
-    </div>
-    <script src="../../js/app.js"></script>
-    <script src="../../js/models/Category.js"></script>
-    <script src="../../js/models/Brand.js"></script>
-    <script src="../../js/models/Tag.js"></script>
-    <script src="../../js/models/Specification.js"></script>
-    <script src="../../js/models/ProductSpecification.js"></script>
-    <script src="../../js/models/ProductImage.js"></script>
-    <script src="../../js/models/ProductTagAssociation.js"></script>
-    <script src="../../js/models/Product.js"></script>
-    <script src="../../js/models/Coupon.js"></script>
-    <script src="../../js/InlineData.js"></script>
-    <script src="../../js/StaticDataManager.js"></script>
-    <script type="module" src="./checkout.js"></script>
-  </body>
+      </div>
+    </main>
+  </div>
+  <script src="../../js/app.js"></script>
+  <script src="../../js/models/Category.js"></script>
+  <script src="../../js/models/Brand.js"></script>
+  <script src="../../js/models/Tag.js"></script>
+  <script src="../../js/models/Specification.js"></script>
+  <script src="../../js/models/ProductSpecification.js"></script>
+  <script src="../../js/models/ProductImage.js"></script>
+  <script src="../../js/models/ProductTagAssociation.js"></script>
+  <script src="../../js/models/Product.js"></script>
+  <script src="../../js/models/Coupon.js"></script>
+  <script src="../../js/InlineData.js"></script>
+  <script src="../../js/StaticDataManager.js"></script>
+  <script type="module" src="./checkout.js"></script>
+</body>
+
 </html>

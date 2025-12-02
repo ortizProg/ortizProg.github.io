@@ -27,48 +27,22 @@
       class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-white/10 bg-background-dark/80 backdrop-blur-sm">
       <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 py-3">
         <div class="flex items-center gap-8">
-          <div class="flex items-center gap-2 text-white">
+          <a href="../../index.html" class="flex items-center gap-2 text-white">
             <span class="material-symbols-outlined text-primary text-2xl">electric_moped</span>
             <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
               FlyTech Market
             </h2>
-          </div>
-          <nav class="hidden md:flex items-center gap-6">
-            <a class="text-sm font-medium text-white/80 hover:text-primary transition-colors" href="#">Drones</a>
-            <a class="text-sm font-medium text-white/80 hover:text-primary transition-colors" href="#">RC Planes</a>
-            <a class="text-sm font-medium text-white/80 hover:text-primary transition-colors" href="#">RC
-              Helicopters</a>
-            <a class="text-sm font-medium text-primary" href="#">Components</a>
-          </nav>
+          </a>
         </div>
         <div class="flex flex-1 justify-end gap-4 items-center">
-          <label class="hidden sm:flex flex-col min-w-40 !h-10 max-w-64">
-            <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
-              <div
-                class="text-white/60 flex border border-r-0 border-white/20 bg-white/5 items-center justify-center pl-3 rounded-l-lg">
-                <span class="material-symbols-outlined text-xl">search</span>
-              </div>
-              <input
-                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-l-0 border-white/20 bg-white/5 h-full placeholder:text-white/60 px-4 rounded-l-none pl-2 text-sm font-normal leading-normal"
-                placeholder="Search components..." value="" />
-            </div>
-          </label>
           <div class="flex gap-2">
-            <button
-              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-white/5 text-white/80 hover:bg-white/10 transition-colors">
-              <span class="material-symbols-outlined text-xl">favorite</span>
-            </button>
             <button onclick="window.location.href='../shop-car/shop-car.html'"
-              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-white/5 text-white/80 hover:bg-white/10 transition-colors relative">
+              class="flex max-w-[480px] cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-white/5 text-white/80 hover:bg-white/10 transition-colors relative">
               <span class="material-symbols-outlined text-xl">shopping_cart</span>
               <span id="cart-badge"
                 class="hidden absolute -top-1 -right-1 bg-primary text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
             </button>
           </div>
-          <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
-            data-alt="User profile picture" style="
-                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_6EeJRcl7TYtUcUdkIrfrIof0ElWSb19-3cPTz4PmEz7-ZP5Uatg09lDW-_2Bfeio9iNJ7n_7S13KxnDrtDifqwfg8awpDj9hHW8qvfyQfnvVfFZVkC2szi-AmWr3Stp7vzS-SrU_4K8kTWZ_GfOmSHEzyYL83uQ3icWP4YjuMun9mFH1uOeT3T-MMjFBSALYyO2AM9arRgOxp57Hx6c82ZUjpsDE-5qcmVfwSEVLINvQsPZ4WV4fvDUNd_igxieBX6kcl6HsVVA');
-              "></div>
         </div>
       </div>
     </header>
@@ -109,7 +83,7 @@
                     <span class="material-symbols-outlined !text-xl">star</span>
                     <span class="material-symbols-outlined !text-xl">star</span>
                     <span class="material-symbols-outlined !text-xl">star_half</span>
-                    <span class="ml-1 text-sm font-medium text-gray-500 dark:text-gray-400">(127 Reviews)</span>
+                    <span class="ml-1 text-sm font-medium text-gray-500 dark:text-gray-400">(127 Reseñas)</span>
                   </div>
                 </div>
                 <p class="text-3xl font-bold text-primary" id="product-price">--</p>
@@ -129,21 +103,17 @@
                 </div>
                 <button
                   class="flex items-center justify-center rounded-md p-2 text-gray-600 dark:text-gray-300 bg-surface-2-dark hover:text-primary dark:hover:text-primary transition">
-                  <span class="material-symbols-outlined">favorite</span>
-                </button>
-                <button
-                  class="flex items-center justify-center rounded-md p-2 text-gray-600 dark:text-gray-300 bg-surface-2-dark hover:text-primary dark:hover:text-primary transition">
                   <span class="material-symbols-outlined">share</span>
                 </button>
               </div>
               <div class="flex flex-col gap-3">
                 <button id="add-to-cart-btn"
                   class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-primary text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition">
-                  Add to Cart
+                  Agregar al carrito
                 </button>
                 <button
                   class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-primary/20 text-primary gap-2 text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/30 transition">
-                  Buy Now
+                  Comprar ahora
                 </button>
               </div>
             </div>
@@ -151,10 +121,10 @@
               <div class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-primary">local_shipping</span>
                 <div class="flex flex-col">
-                  <p class="font-bold">Shipping Info</p>
+                  <p class="font-bold">Información de envío</p>
                   <p class="text-sm text-gray-500 dark:text-gray-400">
-                    Est. delivery: 3-5 business days.
-                    <a class="underline" href="#">Return Policy</a>
+                    Entrega estimada: 3-5 días hábiles.
+                    <a class="underline" href="#">Política de devolución</a>
                   </p>
                 </div>
               </div>
@@ -167,12 +137,6 @@
             <nav aria-label="Tabs" class="-mb-px flex space-x-8">
               <a class="whitespace-nowrap border-b-2 border-primary px-1 py-4 text-sm font-medium text-primary"
                 href="#">Specifications</a>
-              <a class="whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:border-primary/50 dark:hover:text-gray-300"
-                href="#">Compatibility</a>
-              <a class="whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:border-primary/50 dark:hover:text-gray-300"
-                href="#">Reviews</a>
-              <a class="whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:border-primary/50 dark:hover:text-gray-300"
-                href="#">Q&amp;A</a>
             </nav>
           </div>
           <div class="py-8">
@@ -188,10 +152,10 @@
         </div>
         <div class="mt-8 rounded-xl border border-white/10 bg-surface-dark p-6 backdrop-blur-sm">
           <h3 class="text-2xl font-bold tracking-tight">
-            Complete Your Build
+            Completa tu construcción
           </h3>
           <p class="text-gray-500 dark:text-gray-400 mt-1">
-            Suggested components for this motor.
+            Componentes sugeridos para este motor.
           </p>
           <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <div class="flex flex-col items-center text-center">
@@ -200,7 +164,7 @@
                     background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBVyP_3QKHFMOrbnHi9ba32zTNEvQDX4st_q7j-hQoRvAaPdF3il7I6bLTbw7zjUXhXMGdsx-6GWkkPLeMA98D291DeQEFmgCSI_US53l8W64eXzbKIxcl8gr-df033cnrbNT2BBoyBd_5IZTxsGpoBOXLqet5hVobzd6mARLC20goPPQksQaTIuXJvgEZ2hP96zsek0vUHK1Vux5U7EFSZ1oX6-tjyZFw8rPAyxNCCvWgsy4jklYfMziPqToN_SJ1UvqpDTR51IXM');
                   "></div>
               <h4 class="mt-2 font-semibold">T-Motor P60A ESC</h4>
-              <p class="text-sm text-gray-500 dark:text-gray-400">€24.99</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">$240.900</p>
             </div>
             <div class="hidden sm:flex items-center justify-center text-3xl font-light text-gray-400">
               +
@@ -211,15 +175,12 @@
                     background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuClcKStTBD3dG-VkalO0de14wsj5gf83PxGz7FevctjbKwguxg7yg71kW_6SfMsZjWW2Y2SxeuNN9c3CIpIAWE9KiTgi_moTtAS29geQBYOtyqN3QXN7aDGf77xDUTq5kzDC5l9y5vX_U3mUXTHLXT46gZR153nFXBQj4ddB80lwyz7pWmWcNtVT9i9rMzwJH2J79x96T3dQwzrEdsciyzeUl0r4Cv1aL8mCbWjT7iSFwAHBqPaUmrsRwGQ00f_S0doQLURMPOKwIE');
                   "></div>
               <h4 class="mt-2 font-semibold">Matek F722-SE FC</h4>
-              <p class="text-sm text-gray-500 dark:text-gray-400">€59.99</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">$529.900</p>
             </div>
             <div class="flex flex-col items-center justify-center gap-4 lg:col-start-4">
-              <p class="text-xl font-bold">
-                Bundle Price: <span class="text-primary">€129.99</span>
-              </p>
               <button onclick="alert('Funcionalidad disponible próximamente')"
                 class="flex w-full max-w-xs cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-primary text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition">
-                Add Bundle to Cart
+                Próximamente disponible
               </button>
             </div>
           </div>

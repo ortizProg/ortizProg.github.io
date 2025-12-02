@@ -63,7 +63,7 @@ function renderCart() {
                     ></div>
                     <div class="flex flex-1 flex-col justify-center">
                         <p class="font-medium text-white">${product.name}</p>
-                        <p class="text-sm text-base-content-secondary">Unit Price: ${formatCOP(product.price)}</p>
+                        <p class="text-sm text-base-content-secondary">Precio Unitario: ${formatCOP(product.price)}</p>
                         <p class="text-sm text-base-content-secondary">Subtotal: ${formatCOP(item.subtotal)}</p>
                     </div>
                 </div>
@@ -91,11 +91,6 @@ function renderCart() {
                     </div>
                     <div class="flex gap-1">
                         <button
-                            class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-base-content-secondary hover:bg-white/10 hover:text-primary"
-                        >
-                            <span class="material-symbols-outlined text-xl">favorite</span>
-                        </button>
-                        <button
                             class="remove-item-btn flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-base-content-secondary hover:bg-accent/10 hover:text-accent"
                             data-product-id="${product.id}"
                         >
@@ -119,11 +114,11 @@ function renderEmptyCart() {
     dom.cartItemsContainer.innerHTML = `
         <div class="flex flex-col items-center justify-center py-16 text-white/60">
             <span class="material-symbols-outlined text-8xl mb-4">shopping_cart</span>
-            <p class="text-2xl font-medium mb-2">Your cart is empty</p>
-            <p class="text-sm mb-6">Add some products to get started!</p>
-            <a href="../home/home.html" 
+            <p class="text-2xl font-medium mb-2">Tu carrito está vacío</p>
+            <p class="text-sm mb-6">Añade algunos productos para comenzar!</p>
+            <a href="../../index.html" 
                class="flex cursor-pointer items-center justify-center rounded-lg bg-primary px-6 py-3 text-base font-bold text-white transition-colors hover:bg-primary-hover">
-                Continue Shopping
+                Seguir comprando
             </a>
         </div>
     `;
@@ -132,8 +127,8 @@ function renderEmptyCart() {
 // Actualizar resumen del pedido
 function updateOrderSummary(totals) {
     if (dom.cartItemCount) {
-        const itemText = totals.itemCount === 1 ? 'item' : 'items';
-        dom.cartItemCount.textContent = `You have ${totals.itemCount} ${itemText} in your cart.`;
+        const itemText = totals.itemCount === 1 ? 'producto' : 'productos';
+        dom.cartItemCount.textContent = `Tienes ${totals.itemCount} ${itemText} en tu carrito.`;
     }
 
     if (dom.subtotalElement) {

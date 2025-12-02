@@ -7,7 +7,7 @@ export const InlineData = {
         { "id": 1, "name": "Drones RTF" },
         { "id": 2, "name": "RC Aviones" },
         { "id": 3, "name": "RC Helicópteros" },
-        { "id": 4, "name": "Componentes generales" }
+        { "id": 4, "name": "Componentes" }
     ],
 
     brands: [
