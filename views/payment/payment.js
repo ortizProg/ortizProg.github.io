@@ -86,9 +86,21 @@ function setupEventListeners() {
             // Success
             alert('¡Pago exitoso! Gracias por tu compra.');
 
-            // Clear cart and redirect
+            // Create order object
+            const order = {
+                id: 'AP-' + Math.floor(Math.random() * 10000) + '-99',
+                date: new Date().toISOString(),
+                items: cartManager.getCartWithDetails(dataManager),
+                totals: cartManager.getCartTotals(dataManager),
+                shipping: JSON.parse(localStorage.getItem('aeroparts_shipping_info') || '{}')
+            };
+
+            // Save order to localStorage for confirmation page
+            localStorage.setItem('aeroparts_last_order', JSON.stringify(order));
+
+            // Clear cart and redirect to confirmation
             cartManager.clearCart();
-            window.location.href = '../../index.html';
+            window.location.href = '../confirmation/confirmation.html';
         });
     }
 }

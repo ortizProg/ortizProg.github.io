@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Confirmación de Pedido - AeroParts</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-text-dark">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <header
+                class="flex items-center justify-between whitespace-nowrap px-4 sm:px-10 lg:px-20 py-4 border-b border-gray-200/80 dark:border-white/10 sticky top-0 z-50 bg-background-light/80 dark:bg-bar-dark/80 backdrop-blur-sm">
+                <div class="flex items-center gap-4 text-gray-800 dark:text-text-dark">
+                    <div class="size-6 text-primary">
+                        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-gray-900 dark:text-text-dark text-xl font-bold leading-tight tracking-[-0.015em]">
+                        AeroParts</h2>
+                </div>
+                <div class="flex flex-1 justify-end gap-2 sm:gap-4">
+                    <button
+                        class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-gray-200/60 dark:bg-surface-dark/80 text-gray-800 dark:text-text-dark gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                        <span class="material-symbols-outlined text-xl">favorite</span>
+                    </button>
+                    <button
+                        class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-gray-200/60 dark:bg-surface-dark/80 text-gray-800 dark:text-text-dark gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                        <span class="material-symbols-outlined text-xl">shopping_cart</span>
+                    </button>
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                        data-alt="User profile picture"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHCrD77_wj74hqcN0HWbC3o9JUfojVI8jnq-SiWpwdD-tSUtCWjnJt2v8WqjaJr7CvxcF_lrNfX0dP-Fqe1lXNfbLVjSJCcnc2Blvhw7JzbdKE1Pmp8_ZIT8PhyjLRD_ob48pY8yxQyTfrXw9ySXySTKyjPBI6yquqgFR-9bMQQeM20cwUh7jzuCOn9DpUOkEt5gcultJddmGxWUT4DDoWlkWZ1mMorX_jpiVOcgRv1YDp5y6Xnr9Ng7c3FfadpYDnZHrgmEIVvKo");'>
+                    </div>
+                </div>
+            </header>
+            <main class="px-4 lg:px-20 flex flex-1 justify-center py-10">
+                <div class="layout-content-container flex flex-col max-w-4xl flex-1 gap-8">
+                    <div class="flex flex-wrap justify-between items-center gap-4 p-4">
+                        <div class="flex flex-col gap-2">
+                            <p
+                                class="text-gray-900 dark:text-text-dark text-4xl font-black leading-tight tracking-[-0.033em]">
+                                ¡Pedido Confirmado!</p>
+                            <p id="customer-name"
+                                class="text-gray-500 dark:text-text-dark/70 text-base font-normal leading-normal">
+                                Gracias
+                                por tu compra.</p>
+                        </div>
+                        <div class="flex items-center gap-2 text-green-500 dark:text-green-400">
+                            <span class="material-symbols-outlined text-5xl">check_circle</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2 flex flex-col gap-8">
+                            <div
+                                class="rounded-xl p-6 glassmorphism-light dark:bg-surface-dark/60 dark:border dark:border-primary/20 backdrop-blur-lg">
+                                <p class="text-gray-900 dark:text-text-dark text-lg font-bold mb-4">Seguimiento de Envío
+                                </p>
+                                <div class="grid grid-cols-[auto_1fr] gap-x-4">
+                                    <div class="flex flex-col items-center gap-1 pt-2">
+                                        <span
+                                            class="material-symbols-outlined text-2xl text-primary">check_circle</span>
+                                        <div class="w-0.5 bg-primary h-full"></div>
+                                    </div>
+                                    <div class="flex flex-1 flex-col pb-8">
+                                        <p
+                                            class="text-gray-900 dark:text-text-dark text-base font-medium leading-normal">
+                                            Preparando</p>
+                                        <p
+                                            class="text-gray-500 dark:text-text-dark/70 text-sm font-normal leading-normal">
+                                            14 de Octubre</p>
+                                    </div>
+                                    <div class="flex flex-col items-center gap-1">
+                                        <div class="w-0.5 bg-primary h-2"></div>
+                                        <span
+                                            class="material-symbols-outlined text-2xl text-primary">local_shipping</span>
+                                        <div class="w-0.5 bg-gray-300 dark:bg-gray-600 h-full"></div>
+                                    </div>
+                                    <div class="flex flex-1 flex-col pb-8">
+                                        <p
+                                            class="text-gray-900 dark:text-text-dark text-base font-medium leading-normal">
+                                            Enviado</p>
+                                        <p
+                                            class="text-gray-500 dark:text-text-dark/70 text-sm font-normal leading-normal">
+                                            15 de Octubre</p>
+                                    </div>
+                                    <div class="flex flex-col items-center gap-1">
+                                        <div class="w-0.5 bg-gray-300 dark:bg-gray-600 h-2"></div>
+                                        <span
+                                            class="material-symbols-outlined text-2xl text-gray-400 dark:text-gray-500">inventory_2</span>
+                                    </div>
+                                    <div class="flex flex-1 flex-col">
+                                        <p
+                                            class="text-gray-500 dark:text-text-dark/70 text-base font-medium leading-normal">
+                                            Entregado</p>
+                                        <p class="text-gray-400 dark:text-gray-500 text-sm font-normal leading-normal">
+                                            Pendiente</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-xl p-6 glassmorphism-light dark:bg-surface-dark/60 dark:border dark:border-primary/20 backdrop-blur-lg">
+                                <details class="group" open>
+                                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+                                        <p class="text-gray-900 dark:text-text-dark text-lg font-bold">Resumen del
+                                            Pedido</p>
+                                        <span
+                                            class="material-symbols-outlined text-gray-500 dark:text-text-dark/70 transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                                    </summary>
+                                    <div class="mt-6 flex flex-col gap-4">
+                                        <div id="order-items" class="flex flex-col gap-4">
+                                            <!-- Dynamic items will be injected here -->
+                                        </div>
+                                        <div class="border-t border-gray-300 dark:border-white/10 my-2"></div>
+                                        <div class="flex justify-between text-sm">
+                                            <p class="text-gray-500 dark:text-text-dark/70">Subtotal</p>
+                                            <p id="order-subtotal" class="text-gray-800 dark:text-text-dark">$0.00</p>
+                                        </div>
+                                        <div class="flex justify-between text-sm">
+                                            <p class="text-gray-500 dark:text-text-dark/70">Envío</p>
+                                            <p id="order-shipping" class="text-gray-800 dark:text-text-dark">$0.00</p>
+                                        </div>
+                                        <div class="flex justify-between font-bold text-base">
+                                            <p class="text-gray-900 dark:text-text-dark">Total</p>
+                                            <p id="order-total" class="text-gray-900 dark:text-text-dark">$0.00</p>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-1 flex flex-col gap-8">
+                            <div
+                                class="rounded-xl p-6 glassmorphism-light dark:bg-surface-dark/60 dark:border dark:border-primary/20 backdrop-blur-lg flex flex-col gap-4">
+                                <div class="flex flex-col gap-1 pb-4 border-b border-gray-300 dark:border-white/10">
+                                    <p class="text-gray-500 dark:text-text-dark/70 text-sm font-normal leading-normal">
+                                        Número de pedido</p>
+                                    <p id="order-id"
+                                        class="text-gray-900 dark:text-text-dark text-sm font-medium leading-normal">
+                                        #AP-0000-00</p>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <p class="text-gray-500 dark:text-text-dark/70 text-sm font-normal leading-normal">
+                                        Número de seguimiento</p>
+                                    <div class="flex items-center justify-between gap-2">
+                                        <p
+                                            class="text-gray-900 dark:text-text-dark text-sm font-medium leading-normal truncate">
+                                            1Z999AA10123456784</p>
+                                        <button class="text-gray-500 dark:text-text-dark/70 hover:text-primary">
+                                            <span class="material-symbols-outlined text-base">content_copy</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-xl p-6 glassmorphism-light dark:bg-surface-dark/60 dark:border dark:border-primary/20 backdrop-blur-lg">
+                                <h3 class="text-gray-900 dark:text-text-dark font-bold mb-3">Dirección de Envío</h3>
+                                <div id="shipping-address"
+                                    class="text-gray-600 dark:text-text-dark/80 text-sm space-y-1">
+                                    <!-- Dynamic address -->
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-xl p-6 glassmorphism-light dark:bg-surface-dark/60 dark:border dark:border-primary/20 backdrop-blur-lg">
+                                <h3 class="text-gray-900 dark:text-text-dark font-bold mb-3">Facturación</h3>
+                                <div class="flex items-center gap-3">
+                                    <img class="h-6" data-alt="Visa card logo"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaY2CDD_qcfrUlXayeuTKsNlosu8x5BrMXtV0INZmQf0jjLwgeEt1j-VCGAFWCphkitK9dVKM5hKAW1jZfb-U7jGZyCzVE7R3RPoTuUuAB6rOxh4ruZ_bwWKxLYLtKtBiv9n9zcRhwDHQbqTb86V1PZvcDm1Y_XQZlZIfHu6CamGalBGTxUbjpZa9Mz9fgKFTwIQCjWEsuTzFf-Fl7r7v5Xyf8GGitTyIlEhRMDIEJUhbmbwOfMVukqH9cnzCCeSnxmUovUM-baC8" />
+                                    <p class="text-gray-600 dark:text-text-dark/80 text-sm">Terminada en **** 4242</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-3">
+                                <button
+                                    class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-colors">
+                                    <span class="material-symbols-outlined text-lg">download</span> Descargar Factura
+                                </button>
+                                <button
+                                    class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-gray-500/20 dark:bg-surface-dark text-gray-800 dark:text-text-dark font-semibold text-sm hover:bg-gray-500/30 dark:hover:bg-surface-dark/70 transition-colors">
+                                    <span class="material-symbols-outlined text-lg">build</span> Ver Mantenimiento
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-text-dark mb-6">También te podría
+                            interesar</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                            <div class="flex flex-col gap-3 group">
+                                <div class="relative overflow-hidden rounded-xl">
+                                    <div class="aspect-square w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                                        data-alt="Lipo Battery"
+                                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYx-oaPj_wpN2NFeGowZGVY13nWY46YeRNA4UrlI0VwjosLsZAVTR6HQWQOO2bDvTt1WNQRT05bW5UiI2KdpJ-Hc706jbgFt130QPCNXLd2py1g_dn8IrB754eaIZphZnDV3B3jtMA_Q1lqUS1ZYedO_yjw4Mx-BEWgqiA4GD_cehEE5OGEyMcRAchwl6lOMJoZ5sJL2smGwzTR9jes7-vZwSNqezP0LAIum1No9QN3zRDuo1guC13xC7sLIw3kk-3GSqgyIfZ8bw')">
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 dark:text-text-dark">Batería LiPo 4S 1500mAh
+                                    </h3>
+                                    <p class="text-sm text-gray-500 dark:text-text-dark/70">$29.99</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-3 group">
+                                <div class="relative overflow-hidden rounded-xl">
+                                    <div class="aspect-square w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                                        data-alt="Remote Controller"
+                                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCxk9GTyQh7EQADkAF_ZlaLRAl996S4G5j-b8KutwRum7Vt_yaidQfsyywOtKQUfxMdyc4igO_Sv6j1Jza3bJvHF5gEIpS5tSxk-z8TkacwIuDzlnZgOUMHHs2ahe2sRCBAEjxqLDswyh05KSparmkv5zAKC7LT36ui6mW_fu5qfYHd5clB_hfNu5IgdnVn6c_-gWJTUyOLDH0pkx8yJb7FAsUIVIU3oSCRbEqfYRH3oEZW43wXQwOnVgr9AiO_sVdItXhBna8trA')">
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 dark:text-text-dark">Mando RadioMaster TX16S
+                                    </h3>
+                                    <p class="text-sm text-gray-500 dark:text-text-dark/70">$199.99</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-3 group">
+                                <div class="relative overflow-hidden rounded-xl">
+                                    <div class="aspect-square w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                                        data-alt="FPV Goggles"
+                                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDav77OMulao1FsAnLeNGQJ_q8EgKS90__7dujmsL05NX_sV8lEbmszEeSz_pK5Chm0z7r8pmmmVzIm1-zWhjaEAZnBywYgWSD71Wdb89wIBoi5VVk-JiH165pPQUF4RAy-B7pnLPst6r0b04SZBgcYW_eluEy9LtCxoqQL_y8joVTZc-TQ6-t5LwQvYyLVp7A-vA_bEDfEO116KOHvwovySYTOFbLhtFBa19Z9Uupeq6Qqb8XC7jzfpq_7xXOIoqtIZif19SwhSIM')">
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 dark:text-text-dark">Gafas FPV SkyZone 04X
+                                    </h3>
+                                    <p class="text-sm text-gray-500 dark:text-text-dark/70">$549.00</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-3 group">
+                                <div class="relative overflow-hidden rounded-xl">
+                                    <div class="aspect-square w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                                        data-alt="Drone Motor"
+                                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDDaDdxEIXXNRCkS9eDF7YSDupj1wpZotKg7h7iyVhib6ESMb9W9wZ_FVsF5KIZvjsHdyLEZx219Um6bt5lzv1neznFGACXrjTzG5zOC0T9mjBvY2t1fKSiAjXKF9Yv5rOMlGgU7jW-GDV1X8ekGYEkv3Aod-JpOR6kt7mw5Lyc_nbiiOXjleGUxwcqaxLsoWmDhhzdtd2OBJFVxl9oYL0Z4gYRAz3d-PBDlqqYnds8S-Ik2olh93E798IUb79jp-T-nKOAEreb4TA')">
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 dark:text-text-dark">Motor Brushless 2207
+                                    </h3>
+                                    <p class="text-sm text-gray-500 dark:text-text-dark/70">$18.50</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script type="module" src="../../js/app.js"></script>
+    <script type="module" src="./confirmation.js"></script>
+</body>
+
+</html>
